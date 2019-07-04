@@ -1,6 +1,21 @@
 {
   "name": "gotvseries-front",
   "version": "0.1.0",
+  "description": "Front du Projet Web pour le CESI. Site de comparateur de série !",
+  "author": "Yoann TERUEL, Audrey NUNES, Mickael BAYER",
+  "license": "MIT",
+  "homepage": "https://gitlab.com/projet-web-cesi-2019/front",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/projet-web-cesi-2019/front.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/projet-web-cesi-2019/front/issues"
+  },
+  "engines": {
+    "npm": ">=6.4.1",
+    "node": ">=10.15.0"
+  },
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.15",
