@@ -7,20 +7,20 @@ const serie1 = {id: 1,
                 pitch: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada leo vitae accumsan ornare. Mauris vitae placerat leo. Mauris facilisis sodales tincidunt. Aenean dignissim ullamcorper ligula, in dignissim risus interdum in. Curabitur volutpat ante lacus, in congue augue cursus vel. Praesent consectetur non lacus at dictum. Fusce porttitor pharetra elementum.",
                 urlImgage : "https://image.tmdb.org/t/p/w780/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg"
               }
-const serie2 = {id: 1,
+const serie2 = {id: 2,
                 name: "BOP",
                 pitch: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada leo vitae accumsan ornare. Mauris vitae placerat leo. Mauris facilisis sodales tincidunt. Aenean dignissim ullamcorper ligula, in dignissim risus interdum in. Curabitur volutpat ante lacus, in congue augue cursus vel. Praesent consectetur non lacus at dictum. Fusce porttitor pharetra elementum.",
-                urlImgage : "https://image.tmdb.org/t/p/w780/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg"
+                urlImgage : "https://image.tmdb.org/t/p/original/f5F4cRhQdUbyVbB5lTNCwUzD6BP.jpg"
               }
-const serie3 = {id: 1,
+const serie3 = {id: 3,
                 name: "BUP",
                 pitch: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada leo vitae accumsan ornare. Mauris vitae placerat leo. Mauris facilisis sodales tincidunt. Aenean dignissim ullamcorper ligula, in dignissim risus interdum in. Curabitur volutpat ante lacus, in congue augue cursus vel. Praesent consectetur non lacus at dictum. Fusce porttitor pharetra elementum.",
-                urlImgage : "https://image.tmdb.org/t/p/w780/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg"
+                urlImgage : "https://image.tmdb.org/t/p/original/kKTPv9LKKs5L3oO1y5FNObxAPWI.jpg"
               }
-const serie4 = {id: 1,
+const serie4 = {id: 4,
                 name: "BAP",
                 pitch: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada leo vitae accumsan ornare. Mauris vitae placerat leo. Mauris facilisis sodales tincidunt. Aenean dignissim ullamcorper ligula, in dignissim risus interdum in. Curabitur volutpat ante lacus, in congue augue cursus vel. Praesent consectetur non lacus at dictum. Fusce porttitor pharetra elementum.",
-                urlImgage : "https://image.tmdb.org/t/p/w780/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg"
+                urlImgage : "https://image.tmdb.org/t/p/original/2XWhIg0aWX83ntm5Oq8w15vfB9c.jpg"
               }
 
 export default class Slider extends React.Component<{}, { series: Serie[] }> {
@@ -28,7 +28,7 @@ export default class Slider extends React.Component<{}, { series: Serie[] }> {
   constructor(props: any) {
     super(props);
     this.state = {
-      series: new Array(),
+      series: [] as  any,
     };
   }
   
@@ -40,7 +40,7 @@ export default class Slider extends React.Component<{}, { series: Serie[] }> {
   }
 
   generateSlider(){
-    const items = [];
+    const items = [] as  any;
     this.state.series.forEach(element => {
       items.push(
         <Carousel.Item>
@@ -56,8 +56,6 @@ export default class Slider extends React.Component<{}, { series: Serie[] }> {
         </Carousel.Item>
       );
     });
-    console.log(items)
-
     return items;
   }
 
