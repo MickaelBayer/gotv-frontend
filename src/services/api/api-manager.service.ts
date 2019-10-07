@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
 import { getConfig } from "../../config";
 
 /**
@@ -11,7 +11,6 @@ import { getConfig } from "../../config";
  */
 export default class ApiManagerService<I, T extends Resource<I>> {
 	private BASE_URL: string = getConfig("GOTVSERIES_ADRESS");
-	protected axiosClient: AxiosInstance;
 
 	/**
 	 *Creates an instance of ApiManagerService.
@@ -20,43 +19,37 @@ export default class ApiManagerService<I, T extends Resource<I>> {
 	 * http://localhost/users < le endpoint est "users"
 	 * @memberof ApiManagerService
 	 */
-	constructor(private endpoint: string) {
-		this.axiosClient = axios.create({
-			headers: {
-				"x-token": getConfig('GOTVSERIES_TOKEN')
-			}
-		})
-	}
+	constructor(private endpoint: string) { }
 
 	public getAll(): Promise<T[]> {
-		return this.axiosClient.get<T[]>(`${this.BASE_URL}/${this.endpoint}`)
+		return axios.get<T[]>(`${this.BASE_URL}/${this.endpoint}`)
 			.then(data => {
 				return data.data;
 			})
 	}
 
 	public get(id: number): Promise<T[]> {
-		return this.axiosClient.get<T[]>(`${this.BASE_URL}/${this.endpoint}/${id}`)
+		return axios.get<T[]>(`${this.BASE_URL}/${this.endpoint}/${id}`)
 			.then(data => {
 				return data.data;
 			})
 	}
 
 	public post(): Promise<T[]> {
-		return this.axiosClient.post<T[]>(`${this.BASE_URL}/${this.endpoint}`)
+		return axios.post<T[]>(`${this.BASE_URL}/${this.endpoint}`)
 			.then(data => {
 				return data.data;
 			})
 	}
 
 	public put(id: number): Promise<T[]> {
-		return this.axiosClient.put<T[]>(`${this.BASE_URL}/${this.endpoint}/${id}`)
+		return axios.put<T[]>(`${this.BASE_URL}/${this.endpoint}/${id}`)
 			.then(data => {
 				return data.data;
 			})
 	}
 	public delete(id: number): Promise<T[]> {
-		return this.axiosClient.delete<T[]>(`${this.BASE_URL}/${this.endpoint}/${id}`)
+		return axios.delete<T[]>(`${this.BASE_URL}/${this.endpoint}/${id}`)
 			.then(data => {
 				return data.data;
 			})

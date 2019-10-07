@@ -6,7 +6,9 @@ import Viewer from './components/Viewer';
 export default class App extends React.Component {
   render() {
     return (
-      <Viewer />
+      <div>
+        <Viewer />
+      </div>
     )
   };
 }
