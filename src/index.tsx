@@ -2,19 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import SignIn from './views/authentication/SignIn';
-import SignUp from './views/authentication/SignUp';
+import { BrowserRouter as Router } from "react-router-dom";
 import App from './App';
-import Footer from './components/Footer';
+import configureStore from './store/store';
 
 ReactDOM.render(
-  <Router>
-    <Route path="/" exact component={App} />
-    <Route path="/signin" exact component={SignIn} />
+    <Router>
+      <App />
+    </Router>
     <Route path="/signup" exact component={SignUp} />
-    <Footer />
-  </Router>,
   document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

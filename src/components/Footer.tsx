@@ -1,9 +1,9 @@
 import React from "react";
 
-export default class Footer extends React.Component {
-    render() {
-        return (
-            <header>Footer</header>
-        )
-    }
+const Footer: React.FunctionComponent = () => {
+    return (
+        <footer>Footer</footer>
+    )
 }
+
+export default Footer;
