@@ -1,29 +1,41 @@
 import React from "react";
-import { Serie } from "../../models/serie.model";
 import SerieService from "../../services/api/entities/serie.service";
+import { Serie } from "../../models/serie.model";
+import Image from 'react-bootstrap/Image';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-export class Series extends React.Component {
-    private series: Serie[] = [];
+export class Series extends React.Component<{}, { series: Serie[] }> {
     private serieService: SerieService;
 
     constructor(props: React.Component) {
         super(props);
         this.serieService = new SerieService();
-        this.getSeries();
+        this.state = {
+            series: [] as any
+        }
     }
 
-    getSeries() {
+    componentDidMount() {
         this.serieService.getAll().then(data => {
-            this.series = data;
+            this.setState({ series: data });
         });
     }
 
     render() {
-        console.log(this.series)
         return (
-            <div>{this.series.map(serie => {
-                return (<div>{serie.see_name}</div>)
-            })}</div>
+            <Container>
+                <Row>
+                    <div>{this.state.series.map(serie => {
+                        return (
+                            <Col xs={6} md={4}>
+                                <Image src={serie.see_poster_path} rounded />
+                            </Col>
+                        )
+                    })}</div>
+                </Row>
+            </Container>
         );
     }
 

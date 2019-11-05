@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Home from './components/home/Home';
 import PageNotFound from './components/PageNotFound';
 import { Series } from './components/series/Series';
+import SignUp from './views/authentication/SignUp';
+import SignIn from './views/authentication/SignIn';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -13,6 +15,8 @@ const App: React.FunctionComponent = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/series' component={Series} />
+        <Route path='/signin' component={SignIn} />
+        <Route path='/signup' component={SignUp} />
         <Route component={PageNotFound} />
       </Switch>
     </div>

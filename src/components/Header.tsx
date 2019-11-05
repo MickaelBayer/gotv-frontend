@@ -11,7 +11,7 @@ export default class Header extends React.Component {
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="navbar-inner">
           <a className="navbar-brand" href="/home">
-            <img src="./img/logo.png" alt="" width={55} />
+            <img src={logo} alt="" width={55} />
           </a>
         </div>
         <div className="navbar-collapse collapse" id="collapsingNavbar">
@@ -30,7 +30,7 @@ export default class Header extends React.Component {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
-                to="/features"
+                to="/series"
                 activeClassName="active"
                 activeStyle={{ color: '#FEE066' }}
               >
