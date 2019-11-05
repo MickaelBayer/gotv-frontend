@@ -17,8 +17,8 @@ export default class Header extends React.Component {
   render() {
     return (
       <Navbar bg="#B40C25" expand="lg" className="shadow">
-        <Navbar.Brand href="#home"><img src={logo} alt="" width={55} /></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Brand href="#home" className="logoBar"><img src={logo} alt="" width={55} /></Navbar.Brand>
+        <Navbar.Toggle className="toggle" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <NavLink to="/" exact className="linkNav" activeStyle={{ color: "#FEE066" }}>ACCUEIL</NavLink>
@@ -26,6 +26,7 @@ export default class Header extends React.Component {
             <NavLink to="/pricing" className="linkNav" activeStyle={{ color: "#FEE066" }}>EVÈNEMENTS</NavLink>
             <NavLink to="/offers" className="linkNav" activeStyle={{ color: "#FEE066" }}>NOS OFFRES</NavLink>
             <NavLink to="/contact" className="linkNav" activeStyle={{ color: "#FEE066" }}>CONTACT</NavLink>
+            <NavLink to="/signin" className="linkNav signin" activeStyle={{ color: "#FEE066" }}>SE CONNECTER</NavLink>
           </Nav>
           <div className="btn-search mr-auto">
             <div className="loupe">
