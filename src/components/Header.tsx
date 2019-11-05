@@ -10,8 +10,8 @@ export default class Header extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="navbar-inner">
-          <a className="navbar-brand" href="#">
-            <img src={logo} alt="" width={55} />
+          <a className="navbar-brand" href="/home">
+            <img src="./img/logo.png" alt="" width={55} />
           </a>
         </div>
         <div className="navbar-collapse collapse" id="collapsingNavbar">
