@@ -12,3 +12,36 @@
 .carousel-control-next-icon {
   background-image: url(../../assets/arrow-point-to-right.svg) !important;
 }
+
+.img-carousel {
+  filter: brightness(50%);
+}
+
+hr {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+  height: 2px;
+  background-color: #FECD07;
+  }
+
+.div-carousel {
+  position: relative;
+}
+
+.site-title {
+  position: absolute;
+  top : 30%;
+  bottom: 100%;
+  right: 20%;
+  left: 20%;
+  text-align: center;
+  font-size: 7vw;
+  font-weight: 600;
+  color: white;
+  font-family: "Hiragino Sans", sans-serif;
+}
