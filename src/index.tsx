@@ -2,18 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import SignIn from './views/authentication/SignIn';
-import SignUp from './views/authentication/SignUp';
+import { BrowserRouter as Router } from "react-router-dom";
 import App from './App';
-import Footer from './components/Footer';
 
 ReactDOM.render(
   <Router>
-    <Route path="/" exact component={App} />
-    <Route path="/signin" exact component={SignIn} />
-    <Route path="/signup" exact component={SignUp} />
-    <Footer />
+    <App />
   </Router>,
   document.getElementById('root'));
 
