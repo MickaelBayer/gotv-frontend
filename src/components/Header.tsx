@@ -10,7 +10,7 @@ export default class Header extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="navbar-inner">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/home">
             <img src={logo} alt="" width={55} />
           </a>
         </div>
@@ -30,7 +30,7 @@ export default class Header extends React.Component {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
-                to="/features"
+                to="/series"
                 activeClassName="active"
                 activeStyle={{ color: '#FEE066' }}
               >
