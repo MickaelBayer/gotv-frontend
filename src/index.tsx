@@ -4,13 +4,11 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from "react-router-dom";
 import App from './App';
-import configureStore from './store/store';
 
 ReactDOM.render(
-    <Router>
-      <App />
-    </Router>
-    <Route path="/signup" exact component={SignUp} />
+  <Router>
+    <App />
+  </Router>,
   document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -1,7 +1,7 @@
 const config = {
     all: {
         GOTVSERIES_TOKEN: '',
-        GOTVSERIES_ADRESS: 'http://localhost:8000',
+        GOTVSERIES_ADRESS: 'http://localhost:8000/api',
         TMDB_TOKEN: '',
         TMDB_ADRESS: '',
         FACEBOOK_TOKEN: '',

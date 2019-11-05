@@ -9,7 +9,7 @@ import { getConfig } from "../../config";
  * @template I
  * @template T
  */
-export default class ApiManagerService<I, T extends Resource<I>> {
+export default class ApiManagerService<T> {
 	private BASE_URL: string = getConfig("GOTVSERIES_ADRESS");
 
 	/**
@@ -54,9 +54,4 @@ export default class ApiManagerService<I, T extends Resource<I>> {
 				return data.data;
 			})
 	}
-}
-
-export class Resource<I> {
-	// @ts-ignore
-	id: I;
 }
