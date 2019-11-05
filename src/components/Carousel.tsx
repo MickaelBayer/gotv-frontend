@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
+import "../styles/components/carousel.scss";
 import { Serie } from '../models/serie';
 
 const serie1 = {id: 1,
@@ -23,12 +24,13 @@ const serie4 = {id: 4,
                 urlImgage : "https://image.tmdb.org/t/p/original/2XWhIg0aWX83ntm5Oq8w15vfB9c.jpg"
               }
 
-export default class Slider extends React.Component<{}, { series: Serie[] }> {
+export default class Slider extends React.Component<{}, { series: Serie[], arrowIcon: any }> {
 
   constructor(props: any) {
     super(props);
     this.state = {
       series: [] as  any,
+      arrowIcon: <span aria-hidden="true" className="carousel-control-next-icon"></span>
     };
   }
   
@@ -36,7 +38,7 @@ export default class Slider extends React.Component<{}, { series: Serie[] }> {
     // fetch les séries à mettre dans le caroussel.
     // mise à jour des props.
     const my_series = [serie1, serie2, serie3, serie4];
-    this.setState({series: my_series})
+    this.setState({series: my_series});
   }
 
   generateSlider(){
@@ -61,8 +63,9 @@ export default class Slider extends React.Component<{}, { series: Serie[] }> {
 
   
   render() {
+    const {arrowIcon}=this.state;
     return (
-      <Carousel>
+      <Carousel nextIcon={arrowIcon}>
         {this.generateSlider()}
       </Carousel>
     )
