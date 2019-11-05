@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/components/header.scss';
 import logo from '../assets/logo.png';
+import {Link, NavLink} from "react-router-dom";
 
 export default class Header extends React.Component {
   render() {
@@ -14,32 +15,21 @@ export default class Header extends React.Component {
         <div className="navbar-inner">
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
-                <a className="nav-link" href="/home">
-                    Accueil
-                  <span className="sr-only">(current)</span>
-                </a>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/" activeClassName="test" exact activeStyle={{ color: "#FEE066"}}>ACCUEIL</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/features">
-                  Les séries
-                </a>
+                <NavLink className="nav-link" to="/features" activeClassName="active" activeStyle={{ color: "#FEE066"}}>LES SÉRIES</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/pricing">
-                    Evénements
-                </a>
+                <NavLink className="nav-link" to="/pricing" activeClassName="active" activeStyle={{ color: "#FEE066"}}>EVÈNEMENTS</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/offers">
-                  Nos offres
-                </a>
+                <NavLink className="nav-link" to="/offers" activeClassName="active" activeStyle={{ color: "#FEE066"}}>NOS OFFRES</NavLink>
               </li>
-            <li className="nav-item">
-                <a className="nav-link" href="/contact">
-                    Contact
-                </a>
-            </li>
+              <li className="nav-item">
+              <NavLink className="nav-link" to="/contact" activeClassName="active" activeStyle={{ color: "#FEE066"}}>CONTACT</NavLink>
+              </li>
             </ul>
           </div>
           <button

@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "../components/Carousel";
+import Slider from "../Carousel";
 
 export default class Home extends React.Component {
     render() {
