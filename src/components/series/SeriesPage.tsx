@@ -1,12 +1,11 @@
 import React from "react";
 import SerieService from "../../services/api/entities/serie.service";
 import { Serie } from "../../models/serie.model";
-import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { SeriesCard } from "./SerieCard";
 
-export class Series extends React.Component<{}, { series: Serie[] }> {
+export class SeriesPage extends React.Component<{}, { series: Serie[] }> {
     private serieService: SerieService;
 
     constructor(props: React.Component) {
@@ -25,17 +24,19 @@ export class Series extends React.Component<{}, { series: Serie[] }> {
 
     render() {
         return (
-            <Container>
-                <Row>
-                    <div>{this.state.series.map(serie => {
-                        return (
-                            <Col xs={6} md={4}>
-                                <Image src={serie.see_poster_path} rounded />
-                            </Col>
-                        )
-                    })}</div>
-                </Row>
-            </Container>
+            <div>
+                <div className="album py-5">
+                    <Container>
+                        <Row>
+                            {this.state.series.map(serie => {
+                                return (
+                                    <SeriesCard serie={serie} />
+                                )
+                            })}
+                        </Row>
+                    </Container>
+                </div>
+            </div>
         );
     }
 
