@@ -1,39 +1,60 @@
-import React from "react";
-import "../styles/styles.scss";
-import logo from "../assets/emmy.png";
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import Button from 'react-bootstrap/Button'
-import Image from 'react-bootstrap/Image'
-import { Link } from "react-router-dom";
+import React from 'react';
+import '../styles/components/header.scss';
+import logo from '../assets/logo.png';
 
 export default class Header extends React.Component {
-    render() {
-        return (
-            <Navbar>
-                <Navbar.Brand href="#home">
-                    <Image src={logo} rounded />
-                </Navbar.Brand>
-                <Nav className="mr-auto">
-                    <Nav.Link href="/home">Accueil</Nav.Link>
-                    <Nav.Link href="/features">Les Séries</Nav.Link>
-                    <Nav.Link href="/pricing">Evénements</Nav.Link>
-                    <Nav.Link href="/offers">Nos offres</Nav.Link>
-                    <Nav.Link href="/contact">Contact</Nav.Link>
-                </Nav>
-                <Link to="/signin">
-                    <Button>
-                        Se Connecter
-                    </Button>
-                </Link>
-                <Link to="/signup">
-                    <Button variant="secondary">
-                        Créer un compte
-                    </Button>
-                </Link>
-            </Navbar>
-        )
-    }
-
-
+  render() {
+    return (
+      <nav className="navbar navbar-expand-lg navbar-dark static-top ">
+        <div className="navbar-inner">
+          <a className="navbar-brand" href="#">
+            <img src={logo} alt="" width={55} />
+          </a>
+        </div>
+        <div className="navbar-inner">
+          <div className="collapse navbar-collapse" id="navbarResponsive">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="/home">
+                    Accueil
+                  <span className="sr-only">(current)</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/features">
+                  Les séries
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/pricing">
+                    Evénements
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/offers">
+                  Nos offres
+                </a>
+              </li>
+            <li className="nav-item">
+                <a className="nav-link" href="/contact">
+                    Contact
+                </a>
+            </li>
+            </ul>
+          </div>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    );
+  }
 }
