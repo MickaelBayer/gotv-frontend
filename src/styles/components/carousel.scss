@@ -1,6 +1,14 @@
+// Icons for within to override the default carousel ones
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 30px !important;
+  height: 50px !important;
+  background: no-repeat 50% / 100% 100%;
+}
 .carousel-control-prev-icon {
-  background-image: '../../../public/arrow-point-to-right.svg' !important;
+  background-image: url(../../assets/arrow-point-to-left.svg) !important;
 }
 .carousel-control-next-icon {
-  background-image: '../../../public/arrow-point-to-right.svg' !important;
+  background-image: url(../../assets/arrow-point-to-right.svg) !important;
 }
