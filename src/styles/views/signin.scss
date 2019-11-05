@@ -1,3 +1,65 @@
-:local(body) {
-  background-color: $global-bg-color;
+html, body, #app, #app>div {
+  background-color: #B40C25;
+  height: 100%;
 }
+
+.signin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.logoSignin{
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.titleConnexion{
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.7rem;
+}
+
+.formSignin{
+  width: 25rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#pseudo, #password{
+  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+}
+
+.forgetPwd{
+  text-decoration: underline;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btnConnect{
+  background: #FEE066;
+  color: #6B6B6B;
+  border-radius: 0.8rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+  margin-top: 1rem;
+}
+
+.btnConnect:active, .btnConnect:focus, .btnConnect:hover {
+  background: #FEE066 !important;
+}
+
+.signupLink{
+  color: white;
+  text-decoration: underline;
+}
+
+.signupLink:hover{
+  color: white;
+  text-decoration: none;
+}
+
+

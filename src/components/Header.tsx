@@ -8,7 +8,7 @@ import { Link, NavLink } from 'react-router-dom';
 export default class Header extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark shadow ">
         <div className="navbar-inner">
           <a className="navbar-brand" href="/home">
             <img src={logo} alt="" width={55} />
