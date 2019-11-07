@@ -7,6 +7,7 @@ import PageNotFound from './components/PageNotFound';
 import { SeriesPage } from './components/series/SeriesPage';
 import SignUp from './views/authentication/SignUp';
 import SignIn from './views/authentication/SignIn';
+import Contact from './components/Contact';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FunctionComponent = () => {
         <Route path='/series' component={SeriesPage} />
         <Route path='/signin' component={SignIn} />
         <Route path='/signup' component={SignUp} />
+        <Route path='/contact' component={Contact}/>
         <Route component={PageNotFound} />
       </Switch>
     </div>
