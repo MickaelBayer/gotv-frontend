@@ -1,0 +1,65 @@
+html, body, #app, #app>div {
+  background-color: #B40C25;
+  height: 100%;
+}
+
+.signup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.logoSignup{
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.titleSign{
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.7rem;
+}
+
+.formSignup{
+  width: 25rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#pseudo, #password{
+  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+}
+
+.forgetPwd{
+  text-decoration: underline;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btnSignup{
+  background: #FEE066;
+  color: #6B6B6B;
+  border-radius: 0.8rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+  margin-top: 1rem;
+}
+
+.btnSignup:active, .btnSignup:focus, .btnSignup:hover {
+  background: #FEE066 !important;
+}
+
+.signinLink{
+  color: white;
+  text-decoration: underline;
+}
+
+.signinLink:hover{
+  color: white;
+  text-decoration: none;
+}
+
+
