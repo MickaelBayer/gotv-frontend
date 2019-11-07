@@ -91,14 +91,14 @@
   .btn-search, .user-zone{
     display: none
   }
-  .linkNav.signin{
+  .linkNav.signinLinkHamburger{
     font-weight: bold;
     margin-top: 1rem;
   }
 }
 
 @media (min-width: 990px) {
-  .linkNav.signin{
+  .linkNav.signinLinkHamburger{
     display: none;
   }
 }

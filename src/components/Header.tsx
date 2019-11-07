@@ -21,7 +21,7 @@ export default class Header extends React.Component {
             <NavLink to="/pricing" className="linkNav" activeStyle={{ color: "#FEE066" }}>EVÈNEMENTS</NavLink>
             <NavLink to="/offers" className="linkNav" activeStyle={{ color: "#FEE066" }}>NOS OFFRES</NavLink>
             <NavLink to="/contact" className="linkNav" activeStyle={{ color: "#FEE066" }}>CONTACT</NavLink>
-            <NavLink to="/signin" className="linkNav signin" activeStyle={{ color: "#FEE066" }}>SE CONNECTER</NavLink>
+            <NavLink to="/signin" className="linkNav signinLinkHamburger" activeStyle={{ color: "#FEE066" }}>SE CONNECTER</NavLink>
           </Nav>
           <div className="btn-search mr-auto">
             <div className="loupe">
