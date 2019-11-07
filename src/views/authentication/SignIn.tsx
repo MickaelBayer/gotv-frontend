@@ -41,7 +41,7 @@ export default class SignIn extends Component {
     return (
       <div className="signin">
         <div className="logoSignin">
-          <img src={logo} width={110} />
+          <img src={logo} width={110} alt="logo" />
         </div>
         <div className="titleConnexion"> CONNEXION </div>
         <Form onSubmit={this.handleSubmit} className="formSignin">

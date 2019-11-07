@@ -4,20 +4,15 @@ import logo from '../assets/logo.png';
 import loupe from '../assets/loupe.png';
 import userLogo from '../assets/user_white.png';
 import { Link, NavLink } from 'react-router-dom';
-import {
-  Button,
-  Form,
-  FormControl,
-  Nav,
-  Navbar,
-  NavDropdown
-} from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 
 export default class Header extends React.Component {
   render() {
     return (
       <Navbar bg="#B40C25" expand="lg" className="shadow">
-        <Navbar.Brand href="#home" className="logoBar"><img src={logo} alt="" width={55} /></Navbar.Brand>
+        <Navbar.Brand href="/" className="logoBar">
+          <img src={logo} alt="logo" width={55}/>
+        </Navbar.Brand>
         <Navbar.Toggle className="toggle" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
