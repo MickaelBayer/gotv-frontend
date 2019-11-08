@@ -57,7 +57,9 @@ export default class SignIn extends Component {
               name="password"
             />
           </Form.Group>
-          <div className="forgetPwd">Mot de passe oublié ?</div>
+          <div className="forgetPwd">
+            <a href="/resetpwd">Mot de passe oublié ?</a>
+          </div>
           <Button type="submit" className="btnConnect float-right">
             Se Connecter
           </Button>
