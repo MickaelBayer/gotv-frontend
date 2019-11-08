@@ -5,8 +5,8 @@ import { AuthenticationService } from '../../services/api/authentication.service
 import Cookie from 'js-cookie';
 import { Redirect } from 'react-router';
 import '../../styles/views/signup.scss';
-import logo from "../../assets/logo.png";
-import {Link} from "react-router-dom";
+import logo from '../../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 export default class SignUp extends React.Component {
   private authenticationService: AuthenticationService;
@@ -47,10 +47,10 @@ export default class SignUp extends React.Component {
     }
     return (
       <div className="signup">
-	  <div className="logoSignup">
-		  <img src={logo} width={110} alt="logo" />
-	  </div>
-		  <div className="titleSign"> INSCRIPTION </div>
+        <div className="logoSignup">
+          <img src={logo} width={110} alt="logo" />
+        </div>
+        <div className="titleSign"> INSCRIPTION </div>
         <Form onSubmit={this.handleSubmit} className="formSignup">
           <Form.Group controlId="firstname">
             <Form.Label>Prénom:</Form.Label>
@@ -106,8 +106,10 @@ export default class SignUp extends React.Component {
             S'inscrire
           </Button>
         </Form>
-		  <div className="textSignin">Vous avez déjà un compte ?</div>
-		  <Link to="/signin" className="signinLink">Connectez-vous</Link>
+        <div className="textSignin">Vous avez déjà un compte ?</div>
+        <Link to="/signin" className="signinLink">
+          Connectez-vous
+        </Link>
       </div>
     );
   }
