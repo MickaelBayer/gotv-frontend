@@ -1,0 +1,56 @@
+.contactPage{
+  display: flex;
+  align-items: center;
+  color: black;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+}
+
+
+.titleContact{
+  margin-top: 3rem;
+  font-weight: 500;
+  color: #FEDE5C;
+  font-family: 'Hiragino Sans', sans-serif;
+  font-size: 1.7rem;
+}
+
+.lineContact{
+  display: block;
+  width: 8rem;
+  margin-before: 0.5em;
+  margin-after: 0.5em;
+  margin-start: auto;
+  margin-end: auto;
+  margin-top: 0.3rem;
+  border-width: 3px;
+  border-color: #FEDE5C;
+  background: #FEDE5C;
+}
+
+.formContact{
+  margin-top: 4rem;
+  width: 25rem;
+  max-width: 80%;
+}
+
+#pseudo, #password{
+  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+}
+
+
+.btnSend{
+  background: #FEE066;
+  color: #6B6B6B;
+  border-radius: 0.8rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btnSend:active, .btnSend:focus, .btnSend:hover {
+  background: #FEE066 !important;
+}
