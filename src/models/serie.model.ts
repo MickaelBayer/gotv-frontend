@@ -11,7 +11,7 @@ export interface ISerie {
     see_overview: string;
     see_poster_path: string;
     see_backdrop_path: string;
-    //categories: CatSerie[];
+    see_categories: CatSerie[];
     // platform: PlatformSerie[];
 }
 
@@ -25,6 +25,7 @@ export class Serie implements ISerie {
     readonly see_overview: string;
     readonly see_poster_path: string;
     readonly see_backdrop_path: string;
+    readonly see_categories: CatSerie[];
 
     // @ts-ignore
     constructor();
@@ -37,7 +38,8 @@ export class Serie implements ISerie {
         see_original_lang: string,
         see_overview: string,
         see_poster_path: string,
-        see_backdrop_path: string
+        see_backdrop_path: string,
+        see_categories: CatSerie[]
     ) {
         this.see_id = see_id;
         this.see_name = see_name;
@@ -48,5 +50,6 @@ export class Serie implements ISerie {
         this.see_overview = see_overview;
         this.see_poster_path = see_poster_path;
         this.see_backdrop_path = see_backdrop_path;
+        this.see_categories = see_categories;
     }
 }
