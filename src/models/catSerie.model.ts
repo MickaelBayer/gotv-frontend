@@ -1,7 +1,7 @@
 import { Serie } from './serie.model';
 export interface CatSerie {
-    id: number;
-    id_tmdb: number;
-    label: string;
-    series: Serie[];
+    cae_id: number;
+    cae_id_tmdb: number;
+    cae_label: string;
+    cae_series: Serie[];
 }
