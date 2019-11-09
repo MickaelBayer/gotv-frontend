@@ -4,7 +4,7 @@
   flex-direction: column;
   color: white;
   height: 100%;
-  background: rgba(0,0,0,0.38);
+  background: #9e9e9e;
 }
 
 .myAccount, .contactInformation, .subscriptionInfo{
@@ -21,7 +21,7 @@
 
 .redTriangle{
   display : inline-block;
-  border-right : 99vw solid #9e9e9e;
+  border-right : 100vw solid #9e9e9e;
   border-bottom : 5rem solid #B40C25;
 }
 .contactInformation{
