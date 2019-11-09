@@ -1,0 +1,164 @@
+.accountPage{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  height: 100%;
+  background: rgba(0,0,0,0.38);
+}
+
+.myAccount, .contactInformation, .subscriptionInfo{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.subscriptionInfo{
+  background: white;
+}
+
+.redTriangle{
+  display : inline-block;
+  border-right : 99vw solid #9e9e9e;
+  border-bottom : 5rem solid #B40C25;
+}
+.contactInformation{
+  background: #B40C25;
+
+}
+
+.contentMyAccount{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.titleMyAccount, .titleContactInformation, .titleSubInfo{
+  font-family: 'Arial', sans-serif;
+  font-size: 1.7rem;
+  color: white;
+  margin-top: 2rem;
+}
+
+.titleSubInfo{
+  color: #FEE066;
+}
+
+.formContactInfo, .formAccountInfo{
+  margin-top: 2rem;
+  width: 25rem;
+  max-width: 100%;
+}
+
+#city, #country, #postal, #address, #birthday{
+  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+}
+
+
+.whiteLine, .yellowLine{
+  display: block;
+  width: 8rem;
+  margin-before: 0.5em;
+  margin-after: 0.5em;
+  margin-start: auto;
+  margin-end: auto;
+  margin-top: 0.3rem;
+  border-width: 1px;
+  border-color: #FEDE5C;
+  background: #FEDE5C;
+}
+
+.whiteLine{
+  background: white;
+  border-color: white;
+}
+
+
+.btnUpdContactInfo, .btnDeleteAccount, .btnDiscoverSub{
+  background: #FEE066;
+  color: #6B6B6B;
+  border-radius: 0.8rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btnUpdContactInfo:active, .btnUpdContactInfo:focus, .btnUpdContactInfo:hover {
+  background: #FEE066 !important;
+}
+
+.btnDeleteAccount:active, .btnDeleteAccount:focus, .btnDeleteAccount:hover {
+  background: #B40C25 !important;
+}
+
+
+.btnDiscoverSub:active, .btnDiscoverSub:focus, .btnDiscoverSub:hover {
+  background: #FEE066 !important;
+}
+
+.btnDiscoverSub{
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.btnDeleteAccount{
+  background: #B40C25;
+  margin-top: 3rem;
+  color: white;
+}
+
+.radioCiv{
+  margin-bottom: 1.5rem;
+}
+
+
+.contentMyAccount{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.accountImg{
+  width: 17rem;
+  margin: 5rem 11rem;
+}
+
+@media (max-width: 990px) {
+  .contentMyAccount{
+    flex-direction: column;
+    align-items: center;
+    background: #9e9e9e;
+  }
+  .accountImg{
+    width: 10rem;
+    margin-top: 2rem;
+  }
+  .formAccountInfo{
+    margin-top: 0;
+  }
+}
+
+.contentSub{
+  color: black;
+}
+.mySub{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 3rem 0;
+}
+
+.nameSub{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.descriptionSub{
+  width: 80%;
+  text-align: justify;
+  margin-top: 1rem;
+}
