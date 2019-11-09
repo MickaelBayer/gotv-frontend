@@ -21,7 +21,7 @@
 
 .redTriangle{
   display : inline-block;
-  border-right : 100vw solid #9e9e9e;
+  border-right : 99vw solid #9e9e9e;
   border-bottom : 5rem solid #B40C25;
 }
 .contactInformation{
@@ -75,7 +75,7 @@
 }
 
 
-.btnUpdContactInfo{
+.btnUpdContactInfo, .btnDeleteAccount, .btnDiscoverSub{
   background: #FEE066;
   color: #6B6B6B;
   border-radius: 0.8rem;
@@ -88,4 +88,77 @@
 
 .btnUpdContactInfo:active, .btnUpdContactInfo:focus, .btnUpdContactInfo:hover {
   background: #FEE066 !important;
+}
+
+.btnDeleteAccount:active, .btnDeleteAccount:focus, .btnDeleteAccount:hover {
+  background: #B40C25 !important;
+}
+
+
+.btnDiscoverSub:active, .btnDiscoverSub:focus, .btnDiscoverSub:hover {
+  background: #FEE066 !important;
+}
+
+.btnDiscoverSub{
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.btnDeleteAccount{
+  background: #B40C25;
+  margin-top: 3rem;
+  color: white;
+}
+
+.radioCiv{
+  margin-bottom: 1.5rem;
+}
+
+
+.contentMyAccount{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.accountImg{
+  width: 17rem;
+  margin: 5rem 11rem;
+}
+
+@media (max-width: 990px) {
+  .contentMyAccount{
+    flex-direction: column;
+    align-items: center;
+    background: #9e9e9e;
+  }
+  .accountImg{
+    width: 10rem;
+    margin-top: 2rem;
+  }
+  .formAccountInfo{
+    margin-top: 0;
+  }
+}
+
+.contentSub{
+  color: black;
+}
+.mySub{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 3rem 0;
+}
+
+.nameSub{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.descriptionSub{
+  width: 80%;
+  text-align: justify;
+  margin-top: 1rem;
 }
