@@ -8,7 +8,8 @@ import { SeriesPage } from './components/series/SeriesPage';
 import SignUp from './views/authentication/SignUp';
 import SignIn from './views/authentication/SignIn';
 import Contact from './components/Contact';
-import ForgetPassword from './views/authentication/ForgetPassword'
+import ForgetPassword from './views/authentication/ForgetPassword';
+import Account from './views/authenticated/Account';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FunctionComponent = () => {
         <Route path='/signup' component={SignUp} />
         <Route path='/contact' component={Contact}/>
         <Route path='/resetpwd' component={ForgetPassword}/>
+        <Route path='/account' component={Account}/>
         <Route component={PageNotFound} />
       </Switch>
     </div>
