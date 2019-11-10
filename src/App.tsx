@@ -10,6 +10,7 @@ import SignIn from './views/authentication/SignIn';
 import Contact from './components/Contact';
 import ForgetPassword from './views/authentication/ForgetPassword';
 import Account from './views/authenticated/Account';
+import Footer from './components/Footer';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FunctionComponent = () => {
         <Route path='/account' component={Account}/>
         <Route component={PageNotFound} />
       </Switch>
+      <Footer />
     </div>
   )
 }
