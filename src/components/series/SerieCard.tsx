@@ -22,8 +22,8 @@ export const SeriesCard: React.FunctionComponent<{ serie: Serie }> = (props) => 
           <img src={props.serie.see_poster_path} className="img-gradiant"></img>
           <div className="info-serie">
             <h3>{props.serie.see_name}</h3>
-            {props.serie.see_categories.map(categorie => {
-              return (<Chip size="small" label={categorie.cae_label} />)
+            {props.serie.see_categories.map((categorie, i) => {
+              return (<Chip size="small" key={i} label={categorie.cae_label} />)
             })}
             <p>{props.serie.see_overview}</p>
           </div>
@@ -38,8 +38,8 @@ export const SeriesCard: React.FunctionComponent<{ serie: Serie }> = (props) => 
             <h3 className="mt-3">{props.serie.see_name}</h3>
             <div className="d-flex align-items-center my-3">
               <Rating value={5} readOnly className="mr-3" />
-              {props.serie.see_categories.map(categorie => {
-                return (<Chip size="small" label={categorie.cae_label} className="details-chip" />)
+              {props.serie.see_categories.map((categorie, i) => {
+                return (<Chip size="small" key={i} label={categorie.cae_label} className="details-chip" />)
               })}
             </div>
             <p>{props.serie.see_overview}</p>
