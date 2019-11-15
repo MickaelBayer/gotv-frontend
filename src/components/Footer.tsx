@@ -3,7 +3,11 @@ import "../styles/components/footer.scss";
 
 const Footer: React.FunctionComponent = () => {
     return (
-        <footer className="foot-div">Footer</footer>
+        <div className="foot">
+            <div className="foot-div">
+
+            </div>
+        </div>
     )
 }
 
