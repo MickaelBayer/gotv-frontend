@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 
 const App: React.FunctionComponent = () => {
   return (
-    <div>
+    <div className="container col-12">
       <Header />
       <Switch>
         <Route exact path='/' component={Home} />

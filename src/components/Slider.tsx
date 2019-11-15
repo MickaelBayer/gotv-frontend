@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
-import "../styles/components/carousel.scss";
+import "../styles/components/slider.scss";
 import { Serie } from '../models/serie';
 
 const serie1 = {
@@ -66,7 +66,7 @@ export default class Slider extends React.Component<{}, { series: Serie[], arrow
     const { arrowIcon } = this.state;
     return (
       <div className="div-carousel">
-        <Carousel nextIcon={arrowIcon}>
+        <Carousel nextIcon={arrowIcon} indicators={false} >
           {this.generateSlider()}
         </Carousel>
         <div className="site-title">
