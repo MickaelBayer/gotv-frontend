@@ -16,7 +16,7 @@
   padding-bottom: 50px;
 }
 
-.top10 {
+.top10_1 {
   position: relative;
   margin-top: auto;
   bottom:0px;
@@ -28,7 +28,7 @@
   color: #FFFFFF;
 }
 
-.top10:after{
+.top10_1:after{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -42,6 +42,10 @@
   transform-origin: top left; // reference point
   transform: skewY(-4deg);    // skewing downwards at the given angle counterclockwise.
   // https://www.youtube.com/watch?v=6QGOhCZLdhs
+}
+
+.top10_2{
+  mask: url(../../assets/hexagones.svg) no-repeat;
 }
 
 .winner{
