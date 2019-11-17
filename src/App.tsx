@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 
 const App: React.FunctionComponent = () => {
   return (
-    <div className="container col-12">
+    <div className="container-fluid remove-all-margin-padding">
       <Header />
       <Switch>
         <Route exact path='/' component={Home} />
