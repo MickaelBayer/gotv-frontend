@@ -1,10 +1,10 @@
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Iframe from 'react-iframe';
 import { ISerieVideo, SerieVideo } from "../../models/serieVideo.model";
 import SerieVideoService from "../../services/api/entities/serieVideo.service";
-import { ISerie, Serie } from "../../models/serie.model";
+import { ISerie } from "../../models/serie.model";
 import SerieService from "../../services/api/entities/serie.service";
 import { Chip } from "@material-ui/core";
 import { Rating } from '@material-ui/lab';

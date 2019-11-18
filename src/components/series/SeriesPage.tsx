@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import SeriesCard from "./SerieCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Link } from "react-router-dom";
 import { CatSerie } from "../../models/catSerie.model";
 import CatSerieService from "../../services/api/entities/catSerie.service";
-import { useRouteMatch } from "react-router";
 
 export const SeriesPage: React.FunctionComponent = (props) => {
     const initialState: CatSerie[] = [{ cae_id: 1, cae_id_tmdb: 1, cae_label: "", cae_series: [] }]

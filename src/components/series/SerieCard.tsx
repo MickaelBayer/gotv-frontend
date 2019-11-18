@@ -3,11 +3,9 @@ import Col from 'react-bootstrap/Col';
 import { Serie } from "../../models/serie.model";
 import { Chip } from '@material-ui/core';
 import "../../styles/components/serie.scss";
-import { Link, NavLink } from "react-router-dom";
-import { useRouteMatch } from "react-router";
+import { Link } from "react-router-dom";
 
 const SeriesCard: React.FunctionComponent<{ serie: Serie }> = (props) => {
-  const match: any = useRouteMatch();
   return (
     <Col md={2.5}>
       <Link to={`serie/${props.serie.see_id}`}>
