@@ -1,25 +1,25 @@
 import React from "react";
 import "../styles/components/footer.scss";
-import {Container, Row, Col } from 'react-bootstrap/';
+import { Container, Row, Col } from 'react-bootstrap/';
 
 const Footer: React.FunctionComponent = () => {
     return (
-        <div className="foot">
+        <footer className="foot">
             <div className="foot-div">
-                <Container className="remove-all-margin-padding">
-                    <Row className="remove-all-margin-padding">
-                        <Col className="remove-all-margin-padding">
+                <Container>
+                    <Row>
+                        <Col>
                             Qui sommes nous ?
                         </Col>
-                        <Col className="remove-all-margin-padding">
+                        <Col>
                             Nous contacter
                         </Col>
-                        <Col className="remove-all-margin-padding">
+                        <Col>
                             Mentions légales
                         </Col>
                     </Row>
-                    <Row className="remove-all-margin-padding">
-                        <Col className="remove-all-margin-padding">
+                    <Row>
+                        <Col>
                             GoTV series © 2019 — Tous droits réservés ®
                         </Col>
                     </Row>
@@ -28,7 +28,7 @@ const Footer: React.FunctionComponent = () => {
                     GoTV series © 2019 — Tous droits réservés ®
                 </div> */}
             </div>
-        </div>
+        </footer>
     )
 }
 
