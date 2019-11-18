@@ -27,9 +27,7 @@ export class Serie implements ISerie {
     readonly see_backdrop_path: string;
     readonly see_categories: CatSerie[];
 
-    // @ts-ignore
-    constructor();
-    constructor(
+    constructor (
         see_id: number,
         see_name: string,
         see_tmdb_id: number,

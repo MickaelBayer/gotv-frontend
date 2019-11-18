@@ -1,69 +1,59 @@
-import React from "react";
-import Container from 'react-bootstrap/Container';
-import { SeriesCard } from "./SerieCard";
-import CatSerieService from "../../services/api/entities/catSerie.service";
-import { CatSerie } from "../../models/catSerie.model";
+import React, { useState, useEffect } from "react";
+import SeriesCard from "./SerieCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
+import { CatSerie } from "../../models/catSerie.model";
+import CatSerieService from "../../services/api/entities/catSerie.service";
+import { useRouteMatch } from "react-router";
 
-export class SeriesPage extends React.Component<{}, { catSeries: CatSerie[] }> {
-    private catSerieService: CatSerieService;
+export const SeriesPage: React.FunctionComponent = (props) => {
+    const initialState: CatSerie[] = [{ cae_id: 1, cae_id_tmdb: 1, cae_label: "", cae_series: [] }]
+    const [catSeries, setCatSeries] = useState(initialState);
 
-    constructor (props: React.Component) {
-        super(props);
-        this.catSerieService = new CatSerieService();
-        this.state = {
-            catSeries: [] as any
-        }
-    }
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3, // optional, default to 1.
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2, // optional, default to 1.
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1, // optional, default to 1.
+        },
+    };
 
-    componentDidMount() {
-        this.catSerieService.getAll().then(data => {
-            this.setState({ catSeries: data });
+    async function fetchCatSeries() {
+        const catSerieService = new CatSerieService();
+        catSerieService.getAll().then(res => {
+            setCatSeries(res);
         });
     }
 
-    render() {
-        const responsive = {
-            desktop: {
-                breakpoint: { max: 3000, min: 1024 },
-                items: 3,
-                slidesToSlide: 3, // optional, default to 1.
-            },
-            tablet: {
-                breakpoint: { max: 1024, min: 464 },
-                items: 2,
-                slidesToSlide: 2, // optional, default to 1.
-            },
-            mobile: {
-                breakpoint: { max: 464, min: 0 },
-                items: 1,
-                slidesToSlide: 1, // optional, default to 1.
-            },
-        };
-        return (
-            <div>
-                <div className="album py-5">
-                    <Container>
+    useEffect(() => { fetchCatSeries() }, [])
 
-                        {this.state.catSeries.map((category, i) => {
-                            return (
-                                <React.Fragment key={i}>
-                                    <h1>{category.cae_label}</h1>
-                                    <Carousel responsive={responsive}>
-                                        {category.cae_series.map((serie, i) => {
-                                            return (
-                                                <SeriesCard serie={serie} key={i} />
-                                            )
-                                        })}
-                                    </Carousel>
-                                </React.Fragment>
-                            )
-                        })}
-                    </Container>
-                </div>
-            </div >
-        );
-    }
-
+    return (
+        <div>
+            {catSeries.map((category, i) => {
+                return (
+                    <React.Fragment key={i}>
+                        <h1>{category.cae_label}</h1>
+                        <Carousel responsive={responsive}>
+                            {category.cae_series.map((serie, i) => {
+                                return (
+                                    <SeriesCard serie={serie} key={i} />
+                                )
+                            })}
+                        </Carousel>
+                    </React.Fragment>
+                )
+            })}
+        </div>
+    );
 }
