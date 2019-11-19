@@ -4,7 +4,8 @@ import { Container, Row, Col } from 'react-bootstrap/';
 
 const Footer: React.FunctionComponent = () => {
     return (
-        <footer className="foot">
+        <div className="foot">
+            <div id="triangle-footer-bottomright"></div>
             <div className="foot-div">
                 <Container>
                     <Row>
@@ -24,9 +25,6 @@ const Footer: React.FunctionComponent = () => {
                         </Col>
                     </Row>
                 </Container>
-                {/* <div className="copyright">
-                    GoTV series © 2019 — Tous droits réservés ®
-                </div> */}
             </div>
         </footer>
     )
