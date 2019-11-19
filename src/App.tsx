@@ -16,6 +16,7 @@ import SerieDetail from './components/series/SerieDetail';
 const App: React.FunctionComponent = () => {
   return (
     <React.Fragment>
+      <div className="container-fluid remove-all-margin-padding">
       <Header />
       <Switch>
         <Route exact path='/' component={Home} />
@@ -29,6 +30,7 @@ const App: React.FunctionComponent = () => {
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
+      </div>
     </React.Fragment>
   )
 }
