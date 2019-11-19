@@ -26,7 +26,7 @@ const Footer: React.FunctionComponent = () => {
                     </Row>
                 </Container>
             </div>
-        </footer>
+        </div>
     )
 }
 
