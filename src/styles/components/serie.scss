@@ -55,31 +55,41 @@
   }
 }
 
-.collapse-details {
-  background-color: rgb(218, 218, 218);
-  width: 100%;
+.overview-header {
+  position: relative;
+  padding: 25px 0;
 
-  .details-video {
-    border: none;
-    border-right: rgb(184, 184, 184) solid 2px;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: rgba(64, 72, 82, .8);
   }
+}
 
-  .details-btn {
-    font-weight: bold;
+.header-player {
+  position: relative;
+  margin-bottom: 15px;
+
+  iframe {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+    opacity: 1;
     border: none;
-    box-shadow: 0 .5rem 0.5rem rgba(0, 0, 0, .15) !important;
-    color: #6B6B6B;
-    background-color: #FEE066;
-
-    &:active,
-    &:focus,
-    &:hover {
-      background: #FEE066 !important;
-    }
-
-    .MuiChip-root {
-      background-color: rgb(31, 31, 31);
-    }
   }
+}
 
+.title {
+  position: relative;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.73);
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
 }
