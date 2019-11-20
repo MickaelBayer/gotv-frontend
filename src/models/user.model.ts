@@ -3,13 +3,13 @@ import { Role } from './role.model';
 import { Vote } from './vote.model';
 
 export interface User {
-  id: number;
-  pseudo: string;
-  email: string;
-  firstname: string;
-  lastname: string;
-  active: string;
-  role: Role;
-  subscription: Subscription;
-  votes: Vote[];
+  usr_id: number;
+  usr_pseudo: string;
+  usr_email: string;
+  usr_firstname: string;
+  usr_lastname: string;
+  usr_active: string;
+  usr_role: Role;
+  usr_subscription: Subscription;
+  usr_votes: Vote[];
 }
