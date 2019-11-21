@@ -6,6 +6,7 @@ export interface User {
   usr_id: number;
   usr_pseudo: string;
   usr_email: string;
+  password: string;
   usr_firstname: string;
   usr_lastname: string;
   usr_active: string;

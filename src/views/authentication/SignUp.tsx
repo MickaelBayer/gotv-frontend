@@ -9,49 +9,49 @@ import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 
 export default class SignUp extends React.Component {
-  private authenticationService: AuthenticationService;
-  state = { redirection: false };
+  // private authenticationService: AuthenticationService;
+  // state = { redirection: false };
 
-  constructor(props: React.Component) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.authenticationService = new AuthenticationService();
-  }
+  // constructor(props: React.Component) {
+  //   super(props);
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+  //   this.authenticationService = new AuthenticationService();
+  // }
 
-  handleSubmit = (event: any) => {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    this.authenticationService
-      .register({
-        usr_firstname: data.get('firstname'),
-        usr_lastname: data.get('lastname'),
-        usr_email: data.get('email'),
-        usr_pseudo: data.get('pseudo'),
-        password: data.get('password')
-      })
-      .then(response => {
-        if (response.status === 200 && response.data.token) {
-          let jwt = response.data.token;
-          Cookie.set('token', jwt);
-          this.setState({ redirection: true });
-        } else if (response.status === 500) {
-        }
-      });
-  };
+  // handleSubmit = (event: any) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.target);
+  //   this.authenticationService
+  //     .register({
+  //       usr_firstname: data.get('firstname'),
+  //       usr_lastname: data.get('lastname'),
+  //       usr_email: data.get('email'),
+  //       usr_pseudo: data.get('pseudo'),
+  //       password: data.get('password')
+  //     })
+  //     .then(response => {
+  //       if (response.status === 200 && response.data.token) {
+  //         let jwt = response.data.token;
+  //         Cookie.set('token', jwt);
+  //         this.setState({ redirection: true });
+  //       } else if (response.status === 500) {
+  //       }
+  //     });
+  // };
 
   render() {
-    const { redirection } = this.state;
-    if (redirection) {
-      //Affichage de la redirection
-      return <Redirect to="/" />;
-    }
+    // const { redirection } = this.state;
+    // if (redirection) {
+    //   //Affichage de la redirection
+    //   return <Redirect to="/" />;
+    // }
     return (
       <div className="signup">
         <div className="logoSignup">
           <img src={logo} width={110} alt="logo" />
         </div>
         <div className="titleSign"> INSCRIPTION </div>
-        <Form onSubmit={this.handleSubmit} className="formSignup">
+        <Form className="formSignup">
           <Form.Group controlId="firstname">
             <Form.Label>Prénom:</Form.Label>
             <Form.Control type="text" placeholder="Prénom" name="firstname" />
