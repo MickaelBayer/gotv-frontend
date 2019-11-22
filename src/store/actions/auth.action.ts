@@ -1,53 +1,62 @@
-import { AuthenticationService } from "../../services/api/authentication.service"
-import { authTypes } from "../types/auth.type"
 import { IAuth } from "../../models/auth.model"
 import { IUser } from "../../models/user.model"
+import { AuthenticationService } from "../../services/api/authentication.service"
+import {
+  AuthActionTypes,
+  LOGIN_FAILURE,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  REGISTER_FAILURE,
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS
+} from "../types/auth.type"
+import { Dispatch } from "redux"
 
-const loginResquest = () => {
+function loginResquest(): AuthActionTypes {
   return {
-    type: authTypes.LOGIN_REQUEST,
+    type: LOGIN_REQUEST,
   }
 }
 
-const loginSuccess = (auth: IAuth) => {
+function loginSuccess(auth: IAuth): AuthActionTypes {
   return {
-    type: authTypes.LOGIN_SUCCESS,
-    auth
+    type: LOGIN_SUCCESS,
+    auth: auth
   }
 }
 
-const loginFailure = (error: string) => {
+function loginFailure(error: string): AuthActionTypes {
   return {
-    type: authTypes.LOGIN_FAILURE,
+    type: LOGIN_FAILURE,
     error: error,
   }
 }
 
-const registerResquest = () => {
+function registerResquest(): AuthActionTypes {
   return {
-    type: authTypes.LOGIN_REQUEST,
+    type: REGISTER_REQUEST,
   }
 }
 
-const registerSuccess = (auth: IAuth) => {
+function registerSuccess(auth: IAuth): AuthActionTypes {
   return {
-    type: authTypes.LOGIN_SUCCESS,
-    auth
+    type: REGISTER_SUCCESS,
+    auth: auth
   }
 }
 
-const registerFailure = (error: string) => {
+function registerFailure(error: string): AuthActionTypes {
   return {
-    type: authTypes.LOGIN_FAILURE,
+    type: REGISTER_FAILURE,
     error: error,
   }
 }
 
 export const login = (username: string, password: string) => {
   let authService: AuthenticationService = new AuthenticationService();
-  return (dispatch: any) => {
+  return (dispatch: Dispatch<AuthActionTypes>) => {
     dispatch(loginResquest());
-    authService.login(username, password).then(res => {
+    return authService.login(username, password).then(res => {
       dispatch(loginSuccess(res));
     }).catch((error) => dispatch(loginFailure(error)));
   }
@@ -55,9 +64,9 @@ export const login = (username: string, password: string) => {
 
 export const register = (user: IUser) => {
   let authService: AuthenticationService = new AuthenticationService();
-  return (dispatch: any) => {
+  return (dispatch: Dispatch<AuthActionTypes>) => {
     dispatch(registerResquest());
-    authService.register(user).then(res => {
+    return authService.register(user).then(res => {
       dispatch(registerSuccess(res));
     }).catch((error) => dispatch(registerFailure(error)));
   }

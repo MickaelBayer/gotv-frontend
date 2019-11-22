@@ -1,6 +1,7 @@
 import { IUser } from './../../models/user.model';
 import { IAuth } from './../../models/auth.model';
-import { authTypes } from './../types/auth.type';
+import { AuthActionTypes, LOGIN_SUCCESS, REGISTER_SUCCESS } from './../types/auth.type';
+import { AppState } from '..';
 
 const initialAuthState: IAuth = {
   access_token: "",
@@ -9,25 +10,27 @@ const initialAuthState: IAuth = {
   user: {} as IUser
 }
 
-export const auth = (state = initialAuthState, action: any) => {
+export const auth = (state = initialAuthState, action: AuthActionTypes) => {
   switch (action.type) {
-    case authTypes.LOGIN_SUCCESS:
+    case LOGIN_SUCCESS:
       return {
         ...state,
-        access_token: action.access_token,
-        token_type: action.token_type,
-        expires_in: action.expires_in,
-        user: action.user
+        access_token: action.auth.access_token,
+        token_type: action.auth.token_type,
+        expires_in: action.auth.expires_in,
+        user: action.auth.user
       }
-    case authTypes.REGISTER_SUCCESS:
+    case REGISTER_SUCCESS:
       return {
         ...state,
-        access_token: action.access_token,
-        token_type: action.token_type,
-        expires_in: action.expires_in,
-        user: action.user
+        access_token: action.auth.access_token,
+        token_type: action.auth.token_type,
+        expires_in: action.auth.expires_in,
+        user: action.auth.user
       }
     default:
       return state
   }
 }
+
+export const getAuth = (state: AppState) => state.auth
