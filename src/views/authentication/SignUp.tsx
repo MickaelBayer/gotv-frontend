@@ -1,81 +1,108 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { AuthenticationService } from '../../services/api/authentication.service';
-import Cookie from 'js-cookie';
-import { Redirect } from 'react-router';
 import '../../styles/views/signup.scss';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
+import { bindActionCreators, Dispatch } from 'redux';
+import { AuthActionTypes } from '../../store/types/auth.type';
+import { register } from '../../store/actions/auth.action';
+import { connect } from 'react-redux';
+import { IUser } from '../../models/user.model';
 
-export default class SignUp extends React.Component {
-  // private authenticationService: AuthenticationService;
-  // state = { redirection: false };
+const mapDispatchToProps = (dispatch: Dispatch<AuthActionTypes>) => ({
+  register: bindActionCreators(register, dispatch)
+})
 
-  // constructor(props: React.Component) {
-  //   super(props);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  //   this.authenticationService = new AuthenticationService();
-  // }
+type Props = ReturnType<typeof mapDispatchToProps>;
 
-  // handleSubmit = (event: any) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.target);
-  //   this.authenticationService
-  //     .register({
-  //       usr_firstname: data.get('firstname'),
-  //       usr_lastname: data.get('lastname'),
-  //       usr_email: data.get('email'),
-  //       usr_pseudo: data.get('pseudo'),
-  //       password: data.get('password')
-  //     })
-  //     .then(response => {
-  //       if (response.status === 200 && response.data.token) {
-  //         let jwt = response.data.token;
-  //         Cookie.set('token', jwt);
-  //         this.setState({ redirection: true });
-  //       } else if (response.status === 500) {
-  //       }
-  //     });
-  // };
+interface RegisterState {
+  usr_pseudo: string;
+  usr_email: string;
+  usr_firstname: string;
+  usr_lastname: string;
+  password: string;
+}
+
+class SignUp extends React.Component<Props, RegisterState> {
+
+  constructor(props: Readonly<Props>) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      usr_pseudo: "",
+      usr_email: "",
+      usr_firstname: "",
+      usr_lastname: "",
+      password: ""
+    }
+  }
+
+  handleChange = (field: string) => (event: any) => {
+    event.preventDefault()
+    this.setState({ [field]: event.target.value } as RegisterState);
+  }
+
+  handleSubmit = async (event: any) => {
+    event.preventDefault();
+    this.props.register({
+      usr_pseudo: this.state.usr_pseudo,
+      usr_firstname: this.state.usr_firstname,
+      usr_lastname: this.state.usr_lastname,
+      usr_email: this.state.usr_email,
+      password: this.state.password
+    } as IUser);
+  }
 
   render() {
-    // const { redirection } = this.state;
-    // if (redirection) {
-    //   //Affichage de la redirection
-    //   return <Redirect to="/" />;
-    // }
     return (
       <div className="signup">
         <div className="logoSignup">
           <img src={logo} width={110} alt="logo" />
         </div>
         <div className="titleSign"> INSCRIPTION </div>
-        <Form className="formSignup">
-          <Form.Group controlId="firstname">
+        <Form className="formSignup" onSubmit={this.handleSubmit}>
+          <Form.Group controlId="usr_firstname">
             <Form.Label>Prénom:</Form.Label>
-            <Form.Control type="text" placeholder="Prénom" name="firstname" />
+            <Form.Control
+              type="text"
+              placeholder="Prénom"
+              value={this.state.usr_firstname}
+              onChange={this.handleChange("usr_firstname")} />
             <Form.Control.Feedback type="invalid">
               Le prénom est incorrect
             </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group controlId="lastname">
+          <Form.Group controlId="usr_lastname">
             <Form.Label>Nom:</Form.Label>
-            <Form.Control type="text" placeholder="Nom" name="lastname" />
+            <Form.Control
+              type="text"
+              placeholder="Nom"
+              value={this.state.usr_lastname}
+              onChange={this.handleChange("usr_lastname")} />
             <Form.Control.Feedback type="invalid">
               Le nom est incorrect
             </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group controlId="pseudo">
+          <Form.Group controlId="usr_pseudo">
             <Form.Label>Pseudo:</Form.Label>
-            <Form.Control type="text" placeholder="Pseudo" name="pseudo" />
+            <Form.Control
+              type="text"
+              placeholder="Pseudo"
+              value={this.state.usr_pseudo}
+              onChange={this.handleChange("usr_pseudo")} />
             <Form.Control.Feedback type="invalid">
               Le pseudo est incorrect
             </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group controlId="email">
+          <Form.Group controlId="usr_email">
             <Form.Label>Email:</Form.Label>
-            <Form.Control type="email" placeholder="Email" name="email" />
+            <Form.Control
+              type="email"
+              placeholder="Email"
+              value={this.state.usr_email}
+              onChange={this.handleChange("usr_email")} />
             <Form.Control.Feedback type="invalid">
               L'email est incorrect
             </Form.Control.Feedback>
@@ -86,7 +113,8 @@ export default class SignUp extends React.Component {
               type="password"
               placeholder="Mot de passe"
               name="password"
-            />
+              value={this.state.password}
+              onChange={this.handleChange("password")} />
             <Form.Control.Feedback type="invalid">
               Le mot de passe est incorrect
             </Form.Control.Feedback>
@@ -114,3 +142,5 @@ export default class SignUp extends React.Component {
     );
   }
 }
+
+export default connect(null, mapDispatchToProps)(SignUp)
