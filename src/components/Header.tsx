@@ -5,8 +5,23 @@ import loupe from '../assets/loupe.png';
 import userLogo from '../assets/user_white.png';
 import { Link, NavLink } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
+import SearchPage from './home/SearchPage';
 
-export default class Header extends React.Component {
+export default class Header extends React.Component<{}, { isSearch: boolean }> {
+
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      isSearch: false
+    };
+    this.activSearchPage = this.activSearchPage.bind(this);
+  }
+
+  activSearchPage() {
+    // this.state.isSearch = true;
+    this.setState({isSearch: !this.state.isSearch});
+  }
+
   render() {
     return (
       <Navbar bg="#B40C25" expand="lg" className="shadow">
@@ -23,12 +38,13 @@ export default class Header extends React.Component {
             <NavLink to="/contact" className="linkNav" activeStyle={{ color: "#FEE066" }}>CONTACT</NavLink>
             <NavLink to="/signin" className="linkNav signinLinkHamburger" activeStyle={{ color: "#FEE066" }}>SE CONNECTER</NavLink>
           </Nav>
-          <div className="btn-search mr-auto">
+          <div className="btn-search mr-auto" onClick={this.activSearchPage}>
             <div className="loupe">
               <img src={loupe} alt="" width={20} />
             </div>
             <div className="textSearch">RECHERCHER</div>
           </div>
+          { this.state.isSearch && <SearchPage/> }
           <div className="user-zone">
             <div className="user-logo">
               <img src={userLogo} alt="" width={28} />
