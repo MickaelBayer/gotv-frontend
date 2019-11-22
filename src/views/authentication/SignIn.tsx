@@ -15,25 +15,26 @@ const mapDispatchToProps = (dispatch: Dispatch<AuthActionTypes>) => ({
 
 type Props = ReturnType<typeof mapDispatchToProps>;
 
-class SignIn extends React.Component<Props, { usr_pseudo: string, password: string }> {
+interface LoginState {
+  usr_pseudo: string;
+  password: string;
+}
 
-  constructor (props: Readonly<Props>) {
+class SignIn extends React.Component<Props, LoginState> {
+
+  constructor(props: Readonly<Props>) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChangePassword = this.handleChangePassword.bind(this);
-    this.handleChangePseudo = this.handleChangePseudo.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       usr_pseudo: "",
       password: ""
     }
   }
 
-  public handleChangePseudo(event: any) {
-    this.setState({ usr_pseudo: event.target.value });
-  }
-
-  public handleChangePassword(event: any) {
-    this.setState({ password: event.target.value });
+  handleChange = (field: string) => (event: any) => {
+    event.preventDefault()
+    this.setState({ [field]: event.target.value } as LoginState);
   }
 
   handleSubmit = async (event: any) => {
@@ -55,7 +56,7 @@ class SignIn extends React.Component<Props, { usr_pseudo: string, password: stri
               type="text"
               placeholder="Pseudo"
               value={this.state.usr_pseudo}
-              onChange={this.handleChangePseudo} />
+              onChange={this.handleChange('usr_pseudo')} />
           </Form.Group>
           <Form.Group controlId="password">
             <Form.Label>Mot de passe:</Form.Label>
@@ -63,7 +64,7 @@ class SignIn extends React.Component<Props, { usr_pseudo: string, password: stri
               type="password"
               placeholder="Mot de passe"
               value={this.state.password}
-              onChange={this.handleChangePassword} />
+              onChange={this.handleChange('password')} />
           </Form.Group>
           <div className="forgetPwd">
             <a href="/resetpwd">Mot de passe oublié ?</a>
