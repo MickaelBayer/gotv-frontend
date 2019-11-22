@@ -6,8 +6,8 @@ import logo from '../../assets/logo.png';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { login } from '../../store/actions/auth.action';
-import { AuthActionTypes } from '../../store/types/auth.type';
+import { login } from '../../store/modules/auth/auth.action';
+import { AuthActionTypes } from '../../store/modules/auth/auth.type';
 
 const mapDispatchToProps = (dispatch: Dispatch<AuthActionTypes>) => ({
   login: bindActionCreators(login, dispatch)

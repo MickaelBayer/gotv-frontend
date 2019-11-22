@@ -1,6 +1,6 @@
-import { IAuth } from "../../models/auth.model"
-import { IUser } from "../../models/user.model"
-import { AuthenticationService } from "../../services/api/authentication.service"
+import { IAuth } from "../../../models/auth.model"
+import { IUser } from "../../../models/user.model"
+import { AuthenticationService } from "../../../services/api/authentication.service"
 import {
   AuthActionTypes,
   LOGIN_FAILURE,
@@ -9,7 +9,7 @@ import {
   REGISTER_FAILURE,
   REGISTER_REQUEST,
   REGISTER_SUCCESS
-} from "../types/auth.type"
+} from "./auth.type"
 import { Dispatch } from "redux"
 
 function loginResquest(): AuthActionTypes {

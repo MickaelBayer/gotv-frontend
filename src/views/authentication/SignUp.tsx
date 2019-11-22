@@ -5,8 +5,8 @@ import '../../styles/views/signup.scss';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { bindActionCreators, Dispatch } from 'redux';
-import { AuthActionTypes } from '../../store/types/auth.type';
-import { register } from '../../store/actions/auth.action';
+import { AuthActionTypes } from '../../store/modules/auth/auth.type';
+import { register } from '../../store/modules/auth/auth.action';
 import { connect } from 'react-redux';
 import { IUser } from '../../models/user.model';
 

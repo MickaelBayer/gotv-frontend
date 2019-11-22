@@ -1,6 +1,6 @@
-import { IAuth } from './../../models/auth.model';
-import { AuthActionTypes, LOGIN_SUCCESS, REGISTER_SUCCESS } from './../types/auth.type';
-import { AppState } from '..';
+import { IAuth } from '../../../models/auth.model';
+import { AuthActionTypes, LOGIN_SUCCESS, REGISTER_SUCCESS } from './auth.type';
+import { AppState } from '../..';
 
 const initialAuthState: IAuth = {
   access_token: "",

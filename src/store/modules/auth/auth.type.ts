@@ -1,4 +1,4 @@
-import { IAuth } from "../../models/auth.model";
+import { IAuth } from "../../../models/auth.model";
 
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
