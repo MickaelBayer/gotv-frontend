@@ -9,7 +9,7 @@ export interface IUser {
   password: string;
   usr_firstname: string;
   usr_lastname: string;
-  usr_active: string;
+  usr_active: number;
   usr_role: Role;
   usr_subscription: Subscription;
   usr_votes: Vote[];
@@ -22,7 +22,7 @@ export class User implements IUser {
   readonly password: string;
   readonly usr_firstname: string;
   readonly usr_lastname: string;
-  readonly usr_active: string;
+  readonly usr_active: number;
   readonly usr_role: Role;
   readonly usr_subscription: Subscription;
   readonly usr_votes: Vote[];
@@ -32,7 +32,7 @@ export class User implements IUser {
     password: string,
     usr_firstname: string,
     usr_lastname: string,
-    usr_active: string,
+    usr_active: number,
     usr_role: Role,
     usr_subscription: Subscription,
     usr_votes: Vote[]) {
