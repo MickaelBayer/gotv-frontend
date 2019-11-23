@@ -10,8 +10,9 @@ import SerieService from "../../services/api/entities/serie.service";
 import { Chip } from "@material-ui/core";
 import { Rating } from '@material-ui/lab';
 import Carousel from "react-multi-carousel";
+import { IUser } from "../../models/user.model";
 
-const SerieDetail: React.FunctionComponent = () => {
+const SerieDetail: React.FunctionComponent<{ user: IUser }> = (props) => {
 	let { see_id } = useParams();
 	const initialStateSerieVideo: ISerieVideo[] = [new SerieVideo("", "", "", "")];
 	const initialStateSerie: ISerie = { see_id: 1, see_name: "", see_tmdb_id: 1, see_poster_path: "", see_overview: "", see_backdrop_path: "", see_first_air_date: "", see_original_country: "", see_original_lang: "", see_categories: [], see_votes: [] };
@@ -33,6 +34,7 @@ const SerieDetail: React.FunctionComponent = () => {
 				setSerieVideos(res);
 			})
 			setSerie(res);
+			console.log(props.user);
 		})
 	}
 
