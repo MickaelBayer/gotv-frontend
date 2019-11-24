@@ -15,13 +15,13 @@ const Footer: React.FunctionComponent = () => {
                 <Container>
                     <Row>
                         <Col>
-                            <NavLink to="/" className="linkNav">Qui sommes nous ?</NavLink>
+                            <NavLink to="/" className="linkNav-foot">Qui sommes nous ?</NavLink>
                         </Col>
                         <Col>
-                            <NavLink to="/contact" className="linkNav">Nous contacter</NavLink>
+                            <NavLink to="/contact" className="linkNav-foot">Nous contacter</NavLink>
                         </Col>
                         <Col>
-                            <NavLink to="/" className="linkNav">Mentions légales</NavLink>
+                            <NavLink to="/" className="linkNav-foot">Mentions légales</NavLink>
                         </Col>
                     </Row>
                     <Row>

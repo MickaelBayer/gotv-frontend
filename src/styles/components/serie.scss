@@ -13,7 +13,7 @@
   .info-serie {
     position: absolute;
     opacity: 0;
-    width: 100%;
+    width: 100vw;
     transition: opacity .3s;
     bottom: 0;
     color: white;
@@ -35,7 +35,7 @@
     display: block;
     position: absolute;
     height: 0%;
-    width: 100%;
+    width: 100vw;
     border-radius: 10px;
     bottom: 0;
     transition: height 0.1s ease-out;
@@ -79,7 +79,7 @@
   iframe {
     left: 0;
     margin-left: 0;
-    width: 100%;
+    width: 100vw;
     opacity: 1;
     border: none;
   }
