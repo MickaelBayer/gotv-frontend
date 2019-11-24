@@ -10,7 +10,7 @@ import { getConfig } from "../../config";
  * @template T
  */
 export default class ApiManagerService<T> {
-	private BASE_URL: string = getConfig("GOTVSERIES_ADRESS");
+	protected BASE_URL: string = getConfig("GOTVSERIES_ADRESS");
 
 	/**
 	 *Creates an instance of ApiManagerService.
@@ -19,7 +19,7 @@ export default class ApiManagerService<T> {
 	 * http://localhost/users < le endpoint est "users"
 	 * @memberof ApiManagerService
 	 */
-	constructor(private endpoint: string) { }
+	constructor (protected endpoint: string) { }
 
 	public getAll(): Promise<T[]> {
 		return axios.get<T[]>(`${this.BASE_URL}/${this.endpoint}`)
@@ -28,8 +28,8 @@ export default class ApiManagerService<T> {
 			})
 	}
 
-	public get(id: number): Promise<T[]> {
-		return axios.get<T[]>(`${this.BASE_URL}/${this.endpoint}/${id}`)
+	public get(id: number, ext: string = ""): Promise<T> {
+		return axios.get<T>(`${this.BASE_URL}/${this.endpoint}/${id}` + ext)
 			.then(data => {
 				return data.data;
 			})
