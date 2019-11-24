@@ -1,13 +1,4 @@
-html, body, #root, #root>div {
-  height: 100%
-}
-
-#root>div{
-  display: flex;
-  flex-direction: column;
-}
-
-.signin{
+.signin {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,63 +9,64 @@ html, body, #root, #root>div {
   width: 100vw;
 }
 
-.logoSignin{
+.logoSignin {
   margin-bottom: 2rem;
 }
 
-.titleConnexion{
+.titleConnexion {
   color: white;
   font-family: 'Arial', sans-serif;
   font-size: 1.7rem;
 }
 
-.formSignin{
+.formSignin {
   width: 25rem;
   max-width: 80%;
 }
 
-#pseudo, #password{
-  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+#pseudo,
+#password {
+  box-shadow: 0 .5rem 0.5rem rgba(0, 0, 0, .15) !important;
 }
 
-.forgetPwd{
+.forgetPwd {
   text-decoration: underline;
   font-size: 0.8rem;
   cursor: pointer;
   color: white;
 }
 
-a{
+a {
   color: white;
 }
 
-a:hover{
+a:hover {
   color: white;
 }
 
-.btnConnect{
+.btnConnect {
   background: #FEE066;
   color: #6B6B6B;
   border-radius: 0.8rem;
   font-weight: bold;
   border: none;
-  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.15)!important;
+  box-shadow: 0 .5rem 0.5rem rgba(0, 0, 0, .15) !important;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
 
-.btnConnect:active, .btnConnect:focus, .btnConnect:hover {
+.btnConnect:active,
+.btnConnect:focus,
+.btnConnect:hover {
   background: #FEE066 !important;
 }
 
-.signupLink{
+.signupLink {
   color: white;
   text-decoration: underline;
 }
 
-.signupLink:hover{
+.signupLink:hover {
   color: white;
   text-decoration: none;
 }
-
-
