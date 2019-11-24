@@ -1,4 +1,5 @@
-import axios from "axios";
+import { AuthenticationService } from './authentication.service';
+import axios, { AxiosInstance } from "axios";
 import { getConfig } from "../../config";
 
 /**
@@ -11,7 +12,6 @@ import { getConfig } from "../../config";
  */
 export default class ApiManagerService<T> {
 	protected BASE_URL: string = getConfig("GOTVSERIES_ADRESS");
-
 	/**
 	 *Creates an instance of ApiManagerService.
 	 * @param {string} endpoint le endpoint est la définition de la route.
@@ -19,7 +19,7 @@ export default class ApiManagerService<T> {
 	 * http://localhost/users < le endpoint est "users"
 	 * @memberof ApiManagerService
 	 */
-	constructor (protected endpoint: string) { }
+	constructor(protected endpoint: string) { }
 
 	public getAll(): Promise<T[]> {
 		return axios.get<T[]>(`${this.BASE_URL}/${this.endpoint}`)
@@ -35,8 +35,18 @@ export default class ApiManagerService<T> {
 			})
 	}
 
-	public post(): Promise<T[]> {
-		return axios.post<T[]>(`${this.BASE_URL}/${this.endpoint}`)
+	public post(data: {}, protect: boolean = false): Promise<T> {
+		if (protect) {
+			return axios.post<T>(`${this.BASE_URL}/${this.endpoint}`, data, {
+				headers: {
+					"Authorization": AuthenticationService.isAuth() ? AuthenticationService.getToken() : ""
+				}
+			})
+				.then(data => {
+					return data.data;
+				})
+		}
+		return axios.post<T>(`${this.BASE_URL}/${this.endpoint}`, data)
 			.then(data => {
 				return data.data;
 			})

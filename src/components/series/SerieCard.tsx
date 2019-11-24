@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const SeriesCard: React.FunctionComponent<{ serie: Serie }> = (props) => {
   return (
     <Col md={2.5}>
-      <Link to={`serie/${props.serie.see_id}`}>
+      <Link to={{ pathname: `serie/${props.serie.see_id}`, state: { serie: props.serie } }}>
         <div className="serie-card">
           <img src={props.serie.see_poster_path} className="img-gradiant"></img>
           <div className="info-serie">

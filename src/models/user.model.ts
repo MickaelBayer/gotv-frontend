@@ -1,6 +1,6 @@
 import { Subscription } from './subscription.model';
 import { Role } from './role.model';
-import { Vote } from './vote.model';
+import { IVote } from './vote.model';
 
 export interface IUser {
   usr_id: number;
@@ -12,7 +12,7 @@ export interface IUser {
   usr_active: number;
   usr_role: Role;
   usr_subscription: Subscription;
-  usr_votes: Vote[];
+  usr_votes: IVote[];
 }
 
 export class User implements IUser {
@@ -25,7 +25,7 @@ export class User implements IUser {
   readonly usr_active: number;
   readonly usr_role: Role;
   readonly usr_subscription: Subscription;
-  readonly usr_votes: Vote[];
+  readonly usr_votes: IVote[];
   constructor(usr_id: number,
     usr_pseudo: string,
     usr_email: string,
@@ -35,7 +35,7 @@ export class User implements IUser {
     usr_active: number,
     usr_role: Role,
     usr_subscription: Subscription,
-    usr_votes: Vote[]) {
+    usr_votes: IVote[]) {
     this.usr_id = usr_id;
     this.usr_pseudo = usr_pseudo;
     this.usr_email = usr_email;

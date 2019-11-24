@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, Spinner } from 'react-bootstrap/';
+import { Spinner } from 'react-bootstrap/';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import Contact from './components/Contact';
@@ -8,7 +8,7 @@ import Header from './components/Header';
 import Home from './components/home/Home';
 import PageNotFound from './components/PageNotFound';
 import SerieDetail from './components/series/SerieDetail';
-import { SeriesPage } from './components/series/SeriesPage';
+import SeriesPage from './components/series/SeriesPage';
 import Account from './views/authenticated/Account';
 import ForgetPassword from './views/authentication/ForgetPassword';
 import SignIn from './views/authentication/SignIn';
