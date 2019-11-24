@@ -1,14 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import SeriesCard from "./SerieCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { CatSerie } from "../../models/catSerie.model";
-import CatSerieService from "../../services/api/entities/catSerie.service";
+import { Dispatch, bindActionCreators } from "redux";
+import { CatSerieActionTypes } from "../../store/modules/catSerie/catSerie.type";
+import { AppState } from "../../store";
+import { getAllCatSeries } from "../../store/modules/catSerie/catSerie.action";
+import { Spinner } from "react-bootstrap";
+import { connect } from "react-redux";
 
-export const SeriesPage: React.FunctionComponent = (props) => {
-	const initialState: CatSerie[] = [{ cae_id: 1, cae_id_tmdb: 1, cae_label: "", cae_series: [] }]
-	const [catSeries, setCatSeries] = useState(initialState);
+const mapStateToProps = (state: AppState) => ({
+	catSeries: state.catSerie.catSeries,
+	isLoading: state.catSerie.isLoading
+})
 
+const mapDispatchToProps = (dispatch: Dispatch<CatSerieActionTypes>) => ({
+	getAllCatSeries: bindActionCreators(getAllCatSeries, dispatch)
+})
+
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+
+const SeriesPage: React.FunctionComponent<Props> = (props) => {
 	const responsive = {
 		desktop: {
 			breakpoint: { max: 3000, min: 1024 },
@@ -27,31 +39,29 @@ export const SeriesPage: React.FunctionComponent = (props) => {
 		},
 	};
 
-	async function fetchCatSeries() {
-		const catSerieService = new CatSerieService();
-		catSerieService.getAll().then(res => {
-			setCatSeries(res);
-		});
-	}
-
-	useEffect(() => { fetchCatSeries() }, [])
+	useEffect(() => {
+		props.getAllCatSeries();
+	}, []);
 
 	return (
 		<div className="container d-block">
-			{catSeries.filter(catserie => catserie.cae_series.length > 0).map((category, i) => {
-				return (
-					<React.Fragment key={i}>
-						<h1>{category.cae_label}</h1>
-						<Carousel responsive={responsive}>
-							{category.cae_series.map((serie, i) => {
-								return (
-									<SeriesCard serie={serie} key={i} />
-								)
-							})}
-						</Carousel>
-					</React.Fragment>
-				)
-			})}
+			{props.isLoading ? <Spinner animation="border" /> :
+				props.catSeries.filter(catserie => catserie.cae_series.length > 0).map((category, i) => {
+					return (
+						<React.Fragment key={i}>
+							<h1>{category.cae_label}</h1>
+							<Carousel responsive={responsive}>
+								{category.cae_series.map((serie, i) => {
+									return (
+										<SeriesCard serie={serie} key={i} />
+									)
+								})}
+							</Carousel>
+						</React.Fragment>
+					)
+				})}
 		</div>
 	);
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(SeriesPage);

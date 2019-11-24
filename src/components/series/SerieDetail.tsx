@@ -1,23 +1,22 @@
 import { Row, Col, Container } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import accountUser from "../../assets/user_account.png"
-import { useParams } from "react-router";
+import { useLocation } from "react-router";
 import Iframe from 'react-iframe';
 import { ISerieVideo, SerieVideo } from "../../models/serieVideo.model";
 import SerieVideoService from "../../services/api/entities/serieVideo.service";
-import { ISerie } from "../../models/serie.model";
-import SerieService from "../../services/api/entities/serie.service";
 import { Chip } from "@material-ui/core";
 import { Rating } from '@material-ui/lab';
 import Carousel from "react-multi-carousel";
 import { IUser } from "../../models/user.model";
+import { ISerie } from "../../models/serie.model";
 
 const SerieDetail: React.FunctionComponent<{ user: IUser }> = (props) => {
-	let { see_id } = useParams();
+	const serie: ISerie = useLocation().state.serie;
 	const initialStateSerieVideo: ISerieVideo[] = [new SerieVideo("", "", "", "")];
-	const initialStateSerie: ISerie = { see_id: 1, see_name: "", see_tmdb_id: 1, see_poster_path: "", see_overview: "", see_backdrop_path: "", see_first_air_date: "", see_original_country: "", see_original_lang: "", see_categories: [], see_votes: [] };
+	const initialStateVotes = { voe_usr_id: props.user.usr_id, voe_see_id: serie.see_id, voe_mark: 0, voe_comment: "" };
 	const [serieVideos, setSerieVideos] = useState(initialStateSerieVideo);
-	const [serie, setSerie] = useState(initialStateSerie);
+	const [votes, setVotes] = useState(initialStateVotes);
 
 	const responsive = {
 		desktop: {
@@ -27,19 +26,14 @@ const SerieDetail: React.FunctionComponent<{ user: IUser }> = (props) => {
 	};
 
 	async function fetchSerie() {
-		const serieService = new SerieService();
 		const serieVideoService = new SerieVideoService();
-		serieService.get(Number(see_id)).then(res => {
-			serieVideoService.getVideos(res.see_tmdb_id).then(res => {
-				setSerieVideos(res);
-			})
-			setSerie(res);
-			console.log(props.user);
+		serieVideoService.getVideos(serie.see_tmdb_id).then(res => {
+			setSerieVideos(res);
 		})
 	}
 
 	useEffect(() => {
-		fetchSerie();
+		fetchSerie()
 	}, [])
 
 	return (
