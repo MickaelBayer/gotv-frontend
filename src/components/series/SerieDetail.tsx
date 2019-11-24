@@ -3,19 +3,31 @@ import React, { useState, useEffect } from "react";
 import accountUser from "../../assets/user_account.png"
 import { useLocation } from "react-router";
 import Iframe from 'react-iframe';
-import { ISerieVideo, SerieVideo } from "../../models/serieVideo.model";
-import SerieVideoService from "../../services/api/entities/serieVideo.service";
 import { Chip } from "@material-ui/core";
 import { Rating } from '@material-ui/lab';
 import Carousel from "react-multi-carousel";
 import { IUser } from "../../models/user.model";
 import { ISerie } from "../../models/serie.model";
+import { AppState } from "../../store";
+import { Dispatch, bindActionCreators } from "redux";
+import { SerieVideoActionTypes } from "../../store/modules/serieVideo/serieVideo.type";
+import { getSerieVideos } from "../../store/modules/serieVideo/serieVideo.action";
+import { connect } from "react-redux";
 
-const SerieDetail: React.FunctionComponent<{ user: IUser }> = (props) => {
+const mapStateToProps = (state: AppState) => ({
+	serieVideos: state.serieVideo.serieVideos,
+	isLoading: state.serieVideo.isLoading
+})
+
+const mapDispatchToProps = (dispatch: Dispatch<SerieVideoActionTypes>) => ({
+	getSerieVideos: bindActionCreators(getSerieVideos, dispatch)
+})
+
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps> & { user: IUser };
+
+const SerieDetail: React.FunctionComponent<Props> = (props) => {
 	const serie: ISerie = useLocation().state.serie;
-	const initialStateSerieVideo: ISerieVideo[] = [new SerieVideo("", "", "", "")];
 	const initialStateVotes = { voe_usr_id: props.user.usr_id, voe_see_id: serie.see_id, voe_mark: 0, voe_comment: "" };
-	const [serieVideos, setSerieVideos] = useState(initialStateSerieVideo);
 	const [votes, setVotes] = useState(initialStateVotes);
 
 	const responsive = {
@@ -33,8 +45,8 @@ const SerieDetail: React.FunctionComponent<{ user: IUser }> = (props) => {
 	}
 
 	useEffect(() => {
-		fetchSerie()
-	}, [])
+		props.getSerieVideos(serie.see_tmdb_id);
+	}, []);
 
 	return (
 		<React.Fragment>
@@ -42,11 +54,12 @@ const SerieDetail: React.FunctionComponent<{ user: IUser }> = (props) => {
 				<Container>
 					<div className="header-player">
 						<Carousel responsive={responsive}>
-							{serieVideos.filter(serieVideo => serieVideo.type === "Trailer").map((serieVideo, i) => {
-								return (
-									<Iframe url={`http://www.youtube.com/embed/${serieVideo.key}?enablejsapi=1`} width="640px" height="560px" key={i} />
-								)
-							})}
+							{props.isLoading ? <Spinner animation="border" /> :
+								props.serieVideos.filter(serieVideo => serieVideo.type === "Trailer").map((serieVideo, i) => {
+									return (
+										<Iframe url={`http://www.youtube.com/embed/${serieVideo.key}?enablejsapi=1`} width="640px" height="560px" key={i} />
+									)
+								})}
 						</Carousel>
 					</div>
 					<h1 className="title title-serie">{serie.see_name}</h1>
@@ -87,4 +100,4 @@ const SerieDetail: React.FunctionComponent<{ user: IUser }> = (props) => {
 	);
 }
 
-export default SerieDetail;
+export default connect(mapStateToProps, mapDispatchToProps)(SerieDetail);

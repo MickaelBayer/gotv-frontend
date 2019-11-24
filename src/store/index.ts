@@ -1,3 +1,4 @@
+import { serieVideo } from './modules/serieVideo/serieVideo.reducer';
 import { serie } from './modules/serie/serie.reducer';
 import { catSerie } from './modules/catSerie/catSerie.reducer';
 import { combineReducers, createStore, applyMiddleware } from 'redux'
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
   auth,
   catSerie,
   serie,
+  serieVideo,
   user
 })
 
