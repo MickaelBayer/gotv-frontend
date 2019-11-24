@@ -40,7 +40,7 @@ const App: React.FunctionComponent<Props> = (props) => {
 
   return (
     <Router>
-      <Container>
+      <Container id="main">
         <Header />
         {props.isLoading && AuthenticationService.isAuth() ? <Spinner animation="border" /> :
           <Switch>
