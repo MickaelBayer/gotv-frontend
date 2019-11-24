@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, Spinner } from 'react-bootstrap/';
+import { Spinner } from 'react-bootstrap/';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import Contact from './components/Contact';

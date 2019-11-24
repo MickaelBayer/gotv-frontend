@@ -1,6 +1,6 @@
-import { Row, Col, Container } from "react-bootstrap";
-import React, { useState, useEffect } from "react";
-import accountUser from "../../assets/user_account.png"
+import { Row, Col, Container, Button, Modal, Spinner, Form } from "react-bootstrap";
+import React, { useState, useEffect, ChangeEvent } from "react";
+import accountUser from "../../assets/user_account.png";
 import { useLocation } from "react-router";
 import Iframe from 'react-iframe';
 import { Chip } from "@material-ui/core";
@@ -13,6 +13,8 @@ import { Dispatch, bindActionCreators } from "redux";
 import { SerieVideoActionTypes } from "../../store/modules/serieVideo/serieVideo.type";
 import { getSerieVideos } from "../../store/modules/serieVideo/serieVideo.action";
 import { connect } from "react-redux";
+import { postVote } from "../../store/modules/vote/vote.action";
+import { AuthenticationService } from "../../services/api/authentication.service";
 
 const mapStateToProps = (state: AppState) => ({
 	serieVideos: state.serieVideo.serieVideos,
@@ -20,15 +22,21 @@ const mapStateToProps = (state: AppState) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<SerieVideoActionTypes>) => ({
-	getSerieVideos: bindActionCreators(getSerieVideos, dispatch)
+	getSerieVideos: bindActionCreators(getSerieVideos, dispatch),
+	postVote: bindActionCreators(postVote, dispatch)
 })
 
 type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps> & { user: IUser };
 
 const SerieDetail: React.FunctionComponent<Props> = (props) => {
 	const serie: ISerie = useLocation().state.serie;
-	const initialStateVotes = { voe_usr_id: props.user.usr_id, voe_see_id: serie.see_id, voe_mark: 0, voe_comment: "" };
-	const [votes, setVotes] = useState(initialStateVotes);
+	const initialStateVotes = { voe_usr_id: props.user.usr_id, voe_see_id: serie.see_id, voe_comment: "" };
+	const [vote, setVotes] = useState(initialStateVotes);
+	const [votemark, setVotesMark] = useState({ voe_mark: 0 });
+	const [show, setShow] = useState(false);
+
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
 
 	const responsive = {
 		desktop: {
@@ -37,11 +45,24 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 		}
 	};
 
-	async function fetchSerie() {
-		const serieVideoService = new SerieVideoService();
-		serieVideoService.getVideos(serie.see_tmdb_id).then(res => {
-			setSerieVideos(res);
-		})
+	const handleChange = (field: string) => (event: ChangeEvent<any>) => {
+		event.preventDefault()
+		if (field == "voe_mark") {
+			setVotesMark({ voe_mark: Number(event.target.value) } as any);
+		} else {
+			setVotes({ [field]: event.target.value } as any);
+		}
+	}
+
+	const handleSubmit = async (event: any) => {
+		event.preventDefault();
+		props.postVote({
+			voe_see_id: serie.see_id,
+			voe_usr_id: props.user.usr_id,
+			voe_comment: vote.voe_comment,
+			voe_mark: votemark.voe_mark
+		});
+		handleClose();
 	}
 
 	useEffect(() => {
@@ -69,10 +90,46 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 				<Row>
 					<Col>
 						<div className="d-flex align-items-center my-3">
-							<Rating value={5} readOnly className="mr-3" />
+							<Rating value={5} readOnly className="mr-2" />
 							{serie.see_categories.map((categorie, i) => {
-								return (<Chip size="small" key={i} label={categorie.cae_label} className="details-chip" />)
+								return (<Chip size="small" key={i} label={categorie.cae_label} className="details-chip mr-1" />)
 							})}
+							{AuthenticationService.isAuth() &&
+								<React.Fragment>
+									<Button variant="primary" onClick={handleShow} className="btnVote">
+										Voter
+									</Button>
+									<Modal show={show} onHide={handleClose}>
+										<Modal.Header closeButton>
+											<Modal.Title>Voter pour {serie.see_name}</Modal.Title>
+										</Modal.Header>
+										<Modal.Body>
+											<Form>
+												<Form.Group>
+													<Form.Label>Note :</Form.Label>
+													<div>
+														<Rating value={votemark.voe_mark} name="simple-controlled"
+															onChange={handleChange("voe_mark")} />
+													</div>
+												</Form.Group>
+												<Form.Group>
+													<Form.Label>Commentaires :</Form.Label>
+													<Form.Control
+														as="textarea"
+														value={vote.voe_comment}
+														onChange={handleChange("voe_comment")}
+													/>
+												</Form.Group>
+											</Form>
+										</Modal.Body>
+										<Modal.Footer>
+											<Button type="submit" className="btnVote" onClick={handleSubmit}>
+												Voter !
+										</Button>
+										</Modal.Footer>
+									</Modal>
+								</React.Fragment>
+							}
 						</div>
 						<p>{serie.see_overview}</p>
 					</Col>

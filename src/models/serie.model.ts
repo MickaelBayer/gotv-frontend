@@ -1,5 +1,5 @@
 import { CatSerie } from './catSerie.model';
-import { Vote } from './vote.model';
+import { IVote } from './vote.model';
 
 export interface ISerie {
     see_id: number;
@@ -12,7 +12,7 @@ export interface ISerie {
     see_poster_path: string;
     see_backdrop_path: string;
     see_categories: CatSerie[];
-    see_votes: Vote[];
+    see_votes: IVote[];
 }
 
 export class Serie implements ISerie {
@@ -27,9 +27,9 @@ export class Serie implements ISerie {
     readonly see_poster_path: string;
     readonly see_backdrop_path: string;
     readonly see_categories: CatSerie[];
-    readonly see_votes: Vote[];
+    readonly see_votes: IVote[];
 
-    constructor (
+    constructor(
         see_id: number,
         see_name: string,
         see_tmdb_id: number,
@@ -40,7 +40,7 @@ export class Serie implements ISerie {
         see_poster_path: string,
         see_backdrop_path: string,
         see_categories: CatSerie[],
-        see_votes: Vote[]
+        see_votes: IVote[]
     ) {
         this.see_id = see_id;
         this.see_name = see_name;

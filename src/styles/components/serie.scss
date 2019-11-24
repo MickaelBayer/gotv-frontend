@@ -151,3 +151,20 @@
     margin: 1rem 0;
   }
 }
+
+.btnVote {
+  background: #FEE066;
+  color: #6B6B6B;
+  border-radius: 0.8rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 .5rem 0.5rem rgba(0, 0, 0, .15) !important;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background: #FEE066 !important;
+  }
+}

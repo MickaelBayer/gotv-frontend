@@ -38,4 +38,8 @@ export class AuthenticationService {
   public static isAuth() {
     return Cookie.get("x-token") !== undefined;
   }
+
+  public static getToken(): string {
+    return Cookie.get("x-token") as string;
+  }
 }
