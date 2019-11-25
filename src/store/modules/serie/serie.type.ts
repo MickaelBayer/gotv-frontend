@@ -1,26 +1,13 @@
 import { ISerie } from "../../../models/serie.model";
-
-export const GETALL_SERIE_REQUEST = "GETALL_SERIE_REQUEST";
-export const GETALL_SERIE_SUCCESS = "GETALL_SERIE_SUCCESS";
-export const GETALL_SERIE_FAILURE = "GETALL_SERIE_FAILURE";
+import { IVote } from "../../../models/vote.model";
 
 export const GET_SERIE_REQUEST = "GET_SERIE_REQUEST";
 export const GET_SERIE_SUCCESS = "GET_SERIE_SUCCESS";
 export const GET_SERIE_FAILURE = "GET_SERIE_FAILURE";
 
-interface GetAllSerieSuccessAction {
-  type: typeof GETALL_SERIE_SUCCESS;
-  series: ISerie[];
-}
-
-interface GetAllSerieRequestAction {
-  type: typeof GETALL_SERIE_REQUEST;
-}
-
-interface GetAllSerieFailureAction {
-  type: typeof GETALL_SERIE_FAILURE;
-  error: string;
-}
+export const POST_SERIEVOTE_REQUEST = "POST_SERIEVOTE_REQUEST";
+export const POST_SERIEVOTE_SUCCESS = "POST_SERIEVOTE_SUCCESS";
+export const POST_SERIEVOTE_FAILURE = "POST_SERIEVOTE_FAILURE";
 
 interface GetSerieSuccessAction {
   type: typeof GET_SERIE_SUCCESS;
@@ -36,4 +23,18 @@ interface GetSerieFailureAction {
   error: string;
 }
 
-export type SerieActionTypes = GetAllSerieSuccessAction | GetAllSerieRequestAction | GetAllSerieFailureAction | GetSerieSuccessAction | GetSerieRequestAction | GetSerieFailureAction;
+interface PostSerieVoteSuccessAction {
+  type: typeof POST_SERIEVOTE_SUCCESS;
+  vote: IVote;
+}
+
+interface PostSerieVoteRequestAction {
+  type: typeof POST_SERIEVOTE_REQUEST;
+}
+
+interface PostSerieVoteFailureAction {
+  type: typeof POST_SERIEVOTE_FAILURE;
+  error: string;
+}
+
+export type SerieActionTypes = GetSerieSuccessAction | GetSerieRequestAction | GetSerieFailureAction | PostSerieVoteSuccessAction | PostSerieVoteRequestAction | PostSerieVoteFailureAction;
