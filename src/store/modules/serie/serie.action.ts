@@ -1,35 +1,17 @@
 import { ISerie } from '../../../models/serie.model';
 import {
   SerieActionTypes,
-  GETALL_SERIE_REQUEST,
-  GETALL_SERIE_SUCCESS,
-  GETALL_SERIE_FAILURE,
   GET_SERIE_REQUEST,
   GET_SERIE_SUCCESS,
-  GET_SERIE_FAILURE
+  GET_SERIE_FAILURE,
+  POST_SERIEVOTE_REQUEST,
+  POST_SERIEVOTE_SUCCESS,
+  POST_SERIEVOTE_FAILURE
 } from './serie.type';
 import { Dispatch } from 'redux';
 import SerieService from '../../../services/api/entities/serie.service';
-
-function getAllSeriesResquest(): SerieActionTypes {
-  return {
-    type: GETALL_SERIE_REQUEST,
-  }
-}
-
-function getAllSeriesSuccess(series: ISerie[]): SerieActionTypes {
-  return {
-    type: GETALL_SERIE_SUCCESS,
-    series: series
-  }
-}
-
-function getAllSeriesFailure(error: string): SerieActionTypes {
-  return {
-    type: GETALL_SERIE_FAILURE,
-    error: error,
-  }
-}
+import { IVote } from '../../../models/vote.model';
+import VoteService from '../../../services/api/entities/vote.service';
 
 function getSerieResquest(): SerieActionTypes {
   return {
@@ -51,13 +33,23 @@ function getSerieFailure(error: string): SerieActionTypes {
   }
 }
 
-export const getAllSeries = () => {
-  const serieService: SerieService = new SerieService();
-  return (dispatch: Dispatch<SerieActionTypes>) => {
-    dispatch(getAllSeriesResquest());
-    return serieService.getAll().then(res => {
-      dispatch(getAllSeriesSuccess(res));
-    }).catch((error) => dispatch(getAllSeriesFailure(error)));
+function postSerieVoteResquest(): SerieActionTypes {
+  return {
+    type: POST_SERIEVOTE_REQUEST,
+  }
+}
+
+function postSerieVoteSuccess(vote: IVote): SerieActionTypes {
+  return {
+    type: POST_SERIEVOTE_SUCCESS,
+    vote: vote
+  }
+}
+
+function postSerieVoteFailure(error: string): SerieActionTypes {
+  return {
+    type: POST_SERIEVOTE_FAILURE,
+    error: error,
   }
 }
 
@@ -66,8 +58,18 @@ export const getSerie = (id: number) => {
   return (dispatch: Dispatch<SerieActionTypes>) => {
     dispatch(getSerieResquest());
     return serieService.get(id).then(res => {
-      console.log(res);
       dispatch(getSerieSuccess(res));
     }).catch((error) => dispatch(getSerieFailure(error)));
+  }
+}
+
+export const postSerieVote = (data: {}) => {
+  const voteService: VoteService = new VoteService();
+  return (dispatch: Dispatch<SerieActionTypes>) => {
+    dispatch(postSerieVoteResquest());
+    return voteService.post(data, true).then(res => {
+      console.log(res);
+      dispatch(postSerieVoteSuccess(res));
+    }).catch((error) => dispatch(postSerieVoteFailure(error.response.data)));
   }
 }
