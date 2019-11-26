@@ -40,22 +40,23 @@ const App: React.FunctionComponent<Props> = (props) => {
 
   return (
     <Router>
-      <Header />
-      {props.isLoading && AuthenticationService.isAuth() ? <Spinner animation="border" /> :
-        <div className='fix-100vw'>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/series' component={SeriesPage} />
-            <Route path="/serie/:see_id" render={() => <SerieDetail user={props.user} />} />
-            <Route path='/signin' component={SignIn} />
-            <Route path='/signup' component={SignUp} />
-            <Route path='/contact' component={Contact} />
-            <Route path='/resetpwd' component={ForgetPassword} />
-            <Route path='/account' component={Account} />
-            <Route component={PageNotFound} />
-          </Switch>
-        </div>}
-      <Footer />
+      <Container className="remove-all-margin-padding">
+        <Header />
+        {props.isLoading && AuthenticationService.isAuth() ? <Spinner animation="border" /> :
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/series' component={SeriesPage} />
+              <Route path="/serie/:see_id" render={() => <SerieDetail user={props.user} />} />
+              <Route path='/signin' component={SignIn} />
+              <Route path='/signup' component={SignUp} />
+              <Route path='/contact' component={Contact} />
+              <Route path='/resetpwd' component={ForgetPassword} />
+              <Route path='/account' component={Account} />
+              <Route component={PageNotFound} />
+            </Switch>
+          }
+        <Footer />
+      </Container>
     </Router>
   )
 }

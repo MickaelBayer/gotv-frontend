@@ -2,8 +2,9 @@ import React from "react";
 import Slider from "../Slider";
 import "../../styles/components/home.scss";
 import winner from "../../assets/winner.png"
-import hexagones from "../../assets/hexagones.svg"
+import hexagone from "../../assets/hexagone.svg"
 import experts from "../../assets/experts.png"
+import { Container, Row, Col } from "react-bootstrap"
 
 const serie1 = {
     id: 1,
@@ -32,7 +33,7 @@ const serie4 = {
 
 const my_series = [serie1, serie2, serie3, serie4];
 
-const map = new DOMParser().parseFromString(hexagones, 'text/xml').getElementsByTagName('svg')[0]
+const map = new DOMParser().parseFromString(hexagone, 'text/xml').getElementsByTagName('svg')[0]
 console.log(map);
 
 export default class Home extends React.Component {
@@ -53,11 +54,27 @@ export default class Home extends React.Component {
                         </p>
                         <br />
                     </div>
-                    <div className="top10_2" id="hexa">
-                        <br />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit sed ipsum non finibus. Nulla lacinia sapien mollis turpis condimentum volutpat. Morbi finibus lectus est, eu ultrices leo molestie et. Donec orci ante, ornare eu neque vel, volutpat ultricies risus. Ut eleifend sem in volutpat dapibus. Curabitur vel ultrices tellus, at tristique augue. Nunc ornare mi lorem, eget molestie tellus volutpat consectetur. Cras condimentum, ex finibus tincidunt suscipit, nisl justo dignissim nisl, sit amet condimentum diam elit sagittis sapien. Aenean pulvinar ante dui, sollicitudin sollicitudin ligula interdum a. Proin quis urna ac sem rhoncus rutrum. Sed aliquam ex dui, eget dignissim mi mattis quis. In tortor velit, finibus nec dictum in, sollicitudin sit amet metus. Morbi a tellus accumsan nisi pharetra pulvinar ac in lectus. Quisque enim lacus, iaculis sed venenatis ut, facilisis in arcu. Aliquam eleifend orci a tortor ultricies ullamcorper.
-                        <br />
-                        <br />
+                    <div className="top10_2">
+                        <Container>
+                            <Row className="row_top10_2">
+                                <img src={serie1.urlImgage} className="img-overlay-wrap"/>
+                                <img src={serie2.urlImgage} className="img-overlay-wrap"/>
+                            </Row>
+                            <Row className="row_top10_2">
+                                <img src={serie3.urlImgage} className="img-overlay-wrap"/>
+                                <img src={serie1.urlImgage} className="img-overlay-wrap"/>
+                                <img src={serie4.urlImgage} className="img-overlay-wrap"/>
+                            </Row>
+                            <Row className="row_top10_2">
+                                <img src={serie1.urlImgage} className="img-overlay-wrap"/>
+                                <img src={serie2.urlImgage} className="img-overlay-wrap"/>
+                                <img src={serie3.urlImgage} className="img-overlay-wrap"/>
+                                <img src={serie4.urlImgage} className="img-overlay-wrap"/>
+                            </Row>
+                            <Row className="row_top10_2">
+                                <img src={serie4.urlImgage} className="img-overlay-wrap"/>
+                            </Row>
+                        </Container>
                     </div>
                     <div className="expert-triangle-top"></div>
                     <div className="expert_panel">
