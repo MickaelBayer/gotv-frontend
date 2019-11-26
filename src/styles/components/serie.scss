@@ -13,7 +13,7 @@
   .info-serie {
     position: absolute;
     opacity: 0;
-    width: 100vw;
+    width: 100%;
     transition: opacity .3s;
     bottom: 0;
     color: white;
@@ -35,7 +35,7 @@
     display: block;
     position: absolute;
     height: 0%;
-    width: 100vw;
+    width: 100%;
     border-radius: 10px;
     bottom: 0;
     transition: height 0.1s ease-out;
@@ -167,4 +167,8 @@
   &:hover {
     background: #FEE066 !important;
   }
+}
+
+.MuiChip-colorSecondary {
+  background-color: #17a2b8;
 }
