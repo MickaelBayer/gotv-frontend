@@ -3,7 +3,7 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import accountUser from "../../assets/user_account.png";
 import { useParams, useLocation } from "react-router";
 import Iframe from 'react-iframe';
-import { Chip } from "@material-ui/core";
+import { Chip, Tooltip, makeStyles } from "@material-ui/core";
 import { Rating } from '@material-ui/lab';
 import Carousel from "react-multi-carousel";
 import { IUser } from "../../models/user.model";
@@ -16,6 +16,18 @@ import { AuthenticationService } from "../../services/api/authentication.service
 import { SerieActionTypes } from "../../store/modules/serie/serie.type";
 import { postSerieVote, getSerie } from "../../store/modules/serie/serie.action";
 import { ISerie } from "../../models/serie.model";
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+
+const useStyles = makeStyles({
+	root: {
+		borderRadius: "inherit",
+		marginRight: "10px",
+		boxShadow: "0 .5rem 0.5rem rgba(0, 0, 0, .15)"
+	},
+	colorSecondary: {
+		backgroundColor: "#B40C25",
+	},
+});
 
 const mapStateToProps = (state: AppState) => ({
 	serieVideos: state.serieVideo.serieVideos,
@@ -41,6 +53,7 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+	const classes = useStyles();
 
 	const responsive = {
 		desktop: {
@@ -95,7 +108,11 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 				<Row>
 					<Col>
 						<div className="d-flex align-items-center my-3">
-							<Rating value={5} readOnly className="mr-2" />
+							{props.serie.see_average_mark > 0 ? <Tooltip title={props.serie.see_average_mark}>
+								<div>
+									<Rating value={props.serie.see_average_mark} precision={0.5} readOnly className="mr-2" />
+								</div>
+							</Tooltip> : <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
 							{props.serie.see_categories.map((categorie, i) => {
 								return (<Chip size="small" key={i} label={categorie.cae_label} className="details-chip mr-1" />)
 							})}

@@ -11,6 +11,7 @@ export interface ISerie {
     see_overview: string;
     see_poster_path: string;
     see_backdrop_path: string;
+    see_average_mark: number;
     see_categories: CatSerie[];
     see_votes: IVote[];
 }
@@ -26,10 +27,11 @@ export class Serie implements ISerie {
     readonly see_overview: string;
     readonly see_poster_path: string;
     readonly see_backdrop_path: string;
+    readonly see_average_mark: number;
     readonly see_categories: CatSerie[];
     readonly see_votes: IVote[];
 
-    constructor(
+    constructor (
         see_id: number,
         see_name: string,
         see_tmdb_id: number,
@@ -39,6 +41,7 @@ export class Serie implements ISerie {
         see_overview: string,
         see_poster_path: string,
         see_backdrop_path: string,
+        see_average_mark: number,
         see_categories: CatSerie[],
         see_votes: IVote[]
     ) {
@@ -51,6 +54,7 @@ export class Serie implements ISerie {
         this.see_overview = see_overview;
         this.see_poster_path = see_poster_path;
         this.see_backdrop_path = see_backdrop_path;
+        this.see_average_mark = see_average_mark;
         this.see_categories = see_categories;
         this.see_votes = see_votes;
     }

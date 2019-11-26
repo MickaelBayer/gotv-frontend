@@ -14,6 +14,7 @@ const initialCatSerieState = {
     see_first_air_date: "",
     see_original_country: "",
     see_original_lang: "",
+    see_average_mark: 0,
     see_categories: [] as ICatSerie[],
     see_votes: [] as IVote[]
   } as ISerie,
