@@ -53,6 +53,7 @@ class SignIn extends React.Component<Props, LoginState> {
           <Form.Group controlId="usr_pseudo">
             <Form.Label>Pseudo:</Form.Label>
             <Form.Control
+              required
               type="text"
               placeholder="Pseudo"
               value={this.state.usr_pseudo}
@@ -61,6 +62,7 @@ class SignIn extends React.Component<Props, LoginState> {
           <Form.Group controlId="password">
             <Form.Label>Mot de passe:</Form.Label>
             <Form.Control
+              required
               type="password"
               placeholder="Mot de passe"
               value={this.state.password}

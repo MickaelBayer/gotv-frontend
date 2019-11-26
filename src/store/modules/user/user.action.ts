@@ -33,6 +33,6 @@ export const getUserInfo = () => {
     const payload: any = jwt_decode(token);
     return userService.get(payload.id).then(res => {
       dispatch(getUserInfoSuccess(res));
-    }).catch((error) => dispatch(getUserInfoFailure(error)));
+    }).catch((error) => dispatch(getUserInfoFailure(error.response.data)));
   }
 }
