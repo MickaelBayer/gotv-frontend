@@ -19,7 +19,9 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { getUserInfo } from './store/modules/user/user.action';
 import { connect } from 'react-redux';
 import { AppState } from './store';
-import { Container } from 'react-bootstrap'
+import { Container } from 'react-bootstrap';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const mapStateToProps = (state: AppState) => ({
   user: state.user.user,
@@ -43,19 +45,20 @@ const App: React.FunctionComponent<Props> = (props) => {
     <Router>
       <Container className="remove-all-margin-padding">
         <Header />
+        <ToastContainer hideProgressBar draggable={false} />
         {props.isLoading && AuthenticationService.isAuth() ? <Spinner animation="border" /> :
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/series' component={SeriesPage} />
-              <Route path="/serie/:see_id" render={() => <SerieDetail user={props.user} />} />
-              <Route path='/signin' component={SignIn} />
-              <Route path='/signup' component={SignUp} />
-              <Route path='/contact' component={Contact} />
-              <Route path='/resetpwd' component={ForgetPassword} />
-              <Route path='/account' component={Account} />
-              <Route component={PageNotFound} />
-            </Switch>
-          }
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/series' component={SeriesPage} />
+            <Route path="/serie/:see_id" render={() => <SerieDetail user={props.user} />} />
+            <Route path='/signin' component={SignIn} />
+            <Route path='/signup' component={SignUp} />
+            <Route path='/contact' component={Contact} />
+            <Route path='/resetpwd' component={ForgetPassword} />
+            <Route path='/account' component={Account} />
+            <Route component={PageNotFound} />
+          </Switch>
+        }
         <Footer />
       </Container>
     </Router>

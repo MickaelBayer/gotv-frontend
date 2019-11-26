@@ -11,6 +11,7 @@ import {
   REGISTER_SUCCESS
 } from "./auth.type"
 import { Dispatch } from "redux"
+import { toast } from "react-toastify"
 
 function loginResquest(): AuthActionTypes {
   return {
@@ -58,7 +59,17 @@ export const login = (username: string, password: string) => {
     dispatch(loginResquest());
     return authService.login(username, password).then(res => {
       dispatch(loginSuccess(res));
-    }).catch((error) => dispatch(loginFailure(error)));
+      toast.success(`Vous être connecté ${username}`);
+    }).catch((error) => {
+      if (error.response.status == 401) {
+        toast.error(`Mauvais identifiant ou mot de passe`);
+      } else if (error.response.status == 403) {
+        toast.error(`Vote compte est désactivé...`);
+      } else {
+        toast.error(`Erreur serveur !`);
+      }
+      dispatch(loginFailure(error.response))
+    });
   }
 }
 
@@ -68,6 +79,16 @@ export const register = (user: IUser) => {
     dispatch(registerResquest());
     return authService.register(user).then(res => {
       dispatch(registerSuccess(res));
-    }).catch((error) => dispatch(registerFailure(error)));
+      toast.success(`Vous être enregistré ${user.usr_pseudo}`);
+    }).catch((error) => {
+      if (error.response.status == 409) {
+        toast.error(`L'email ou le pseudo existe déjà...`);
+      } else if (error.response.status == 422) {
+        toast.error(`Un champ est non renseigné...`);
+      } else {
+        toast.error(`Erreur serveur !`);
+      }
+      dispatch(registerFailure(error.response.data))
+    });
   }
 }

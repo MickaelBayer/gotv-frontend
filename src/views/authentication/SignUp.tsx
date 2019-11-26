@@ -66,6 +66,7 @@ class SignUp extends React.Component<Props, RegisterState> {
           <Form.Group controlId="usr_firstname">
             <Form.Label>Prénom:</Form.Label>
             <Form.Control
+              required
               type="text"
               placeholder="Prénom"
               value={this.state.usr_firstname}
@@ -77,6 +78,7 @@ class SignUp extends React.Component<Props, RegisterState> {
           <Form.Group controlId="usr_lastname">
             <Form.Label>Nom:</Form.Label>
             <Form.Control
+              required
               type="text"
               placeholder="Nom"
               value={this.state.usr_lastname}
@@ -88,6 +90,7 @@ class SignUp extends React.Component<Props, RegisterState> {
           <Form.Group controlId="usr_pseudo">
             <Form.Label>Pseudo:</Form.Label>
             <Form.Control
+              required
               type="text"
               placeholder="Pseudo"
               value={this.state.usr_pseudo}
@@ -99,6 +102,7 @@ class SignUp extends React.Component<Props, RegisterState> {
           <Form.Group controlId="usr_email">
             <Form.Label>Email:</Form.Label>
             <Form.Control
+              required
               type="email"
               placeholder="Email"
               value={this.state.usr_email}
@@ -110,6 +114,7 @@ class SignUp extends React.Component<Props, RegisterState> {
           <Form.Group controlId="password">
             <Form.Label>Mot de passe:</Form.Label>
             <Form.Control
+              required
               type="password"
               placeholder="Mot de passe"
               name="password"
@@ -122,6 +127,7 @@ class SignUp extends React.Component<Props, RegisterState> {
           <Form.Group controlId="confirmPassword">
             <Form.Label>Confirmez votre mot de passe:</Form.Label>
             <Form.Control
+              required
               type="password"
               placeholder="Confirmez votre mot de passe"
               name="confirmpassword"

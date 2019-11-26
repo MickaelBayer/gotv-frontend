@@ -34,6 +34,6 @@ export const getAllCatSeries = () => {
     dispatch(getAllCatSeriesResquest());
     return catSerieService.getAll().then(res => {
       dispatch(getAllCatSeriesSuccess(res));
-    }).catch((error) => dispatch(getAllCatSeriesFailure(error)));
+    }).catch((error) => dispatch(getAllCatSeriesFailure(error.response.data)));
   }
 }

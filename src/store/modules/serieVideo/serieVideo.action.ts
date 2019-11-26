@@ -30,6 +30,6 @@ export const getSerieVideos = (id: number) => {
     return serieVideoService.getVideos(id).then(res => {
       console.log(res);
       dispatch(getSerieVideosSuccess(res));
-    }).catch((error) => dispatch(getSerieVideosFailure(error)));
+    }).catch((error) => dispatch(getSerieVideosFailure(error.response.data)));
   }
 }

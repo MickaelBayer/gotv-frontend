@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { ISerie } from '../../../models/serie.model';
 import {
   SerieActionTypes,
@@ -68,8 +69,15 @@ export const postSerieVote = (data: {}) => {
   return (dispatch: Dispatch<SerieActionTypes>) => {
     dispatch(postSerieVoteResquest());
     return voteService.post(data, true).then(res => {
-      console.log(res);
       dispatch(postSerieVoteSuccess(res));
-    }).catch((error) => dispatch(postSerieVoteFailure(error.response.data)));
+      toast.success("Votre vote est bien pris en compte");
+    }).catch((error) => {
+      if (error.response.status == 422) {
+        toast.error(`Un champ est non renseigné...`);
+      } else {
+        toast.error(`Erreur serveur !`);
+      }
+      dispatch(postSerieVoteFailure(error.response.data));
+    });
   }
 }
