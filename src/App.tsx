@@ -19,6 +19,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { getUserInfo } from './store/modules/user/user.action';
 import { connect } from 'react-redux';
 import { AppState } from './store';
+import { Container } from 'react-bootstrap'
 
 const mapStateToProps = (state: AppState) => ({
   user: state.user.user,
