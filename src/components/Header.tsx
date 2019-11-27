@@ -5,7 +5,9 @@ import loupe from '../assets/loupe.png';
 import userLogo from '../assets/user_white.png';
 import { Link, NavLink } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
+import {AuthenticationService} from "../services/api/authentication.service";
 import SearchPage from './home/SearchPage';
+import UserZoneNoAuth from './home/UserZoneNoAuth'
 
 export default class Header extends React.Component<{}, { isSearch: boolean }> {
 
@@ -45,15 +47,7 @@ export default class Header extends React.Component<{}, { isSearch: boolean }> {
             <div className="textSearch">RECHERCHER</div>
           </div>
           { this.state.isSearch && <SearchPage/> }
-          <div className="user-zone">
-            <div className="user-logo">
-              <img src={userLogo} alt="" width={28} />
-            </div>
-            <div className="zone-text">
-              <Link className="connect" to="/signin">SE CONNECTER</Link>
-              <Link className="createCompte" to="/signup">Créer un compte</Link>
-            </div>
-          </div>
+          { <UserZoneNoAuth/> }
         </Navbar.Collapse>
       </Navbar>
     );
