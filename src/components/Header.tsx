@@ -7,7 +7,8 @@ import { Link, NavLink } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
 import {AuthenticationService} from "../services/api/authentication.service";
 import SearchPage from './home/SearchPage';
-import UserZoneNoAuth from './home/UserZoneNoAuth'
+import UserZoneNoAuth from './home/UserZoneNoAuth';
+import UserZoneAuth from './home/UserZoneAuth';
 
 export default class Header extends React.Component<{}, { isSearch: boolean }> {
 
@@ -38,7 +39,9 @@ export default class Header extends React.Component<{}, { isSearch: boolean }> {
             <NavLink to="/pricing" className="linkNav" activeStyle={{ color: "#FEE066" }}>EVÈNEMENTS</NavLink>
             <NavLink to="/offers" className="linkNav" activeStyle={{ color: "#FEE066" }}>NOS OFFRES</NavLink>
             <NavLink to="/contact" className="linkNav" activeStyle={{ color: "#FEE066" }}>CONTACT</NavLink>
-            <NavLink to="/signin" className="linkNav signinLinkHamburger" activeStyle={{ color: "#FEE066" }}>SE CONNECTER</NavLink>
+            { !AuthenticationService.isAuth() && <NavLink to="/signin" className="linkNav signinLinkHamburger" activeStyle={{ color: "#FEE066" }}>SE CONNECTER</NavLink> }
+            { AuthenticationService.isAuth() && <NavLink to="/account" className="linkNav signinLinkHamburger" activeStyle={{ color: "#FEE066" }}>MON COMPTE</NavLink> }
+            { AuthenticationService.isAuth() && <div className="linkNav signinLinkHamburger logoutHamburger">Déconnexion</div> }
           </Nav>
           <div className="btn-search mr-auto" onClick={this.activSearchPage}>
             <div className="loupe">
@@ -47,7 +50,8 @@ export default class Header extends React.Component<{}, { isSearch: boolean }> {
             <div className="textSearch">RECHERCHER</div>
           </div>
           { this.state.isSearch && <SearchPage/> }
-          { <UserZoneNoAuth/> }
+          { !AuthenticationService.isAuth() && <UserZoneNoAuth/> }
+          { AuthenticationService.isAuth() && <UserZoneAuth/> }
         </Navbar.Collapse>
       </Navbar>
     );
