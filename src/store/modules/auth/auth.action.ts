@@ -59,7 +59,8 @@ export const login = (username: string, password: string) => {
     dispatch(loginResquest());
     return authService.login(username, password).then(res => {
       dispatch(loginSuccess(res));
-      toast.success(`Vous être connecté ${username}`);
+      toast.success(`Connexion réussie ${username}`);
+      document.location.href="/"
     }).catch((error) => {
       if (error.response.status == 401) {
         toast.error(`Mauvais identifiant ou mot de passe`);
@@ -79,7 +80,8 @@ export const register = (user: IUser) => {
     dispatch(registerResquest());
     return authService.register(user).then(res => {
       dispatch(registerSuccess(res));
-      toast.success(`Vous être enregistré ${user.usr_pseudo}`);
+      toast.success(`Inscription réussie. Bienvenue ${user.usr_pseudo}`);
+      document.location.href="/signin"
     }).catch((error) => {
       if (error.response.status == 409) {
         toast.error(`L'email ou le pseudo existe déjà...`);
