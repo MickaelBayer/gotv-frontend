@@ -81,7 +81,7 @@ export const register = (user: IUser) => {
     return authService.register(user).then(res => {
       dispatch(registerSuccess(res));
       toast.success(`Inscription réussie. Bienvenue ${user.usr_pseudo}`);
-      document.location.href="/signin"
+      document.location.href="/"
     }).catch((error) => {
       if (error.response.status == 409) {
         toast.error(`L'email ou le pseudo existe déjà...`);
