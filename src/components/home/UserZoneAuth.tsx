@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../styles/components/userZoneNoAuth.scss';
+import '../../styles/components/userZoneAuth.scss';
 import { Link } from 'react-router-dom';
 import userLogo from '../../assets/user_white.png';
 
@@ -11,12 +11,12 @@ export default class UserZoneNoAuth extends Component {
           <img src={userLogo} alt="" width={28} />
         </div>
         <div className="zone-text">
-          <Link className="connect" to="/signin">
-            SE CONNECTER
+          <Link className="accountBtn" to="/account">
+            MON COMPTE
           </Link>
-          <Link className="createCompte" to="/signup">
-            Créer un compte
-          </Link>
+          <div className="logout">
+            Déconnexion
+          </div>
         </div>
       </div>
     );

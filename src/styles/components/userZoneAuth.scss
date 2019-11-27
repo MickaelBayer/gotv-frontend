@@ -1,0 +1,47 @@
+.user-zone{
+  display: flex;
+  color: white;
+  margin-right: 1rem;
+}
+
+.user-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zone-text{
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.logout{
+  background: rgba(149, 133, 133, 0.7);
+  border: #707070 solid 1px;
+  padding: 0.05rem 0.2rem;
+  font-size: 0.8rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+
+.accountBtn, .logout{
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.accountBtn:hover, .logout:hover{
+  color: white;
+  text-decoration: none;
+}
+
+
+@media (max-width: 990px) {
+ .user-zone{
+    display: none
+  }
+}
