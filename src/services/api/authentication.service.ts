@@ -31,7 +31,7 @@ export class AuthenticationService {
     });
   }
 
-  public async logout() {
+  public static async logout() {
     Cookie.remove("x-token");
   }
 

@@ -25,6 +25,11 @@ export default class Header extends React.Component<{}, { isSearch: boolean }> {
     this.setState({isSearch: !this.state.isSearch});
   }
 
+  logoutOnClick() {
+    AuthenticationService.logout();
+    window.location.reload();
+  }
+
   render() {
     return (
       <Navbar bg="#B40C25" expand="lg" className="shadow">
@@ -41,7 +46,7 @@ export default class Header extends React.Component<{}, { isSearch: boolean }> {
             <NavLink to="/contact" className="linkNav" activeStyle={{ color: "#FEE066" }}>CONTACT</NavLink>
             { !AuthenticationService.isAuth() && <NavLink to="/signin" className="linkNav signinLinkHamburger" activeStyle={{ color: "#FEE066" }}>SE CONNECTER</NavLink> }
             { AuthenticationService.isAuth() && <NavLink to="/account" className="linkNav signinLinkHamburger" activeStyle={{ color: "#FEE066" }}>MON COMPTE</NavLink> }
-            { AuthenticationService.isAuth() && <div className="linkNav signinLinkHamburger logoutHamburger">Déconnexion</div> }
+            { AuthenticationService.isAuth() && <div className="linkNav signinLinkHamburger logoutHamburger" onClick={this.logoutOnClick}>Déconnexion</div> }
           </Nav>
           <div className="btn-search mr-auto" onClick={this.activSearchPage}>
             <div className="loupe">
