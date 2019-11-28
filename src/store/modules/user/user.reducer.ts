@@ -14,7 +14,13 @@ const initialAuthState = {
     password: "",
     usr_role: {} as Role,
     usr_subscription: {} as Subscription,
-    usr_votes: []
+    usr_votes: [],
+    usr_birthday: "",
+    usr_phone: "",
+    usr_postal_code: "",
+    usr_address: "",
+    usr_city: "",
+    usr_country: "",
   } as IUser,
   isLoading: true
 }

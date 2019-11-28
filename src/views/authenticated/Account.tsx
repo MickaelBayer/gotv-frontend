@@ -22,15 +22,15 @@ export default class Account extends React.Component<Props> {
             </div>
             <div className="formAccountInfo">
               <Form className="formAccountInfo">
-                <Form.Check inline label="Madame" className="radioCiv" type="radio" name="sexe" />
-                <Form.Check inline label="Monsieur" className="radioCiv" type="radio" name="sexe" />
+{/*                <Form.Check inline label="Madame" className="radioCiv" type="radio" name="sexe" />
+                <Form.Check inline label="Monsieur" className="radioCiv" type="radio" name="sexe" />*/}
                 <Form.Group controlId="lastname">
                   <Form.Label>Nom:</Form.Label>
-                  <Form.Control type="text" name="lastname" />
+                  <Form.Control type="text" name="lastname" defaultValue={this.props.user.usr_lastname} />
                 </Form.Group>
                 <Form.Group controlId="firstname">
                   <Form.Label>Prénom:</Form.Label>
-                  <Form.Control type="text" name="firstname" />
+                  <Form.Control type="text" name="firstname" defaultValue={this.props.user.usr_firstname} />
                 </Form.Group>
                 <Form.Group controlId="birthday">
                   <Form.Label>Date de naissance:</Form.Label>
@@ -53,10 +53,10 @@ export default class Account extends React.Component<Props> {
             <Form className="formContactInfo">
               <Form.Group controlId="mail">
                 <Form.Label>Email:</Form.Label>
-                <Form.Control type="text" name="mail" />
+                <Form.Control type="text" name="mail" readOnly defaultValue={this.props.user.usr_email}/>
               </Form.Group>
               <Form.Group controlId="tel">
-                <Form.Label>Email:</Form.Label>
+                <Form.Label>N° téléphone:</Form.Label>
                 <Form.Control type="text" name="mail" />
               </Form.Group>
               <Form.Group controlId="address">
