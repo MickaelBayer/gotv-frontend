@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b78cc6d7-e498-48af-a65a-9f36c46d8c2e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/UserZoneAuth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/UserZoneAuth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/contact.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/components/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/searchPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/searchPage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/serie.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/serie.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/slider.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/userZoneNoAuth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/userZoneNoAuth.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/views/account.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/views/account.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/views/forgetPassword.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/views/forgetPassword.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/views/signin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/views/signin.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/views/signup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/views/signup.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/authenticated/Account.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authenticated/Account.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/authenticated/Account.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -71,28 +57,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/components/userZoneAuth.scss">
+        <entry file="file://$PROJECT_DIR$/src/components/Footer.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="3" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/components/userZoneNoAuth.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Header.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
+            <state relative-caret-position="150">
+              <caret line="10" column="44" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="44" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -100,14 +68,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/home/UserZoneAuth.tsx">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/styles/components/footer.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="474">
+              <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/views/account.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="153" column="15" lean-forward="true" selection-start-line="153" selection-start-column="15" selection-end-line="153" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/views/signin.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/views/signup.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-200">
+              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -176,7 +168,6 @@
         <option value="$PROJECT_DIR$/src/views/authentication/SignUp.tsx" />
         <option value="$PROJECT_DIR$/src/components/Contact.tsx" />
         <option value="$PROJECT_DIR$/src/views/authentication/SignIn.tsx" />
-        <option value="$PROJECT_DIR$/src/styles/views/signup.scss" />
         <option value="$PROJECT_DIR$/src/views/authentication/ForgetPassword.tsx" />
         <option value="$PROJECT_DIR$/src/config.ts" />
         <option value="$PROJECT_DIR$/src/styles/components/contact.scss" />
@@ -185,7 +176,6 @@
         <option value="$PROJECT_DIR$/src/assets/SearchPage.tsx" />
         <option value="$PROJECT_DIR$/src/styles/components/searchPage.scss" />
         <option value="$PROJECT_DIR$/src/components/home/SearchPage.tsx" />
-        <option value="$PROJECT_DIR$/src/styles/views/signin.scss" />
         <option value="$PROJECT_DIR$/src/styles/views/forgetPassword.scss" />
         <option value="$PROJECT_DIR$/src/styles/views/account.scss" />
         <option value="$PROJECT_DIR$/src/store/modules/auth/auth.action.ts" />
@@ -202,6 +192,10 @@
         <option value="$PROJECT_DIR$/src/App.scss" />
         <option value="$PROJECT_DIR$/src/App.tsx" />
         <option value="$PROJECT_DIR$/src/views/authenticated/Account.tsx" />
+        <option value="$PROJECT_DIR$/src/components/Footer.tsx" />
+        <option value="$PROJECT_DIR$/src/styles/views/signin.scss" />
+        <option value="$PROJECT_DIR$/src/styles/views/signup.scss" />
+        <option value="$PROJECT_DIR$/src/styles/components/footer.scss" />
       </list>
     </option>
   </component>
@@ -392,12 +386,12 @@
       <workItem from="1574793277433" duration="1000000" />
       <workItem from="1574836121900" duration="1310000" />
       <workItem from="1574872667929" duration="4330000" />
-      <workItem from="1574963984337" duration="2611000" />
+      <workItem from="1574963984337" duration="3274000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57605000" />
+    <option name="totallyTimeSpent" value="58268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -581,18 +575,6 @@
     <entry file="file://$PROJECT_DIR$/src/styles/components/slider.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/components/footer.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Footer.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Contact.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -617,31 +599,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/views/signup.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/views/forgetPassword.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/views/account.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="153" column="15" lean-forward="true" selection-start-line="153" selection-start-column="15" selection-end-line="153" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/views/signin.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
@@ -742,16 +703,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Header.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/series/SerieDetail.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -764,20 +715,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/global.scss">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/components/userZoneAuth.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="3" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/components/userZoneNoAuth.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/home/UserZoneAuth.tsx">
       <provider selected="true" editor-type-id="text-editor">
@@ -806,6 +743,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/components/userZoneAuth.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/components/userZoneNoAuth.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Header.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/views/account.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="153" column="15" lean-forward="true" selection-start-line="153" selection-start-column="15" selection-end-line="153" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/authenticated/Account.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -813,6 +781,37 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/views/signin.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/views/signup.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-200">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Footer.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/components/footer.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
     </entry>
