@@ -3,8 +3,11 @@ import '../../styles/views/account.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import userAccount from '../../assets/user_account.png';
+import {IUser} from "../../models/user.model";
 
-export default class Account extends Component {
+type Props = { user: IUser };
+export default class Account extends React.Component<Props> {
+  // {this.props.user.usr_email}
   render() {
     return (
       <div className="accountPage">

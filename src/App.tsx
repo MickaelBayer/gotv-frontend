@@ -43,7 +43,6 @@ const App: React.FunctionComponent<Props> = (props) => {
 
   return (
     <Router>
-      <Container className="remove-all-margin-padding">
         <Header />
         <ToastContainer hideProgressBar draggable={false} />
         {props.isLoading && AuthenticationService.isAuth() ? <Spinner animation="border" /> :
@@ -55,12 +54,11 @@ const App: React.FunctionComponent<Props> = (props) => {
             <Route path='/signup' component={SignUp} />
             <Route path='/contact' component={Contact} />
             <Route path='/resetpwd' component={ForgetPassword} />
-            <Route path='/account' component={Account} />
+            <Route path='/account' render={() => <Account user={props.user} />}  />
             <Route component={PageNotFound} />
           </Switch>
         }
         <Footer />
-      </Container>
     </Router>
   )
 }

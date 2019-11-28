@@ -44,8 +44,8 @@ export default class Header extends React.Component<{}, { isSearch: boolean }> {
             <NavLink to="/pricing" className="linkNav" activeStyle={{ color: "#FEE066" }}>EVÈNEMENTS</NavLink>
             <NavLink to="/offers" className="linkNav" activeStyle={{ color: "#FEE066" }}>NOS OFFRES</NavLink>
             <NavLink to="/contact" className="linkNav" activeStyle={{ color: "#FEE066" }}>CONTACT</NavLink>
-            { !AuthenticationService.isAuth() && <NavLink to="/signin" className="linkNav signinLinkHamburger" activeStyle={{ color: "#FEE066" }}>SE CONNECTER</NavLink> }
-            { AuthenticationService.isAuth() && <NavLink to="/account" className="linkNav signinLinkHamburger" activeStyle={{ color: "#FEE066" }}>MON COMPTE</NavLink> }
+            { !AuthenticationService.isAuth() && <Link to="/signin" className="linkNav signinLinkHamburger">SE CONNECTER</Link> }
+            { AuthenticationService.isAuth() && <Link to="/account" className="linkNav signinLinkHamburger">MON COMPTE</Link> }
             { AuthenticationService.isAuth() && <div className="linkNav signinLinkHamburger logoutHamburger" onClick={this.logoutOnClick}>Déconnexion</div> }
           </Nav>
           <div className="btn-search mr-auto" onClick={this.activSearchPage}>
