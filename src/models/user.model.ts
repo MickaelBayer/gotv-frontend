@@ -13,6 +13,12 @@ export interface IUser {
   usr_role: Role;
   usr_subscription: Subscription;
   usr_votes: IVote[];
+  usr_birthday: string;
+  usr_phone: string;
+  usr_postal_code: string;
+  usr_address: string;
+  usr_city: string;
+  usr_country: string;
 }
 
 export class User implements IUser {
@@ -24,6 +30,12 @@ export class User implements IUser {
   readonly usr_lastname: string;
   readonly usr_active: number;
   readonly usr_role: Role;
+  readonly usr_birthday: string;
+  readonly usr_phone: string;
+  readonly usr_postal_code: string;
+  readonly usr_address: string;
+  readonly usr_city: string;
+  readonly usr_country: string;
   readonly usr_subscription: Subscription;
   readonly usr_votes: IVote[];
   constructor(usr_id: number,
@@ -33,6 +45,12 @@ export class User implements IUser {
     usr_firstname: string,
     usr_lastname: string,
     usr_active: number,
+    usr_birthday: string,
+    usr_phone: string,
+    usr_postal_code: string,
+    usr_address: string,
+    usr_city: string,
+    usr_countr: string,
     usr_role: Role,
     usr_subscription: Subscription,
     usr_votes: IVote[]) {
@@ -46,5 +64,11 @@ export class User implements IUser {
     this.usr_role = usr_role;
     this.usr_subscription = usr_subscription;
     this.usr_votes = usr_votes;
+    this.usr_birthday = usr_birthday
+    this.usr_phone = usr_phone
+    this.usr_postal_code = usr_postal_code
+    this.usr_address = usr_address
+    this.usr_city = usr_city
+    this.usr_country = usr_countr
   }
 }
