@@ -1,35 +1,39 @@
-import { VoteActionTypes, POST_VOTE_REQUEST, POST_VOTE_SUCCESS, POST_VOTE_FAILURE } from "./vote.type"
+import {
+  VoteActionTypes,
+  GETALL_VOTES_BY_SERIE_REQUEST,
+  GETALL_VOTES_BY_SERIE_SUCCESS,
+  GETALL_VOTES_BY_SERIE_FAILURE
+} from "./vote.type"
 import { IVote } from "../../../models/vote.model"
 import VoteService from "../../../services/api/entities/vote.service"
 import { Dispatch } from "redux"
 
-function postVoteResquest(): VoteActionTypes {
+function getAllVotesBySerieResquest(): VoteActionTypes {
   return {
-    type: POST_VOTE_REQUEST,
+    type: GETALL_VOTES_BY_SERIE_REQUEST,
   }
 }
 
-function postVoteSuccess(vote: IVote): VoteActionTypes {
+function getAllVotesBySerieSuccess(votes: IVote[]): VoteActionTypes {
   return {
-    type: POST_VOTE_SUCCESS,
-    vote: vote
+    type: GETALL_VOTES_BY_SERIE_SUCCESS,
+    votes: votes
   }
 }
 
-function postVoteFailure(error: string): VoteActionTypes {
+function getAllVotesBySerieFailure(error: string): VoteActionTypes {
   return {
-    type: POST_VOTE_FAILURE,
+    type: GETALL_VOTES_BY_SERIE_FAILURE,
     error: error,
   }
 }
 
-export const postVote = (data: {}) => {
+export const getAllVotesBySerie = (id: number) => {
   const voteService: VoteService = new VoteService();
   return (dispatch: Dispatch<VoteActionTypes>) => {
-    dispatch(postVoteResquest());
-    return voteService.post(data, true).then(res => {
-      console.log(res);
-      dispatch(postVoteSuccess(res));
-    }).catch((error) => dispatch(postVoteFailure(error.response.data)));
+    dispatch(getAllVotesBySerieResquest());
+    return voteService.getVoteBySerieId(id).then(res => {
+      dispatch(getAllVotesBySerieSuccess(res));
+    }).catch((error) => dispatch(getAllVotesBySerieFailure(error.response.data)));
   }
 }
