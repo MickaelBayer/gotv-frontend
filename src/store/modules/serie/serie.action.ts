@@ -74,6 +74,8 @@ export const postSerieVote = (data: {}) => {
     }).catch((error) => {
       if (error.response.status == 422) {
         toast.error(`Un champ est non renseigné...`);
+      } else if (error.response.status == 409) {
+        toast.error(`Vous avez déjà noté cette série`);
       } else {
         toast.error(`Erreur serveur !`);
       }
