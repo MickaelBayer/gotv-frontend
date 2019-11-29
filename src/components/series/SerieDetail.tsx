@@ -1,6 +1,5 @@
-import { Row, Col, Container, Button, Modal, Spinner, Form } from "react-bootstrap";
-import React, { useState, useEffect, ChangeEvent } from "react";
-import accountUser from "../../assets/user_account.png";
+import { Row, Col, Container, Spinner } from "react-bootstrap";
+import React, { useEffect } from "react";
 import { useParams, useLocation } from "react-router";
 import Iframe from 'react-iframe';
 import { Chip, Tooltip, makeStyles } from "@material-ui/core";
@@ -14,9 +13,11 @@ import { getSerieVideos } from "../../store/modules/serieVideo/serieVideo.action
 import { connect } from "react-redux";
 import { AuthenticationService } from "../../services/api/authentication.service";
 import { SerieActionTypes } from "../../store/modules/serie/serie.type";
-import { postSerieVote, getSerie } from "../../store/modules/serie/serie.action";
+import { getSerie } from "../../store/modules/serie/serie.action";
 import { ISerie } from "../../models/serie.model";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import SerieComment from "./SerieComment";
+import SerieVoteModal from "./SerieVoteModal";
 
 const useStyles = makeStyles({
 	root: {
@@ -33,13 +34,14 @@ const mapStateToProps = (state: AppState) => ({
 	serieVideos: state.serieVideo.serieVideos,
 	serie: state.serie.serie,
 	serieisLoading: state.serie.isLoading,
-	serieVideosisLoading: state.serieVideo.isLoading
+	serieVideosisLoading: state.serieVideo.isLoading,
+	votes: state.vote.votes,
+	votesisLoading: state.vote.isLoading,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<SerieActionTypes | SerieVideoActionTypes>) => ({
 	getSerieVideos: bindActionCreators(getSerieVideos, dispatch),
-	postSerieVote: bindActionCreators(postSerieVote, dispatch),
-	getSerie: bindActionCreators(getSerie, dispatch)
+	getSerie: bindActionCreators(getSerie, dispatch),
 })
 
 type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps> & { user: IUser };
@@ -47,12 +49,6 @@ type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchT
 const SerieDetail: React.FunctionComponent<Props> = (props) => {
 	const { see_id } = useParams();
 	const serie: ISerie = useLocation().state.serie;
-	const initialStateVotes = { voe_usr_id: props.user.usr_id, voe_see_id: props.serie.see_id, voe_comment: "" };
-	const [vote, setVotes] = useState(initialStateVotes);
-	const [votemark, setVotesMark] = useState({ voe_mark: 0 });
-	const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
 	const classes = useStyles();
 
 	const responsive = {
@@ -62,30 +58,10 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 		}
 	};
 
-	const handleChange = (field: string) => (event: ChangeEvent<any>) => {
-		event.preventDefault()
-		if (field == "voe_mark") {
-			setVotesMark({ voe_mark: Number(event.target.value) } as any);
-		} else {
-			setVotes({ [field]: event.target.value } as any);
-		}
-	}
-
-	const handleSubmit = async (event: any) => {
-		event.preventDefault();
-		props.postSerieVote({
-			voe_see_id: props.serie.see_id,
-			voe_usr_id: props.user.usr_id,
-			voe_comment: vote.voe_comment,
-			voe_mark: votemark.voe_mark
-		});
-		handleClose();
-	}
-
 	useEffect(() => {
 		props.getSerie(Number(see_id));
 		props.getSerieVideos(serie.see_tmdb_id);
-	}, [show]);
+	}, []);
 
 	return (
 		<React.Fragment>
@@ -117,63 +93,13 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 								return (<Chip size="small" key={i} label={categorie.cae_label} className="details-chip mr-1" />)
 							})}
 							{AuthenticationService.isAuth() &&
-								<React.Fragment>
-									<Button variant="primary" onClick={handleShow} className="btnVote">
-										Voter
-									</Button>
-									<Modal show={show} onHide={handleClose}>
-										<Modal.Header closeButton>
-											<Modal.Title>Voter pour {props.serie.see_name}</Modal.Title>
-										</Modal.Header>
-										<Modal.Body>
-											<Form>
-												<Form.Group>
-													<Form.Label>Note :</Form.Label>
-													<div>
-														<Rating value={votemark.voe_mark} name="simple-controlled"
-															onChange={handleChange("voe_mark")} />
-													</div>
-												</Form.Group>
-												<Form.Group>
-													<Form.Label>Commentaires :</Form.Label>
-													<Form.Control
-														as="textarea"
-														value={vote.voe_comment}
-														onChange={handleChange("voe_comment")}
-													/>
-												</Form.Group>
-											</Form>
-										</Modal.Body>
-										<Modal.Footer>
-											<Button type="submit" className="btnVote" onClick={handleSubmit}>
-												Voter !
-										</Button>
-										</Modal.Footer>
-									</Modal>
-								</React.Fragment>
+								<SerieVoteModal user={props.user} serie={props.serie} />
 							}
 						</div>
 						<p>{props.serie.see_overview}</p>
 					</Col>
 				</Row>
-				<h4 className="title title-small">{props.serie.see_votes.length} Commentaires</h4>
-				{props.serie.see_votes.map((vote, i) => {
-					return (
-						<div className="details-comment" key={i}>
-							<img className="details-comment-avatar" src={accountUser} />
-							<div className="details-comment-body">
-								<span className="details-comment-author">{vote.voe_user.usr_pseudo}</span>
-								<Rating value={vote.voe_mark} size="small" precision={0.5} readOnly className="details-comment-rating" />
-								<span className="details-comment-date">{vote.created_at}</span>
-								<div className="details-comment-text">
-									<div>
-										<p>{vote.voe_comment}</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					)
-				})}
+				<SerieComment serie={serie} />
 			</Container>
 		</React.Fragment>
 	);

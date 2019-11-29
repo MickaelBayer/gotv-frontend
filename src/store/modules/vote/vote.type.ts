@@ -1,21 +1,21 @@
 import { IVote } from "../../../models/vote.model";
 
-export const POST_VOTE_REQUEST = "POST_VOTE_REQUEST";
-export const POST_VOTE_SUCCESS = "POST_VOTE_SUCCESS";
-export const POST_VOTE_FAILURE = "POST_VOTE_FAILURE";
+export const GETALL_VOTES_BY_SERIE_REQUEST = "GETALL_VOTES_BY_SERIE_REQUEST";
+export const GETALL_VOTES_BY_SERIE_SUCCESS = "GETALL_VOTES_BY_SERIE_SUCCESS";
+export const GETALL_VOTES_BY_SERIE_FAILURE = "GETALL_VOTES_BY_SERIE_FAILURE";
 
-interface PostVoteSuccessAction {
-  type: typeof POST_VOTE_SUCCESS;
-  vote: IVote;
+interface GetAllVotesBySerieSuccessAction {
+  type: typeof GETALL_VOTES_BY_SERIE_SUCCESS;
+  votes: IVote[];
 }
 
-interface PostVoteRequestAction {
-  type: typeof POST_VOTE_REQUEST;
+interface GetAllVotesBySerieRequestAction {
+  type: typeof GETALL_VOTES_BY_SERIE_REQUEST;
 }
 
-interface PostVoteFailureAction {
-  type: typeof POST_VOTE_FAILURE;
+interface GetAllVotesBySerieFailureAction {
+  type: typeof GETALL_VOTES_BY_SERIE_FAILURE;
   error: string;
 }
 
-export type VoteActionTypes = PostVoteSuccessAction | PostVoteRequestAction | PostVoteFailureAction;
+export type VoteActionTypes = GetAllVotesBySerieSuccessAction | GetAllVotesBySerieRequestAction | GetAllVotesBySerieFailureAction;
