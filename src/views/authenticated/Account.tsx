@@ -4,11 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import userAccount from '../../assets/user_account.png';
 import {IUser} from "../../models/user.model";
+import Moment from 'moment';
 
 type Props = { user: IUser };
 export default class Account extends React.Component<Props> {
   // {this.props.user.usr_email}
   render() {
+    Moment.locale('en');
     return (
       <div className="accountPage">
         <div className="myAccount">
@@ -22,8 +24,6 @@ export default class Account extends React.Component<Props> {
             </div>
             <div className="formAccountInfo">
               <Form className="formAccountInfo">
-{/*                <Form.Check inline label="Madame" className="radioCiv" type="radio" name="sexe" />
-                <Form.Check inline label="Monsieur" className="radioCiv" type="radio" name="sexe" />*/}
                 <Form.Group controlId="lastname">
                   <Form.Label>Nom:</Form.Label>
                   <Form.Control type="text" name="lastname" defaultValue={this.props.user.usr_lastname} />
@@ -34,7 +34,7 @@ export default class Account extends React.Component<Props> {
                 </Form.Group>
                 <Form.Group controlId="birthday">
                   <Form.Label>Date de naissance:</Form.Label>
-                  <Form.Control type="text" name="birthday" />
+                  <Form.Control type="text" name="birthday" defaultValue={Moment(this.props.user.usr_birthday).format('DD/MM/YYYY')}/>
                 </Form.Group>
               </Form>
               <Button type="submit" className="btnUpdContactInfo float-right">
@@ -57,23 +57,23 @@ export default class Account extends React.Component<Props> {
               </Form.Group>
               <Form.Group controlId="tel">
                 <Form.Label>N° téléphone:</Form.Label>
-                <Form.Control type="text" name="mail" />
+                <Form.Control type="text" name="tel" defaultValue={this.props.user.usr_phone} />
               </Form.Group>
               <Form.Group controlId="address">
                 <Form.Label>Adresse:</Form.Label>
-                <Form.Control type="text" name="address" />
+                <Form.Control type="text" name="address" defaultValue={this.props.user.usr_address} />
               </Form.Group>
               <Form.Group controlId="postal">
                 <Form.Label>Code postal:</Form.Label>
-                <Form.Control type="text" name="postal" />
+                <Form.Control type="text" name="postal" defaultValue={this.props.user.usr_postal_code} />
               </Form.Group>
               <Form.Group controlId="city">
                 <Form.Label>Ville:</Form.Label>
-                <Form.Control type="text" name="city" />
+                <Form.Control type="text" name="city" defaultValue={this.props.user.usr_city}/>
               </Form.Group>
               <Form.Group controlId="country">
                 <Form.Label>Pays:</Form.Label>
-                <Form.Control type="text" name="country" />
+                <Form.Control type="text" name="country" defaultValue={this.props.user.usr_country}/>
               </Form.Group>
             </Form>
             <Button type="submit" className="btnUpdContactInfo float-right">
