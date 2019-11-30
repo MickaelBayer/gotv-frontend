@@ -5,10 +5,23 @@ import Button from 'react-bootstrap/Button';
 import userAccount from '../../assets/user_account.png';
 import {IUser} from "../../models/user.model";
 import Moment from 'moment';
+import UserService from "../../services/api/entities/user.service";
+import {AuthenticationService} from "../../services/api/authentication.service";
 
 type Props = { user: IUser };
 export default class Account extends React.Component<Props> {
-  // {this.props.user.usr_email}
+
+  async deleteUser(id: number) {
+    const userService: UserService = new UserService();
+    const result = userService.delete(id);
+    new Promise(resolve => {
+      setTimeout(() => {
+        AuthenticationService.logout();
+        document.location.href="/"
+      }, 1000);
+    });
+  }
+
   render() {
     Moment.locale('en');
     return (
@@ -31,10 +44,6 @@ export default class Account extends React.Component<Props> {
                 <Form.Group controlId="firstname">
                   <Form.Label>Prénom:</Form.Label>
                   <Form.Control type="text" name="firstname" defaultValue={this.props.user.usr_firstname} />
-                </Form.Group>
-                <Form.Group controlId="birthday">
-                  <Form.Label>Date de naissance:</Form.Label>
-                  <Form.Control type="text" name="birthday" defaultValue={Moment(this.props.user.usr_birthday).format('DD/MM/YYYY')}/>
                 </Form.Group>
               </Form>
               <Button type="submit" className="btnUpdContactInfo float-right">
@@ -102,7 +111,7 @@ export default class Account extends React.Component<Props> {
           <Button
             type="submit"
             className="btnDeleteAccount float-right"
-            href="/"
+            onClick={() => this.deleteUser(this.props.user.usr_id)}
           >
             Supprimer mon compte
           </Button>

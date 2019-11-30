@@ -8,7 +8,7 @@ export default class UserZoneNoAuth extends Component {
 
     logoutOnClick() {
         AuthenticationService.logout();
-        window.location.reload();
+        document.location.href="/"
     }
 
     render() {

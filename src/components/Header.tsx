@@ -27,7 +27,7 @@ export default class Header extends React.Component<{}, { isSearch: boolean }> {
 
   logoutOnClick() {
     AuthenticationService.logout();
-    window.location.reload();
+    document.location.href="/"
   }
 
   render() {
