@@ -56,9 +56,9 @@ export default class ApiManagerService<T> {
       });
   }
 
-  public put(id: number): Promise<T[]> {
+  public put(id: number, data: {}): Promise<T[]> {
     return axios
-      .put<T[]>(`${this.BASE_URL}/${this.endpoint}/${id}`)
+      .put<T[]>(`${this.BASE_URL}/${this.endpoint}/${id}`, data)
       .then(data => {
         return data.data;
       });

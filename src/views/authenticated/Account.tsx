@@ -54,15 +54,19 @@ export default class Account extends React.Component<Props, RegisterState> {
     });
   }
 
-  // updateUser(){
-  //   console.log(this.state.usr_lastname)
-  // }
-
-  // updateUser = async (event: any) => {
-  //   event.preventDefault();
-  //   const userService: UserService = new UserService();
-  //   userService.put(this.props.user.usr_id)
-  // }
+  updateUser = async (event: any) => {
+    event.preventDefault();
+    const userService: UserService = new UserService();
+    userService.put(this.props.user.usr_id, {
+      usr_lastname: this.state.usr_lastname,
+      usr_firstname: this.state.usr_firstname,
+      usr_phone: this.state.usr_phone,
+      usr_city: this.state.usr_city,
+      usr_country: this.state.usr_country,
+      usr_postal_code: this.state.usr_postal_code,
+      usr_address: this.state.usr_address
+    });
+  }
 
   render() {
     Moment.locale('en');
@@ -92,7 +96,7 @@ export default class Account extends React.Component<Props, RegisterState> {
                   <Form.Control type="text" name="firstname" value={this.state.usr_firstname} onChange={this.handleChange("usr_firstname")} />
                 </Form.Group>
               </Form>
-              <Button type="submit" className="btnUpdContactInfo float-right" >
+              <Button type="submit" className="btnUpdContactInfo float-right" onClick={this.updateUser}>
                 Mettre à jour
               </Button>
             </div>
@@ -131,7 +135,7 @@ export default class Account extends React.Component<Props, RegisterState> {
                 <Form.Control type="text" name="country" value={this.state.usr_country} onChange={this.handleChange("usr_country")}/>
               </Form.Group>
             </Form>
-            <Button type="submit" className="btnUpdContactInfo float-right">
+            <Button type="submit" className="btnUpdContactInfo float-right" onClick={this.updateUser}>
               Mettre à jour
             </Button>
           </div>
