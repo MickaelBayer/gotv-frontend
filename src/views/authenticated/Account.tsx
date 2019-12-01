@@ -9,7 +9,39 @@ import UserService from "../../services/api/entities/user.service";
 import {AuthenticationService} from "../../services/api/authentication.service";
 
 type Props = { user: IUser };
-export default class Account extends React.Component<Props> {
+
+interface RegisterState {
+  usr_firstname: string;
+  usr_lastname: string;
+  usr_phone: string;
+  usr_city: string;
+  usr_country: string;
+  usr_postal_code: string;
+  usr_address: string;
+}
+
+export default class Account extends React.Component<Props, RegisterState> {
+
+  constructor(props: Readonly<Props>) {
+    super(props);
+    // this.updateUser = this.updateUser.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      usr_firstname: this.props.user.usr_firstname,
+      usr_lastname: this.props.user.usr_lastname,
+      usr_phone: this.props.user.usr_phone,
+      usr_city: this.props.user.usr_city,
+      usr_country: this.props.user.usr_country,
+      usr_postal_code: this.props.user.usr_postal_code,
+      usr_address: this.props.user.usr_address
+    }
+  }
+
+  handleChange = (field: string) => (event: any) => {
+    event.preventDefault()
+    this.setState({ [field]: event.target.value } as RegisterState);
+  }
+
 
   async deleteUser(id: number) {
     const userService: UserService = new UserService();
@@ -19,6 +51,20 @@ export default class Account extends React.Component<Props> {
         AuthenticationService.logout();
         document.location.href="/"
       }, 1000);
+    });
+  }
+
+  updateUser = async (event: any) => {
+    event.preventDefault();
+    const userService: UserService = new UserService();
+    userService.put(this.props.user.usr_id, {
+      usr_lastname: this.state.usr_lastname,
+      usr_firstname: this.state.usr_firstname,
+      usr_phone: this.state.usr_phone,
+      usr_city: this.state.usr_city,
+      usr_country: this.state.usr_country,
+      usr_postal_code: this.state.usr_postal_code,
+      usr_address: this.state.usr_address
     });
   }
 
@@ -37,16 +83,20 @@ export default class Account extends React.Component<Props> {
             </div>
             <div className="formAccountInfo">
               <Form className="formAccountInfo">
+                <Form.Group controlId="pseudo">
+                  <Form.Label>Pseudo:</Form.Label>
+                  <Form.Control type="text" name="pseudo" readOnly defaultValue={this.props.user.usr_pseudo} />
+                </Form.Group>
                 <Form.Group controlId="lastname">
                   <Form.Label>Nom:</Form.Label>
-                  <Form.Control type="text" name="lastname" defaultValue={this.props.user.usr_lastname} />
-                </Form.Group>
+                  <Form.Control type="text" name="lastname" value={this.state.usr_lastname} onChange={this.handleChange("usr_lastname")}/>
+              </Form.Group>
                 <Form.Group controlId="firstname">
                   <Form.Label>Prénom:</Form.Label>
-                  <Form.Control type="text" name="firstname" defaultValue={this.props.user.usr_firstname} />
+                  <Form.Control type="text" name="firstname" value={this.state.usr_firstname} onChange={this.handleChange("usr_firstname")} />
                 </Form.Group>
               </Form>
-              <Button type="submit" className="btnUpdContactInfo float-right">
+              <Button type="submit" className="btnUpdContactInfo float-right" onClick={this.updateUser}>
                 Mettre à jour
               </Button>
             </div>
@@ -66,26 +116,26 @@ export default class Account extends React.Component<Props> {
               </Form.Group>
               <Form.Group controlId="tel">
                 <Form.Label>N° téléphone:</Form.Label>
-                <Form.Control type="text" name="tel" defaultValue={this.props.user.usr_phone} />
+                <Form.Control type="text" name="tel" value={this.state.usr_phone} onChange={this.handleChange("usr_phone")} />
               </Form.Group>
               <Form.Group controlId="address">
                 <Form.Label>Adresse:</Form.Label>
-                <Form.Control type="text" name="address" defaultValue={this.props.user.usr_address} />
+                <Form.Control type="text" name="address" value={this.state.usr_address} onChange={this.handleChange("usr_address")} />
               </Form.Group>
               <Form.Group controlId="postal">
                 <Form.Label>Code postal:</Form.Label>
-                <Form.Control type="text" name="postal" defaultValue={this.props.user.usr_postal_code} />
+                <Form.Control type="text" name="postal" value={this.state.usr_postal_code} onChange={this.handleChange("usr_postal_code")} />
               </Form.Group>
               <Form.Group controlId="city">
                 <Form.Label>Ville:</Form.Label>
-                <Form.Control type="text" name="city" defaultValue={this.props.user.usr_city}/>
+                <Form.Control type="text" name="city" value={this.state.usr_city} onChange={this.handleChange("usr_city")}/>
               </Form.Group>
               <Form.Group controlId="country">
                 <Form.Label>Pays:</Form.Label>
-                <Form.Control type="text" name="country" defaultValue={this.props.user.usr_country}/>
+                <Form.Control type="text" name="country" value={this.state.usr_country} onChange={this.handleChange("usr_country")}/>
               </Form.Group>
             </Form>
-            <Button type="submit" className="btnUpdContactInfo float-right">
+            <Button type="submit" className="btnUpdContactInfo float-right" onClick={this.updateUser}>
               Mettre à jour
             </Button>
           </div>
