@@ -147,7 +147,8 @@ export default class Account extends React.Component<Props, RegisterState> {
           <div className="contentSub">
             <div className="mySub">
               <div className="nameSub">Gratuit</div>
-              <div className="descriptionSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor ultricies dolor quis gravida. Vestibulum cursus sem feugiat purus posuere, nec maximus risus bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec aliquet, velit ut iaculis dignissim, metus dolor ultricies quam.</div>
+              <div className="descriptionSub">Voter pour vos séries préférées !</div>
+              <div className="descriptionSub">Découvrez également l'avis de nos experts avisés sur toutes les séries du moments.</div>
             </div>
           </div>
           <Button

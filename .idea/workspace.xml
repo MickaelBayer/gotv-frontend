@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b78cc6d7-e498-48af-a65a-9f36c46d8c2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api/api-manager.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api/api-manager.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/views/account.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/views/account.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/authenticated/Account.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authenticated/Account.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,11 +68,11 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/home" />
+      <recent name="$PROJECT_DIR$/src/assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets" />
     </key>
   </component>
@@ -117,7 +118,7 @@
       <workItem from="1575102586388" duration="1485000" />
       <workItem from="1575143616311" duration="5268000" />
       <workItem from="1575194104896" duration="224000" />
-      <workItem from="1575194385656" duration="4483000" />
+      <workItem from="1575194385656" duration="6921000" />
     </task>
     <servers />
   </component>
@@ -125,10 +126,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2080" y="193" width="639" height="476" key="find.popup" timestamp="1575198243607">
+    <state x="2080" y="193" width="639" height="476" key="find.popup" timestamp="1575210389735">
       <screen x="1440" y="-109" width="1920" height="1080" />
     </state>
-    <state x="2080" y="193" width="639" height="476" key="find.popup/1440.-109.1920.1080/0.0.1440.900@1440.-109.1920.1080" timestamp="1575198243607" />
+    <state x="2080" y="193" width="639" height="476" key="find.popup/1440.-109.1920.1080/0.0.1440.900@1440.-109.1920.1080" timestamp="1575210389735" />
   </component>
   <component name="masterDetails">
     <states>
