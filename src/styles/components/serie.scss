@@ -1,12 +1,15 @@
 .serie-card {
+  display: inline-block;
   position: relative;
   margin: 15px;
   transition: transform .2s;
   width: 250px;
+  height: 370px;
 
   img {
     display: block;
     width: 250px;
+    height: 370px;
     border-radius: 10px;
   }
 

@@ -8,7 +8,7 @@ import Header from './components/Header';
 import Home from './components/home/Home';
 import PageNotFound from './components/PageNotFound';
 import SerieDetail from './components/series/SerieDetail';
-import SeriesPage from './components/series/SeriesPage';
+import SeriesPage from './views/SeriesPage';
 import Account from './views/authenticated/Account';
 import ForgetPassword from './views/authentication/ForgetPassword';
 import SignIn from './views/authentication/SignIn';
