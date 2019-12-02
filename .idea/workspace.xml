@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b78cc6d7-e498-48af-a65a-9f36c46d8c2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/series/SerieDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/series/SerieDetail.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/role.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/role.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/views/forgetPassword.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/views/forgetPassword.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/views/legal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/views/legal.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/authenticated/Account.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authenticated/Account.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProtectedRoute.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +118,7 @@
       <workItem from="1575194104896" duration="224000" />
       <workItem from="1575194385656" duration="6921000" />
       <workItem from="1575280360994" duration="897000" />
-      <workItem from="1575299115211" duration="7196000" />
+      <workItem from="1575299115211" duration="7422000" />
     </task>
     <servers />
   </component>
@@ -140,10 +134,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="415" y="176" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1575318822179" />
-    <state x="480" y="252" width="683" height="476" key="find.popup" timestamp="1575316314866">
+    <state x="480" y="252" width="683" height="476" key="find.popup" timestamp="1575319315479">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="480" y="252" width="683" height="476" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1575316314866" />
+    <state x="480" y="252" width="683" height="476" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1575319315479" />
     <state x="2080" y="193" width="639" height="476" key="find.popup/1440.-109.1920.1080/0.0.1440.900@1440.-109.1920.1080" timestamp="1575210389735" />
   </component>
   <component name="masterDetails">
