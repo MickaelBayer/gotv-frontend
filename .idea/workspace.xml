@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b78cc6d7-e498-48af-a65a-9f36c46d8c2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/views/account.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/views/account.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/components/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/views/admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/views/admin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/authenticated/Admin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authenticated/Admin.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,10 +136,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="415" y="176" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1575319439856" />
-    <state x="480" y="252" width="683" height="476" key="find.popup" timestamp="1575319420378">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1575323737274">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="480" y="252" width="683" height="476" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1575319420378" />
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1575323737274" />
+    <state x="480" y="252" width="683" height="476" key="find.popup" timestamp="1575323749161">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="480" y="252" width="683" height="476" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1575323749161" />
     <state x="2080" y="193" width="639" height="476" key="find.popup/1440.-109.1920.1080/0.0.1440.900@1440.-109.1920.1080" timestamp="1575210389735" />
   </component>
   <component name="masterDetails">
