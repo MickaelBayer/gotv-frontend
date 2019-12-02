@@ -74,7 +74,7 @@ type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchT
 const SeriesPage: React.FunctionComponent<Props> = (props) => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState(true);
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -130,7 +130,7 @@ const SeriesPage: React.FunctionComponent<Props> = (props) => {
 								<Route key={i} exact path={`/category/${category.cae_id}`} render={() => {
 									return (
 										<React.Fragment>
-											<header className="overview-header" style={{ backgroundImage: `url(https://picsum.photos/200/300)` }}>
+											<header className="overview-header" style={{ backgroundColor: "gray" }}>
 												<h1 className="title title-serie">{category.cae_label}</h1>
 											</header>
 											{category.cae_series.map((serie, i) => {
