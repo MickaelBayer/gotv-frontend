@@ -18,6 +18,8 @@ import { ISerie } from "../../models/serie.model";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import SerieComment from "./SerieComment";
 import SerieVoteModal from "./SerieVoteModal";
+import { getSerieCasts } from "../../store/modules/serieCast/serieCast.action";
+import { SerieCastActionTypes } from "../../store/modules/serieCast/serieCast.type";
 
 const useStyles = makeStyles({
 	root: {
@@ -31,6 +33,7 @@ const useStyles = makeStyles({
 });
 
 const mapStateToProps = (state: AppState) => ({
+	serieCasts: state.serieCast.serieCasts,
 	serieVideos: state.serieVideo.serieVideos,
 	serie: state.serie.serie,
 	serieisLoading: state.serie.isLoading,
@@ -39,8 +42,9 @@ const mapStateToProps = (state: AppState) => ({
 	votesisLoading: state.vote.isLoading,
 })
 
-const mapDispatchToProps = (dispatch: Dispatch<SerieActionTypes | SerieVideoActionTypes>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<SerieActionTypes | SerieVideoActionTypes | SerieCastActionTypes>) => ({
 	getSerieVideos: bindActionCreators(getSerieVideos, dispatch),
+	getSerieCasts: bindActionCreators(getSerieCasts, dispatch),
 	getSerie: bindActionCreators(getSerie, dispatch),
 })
 
@@ -51,24 +55,44 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 	const serie: ISerie = useLocation().state.serie;
 	const classes = useStyles();
 
-	const responsive = {
+	const responsiveVideo = {
 		desktop: {
 			items: 1,
 			breakpoint: { max: 3000, min: 1024 }
 		}
 	};
 
+	const responsiveCast = {
+		desktop: {
+			breakpoint: { max: 3000, min: 1024 },
+			items: 4,
+			slidesToSlide: 3, // optional, default to 1.
+		},
+		tablet: {
+			breakpoint: { max: 1024, min: 464 },
+			items: 2,
+			slidesToSlide: 2, // optional, default to 1.
+		},
+		mobile: {
+			breakpoint: { max: 464, min: 0 },
+			items: 1,
+			slidesToSlide: 1, // optional, default to 1.
+		},
+	};
+
 	useEffect(() => {
 		props.getSerie(Number(see_id));
 		props.getSerieVideos(serie.see_tmdb_id);
+		props.getSerieCasts(serie.see_tmdb_id);
 	}, []);
-
+	console.log(props.serieCasts)
+	console.log(serie.see_tmdb_id)
 	return (
 		<React.Fragment>
 			<header className="overview-header" style={{ backgroundImage: `url(${props.serie.see_backdrop_path})` }}>
 				<Container>
 					<div className="header-player">
-						<Carousel responsive={responsive}>
+						<Carousel responsive={responsiveVideo}>
 							{props.serieVideosisLoading ? <Spinner animation="border" /> :
 								props.serieVideos.filter(serieVideo => serieVideo.type === "Trailer").map((serieVideo, i) => {
 									return (
@@ -97,6 +121,19 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 							}
 						</div>
 						<p>{props.serie.see_overview}</p>
+						<Carousel responsive={responsiveCast}>
+							{props.serieCasts.map((serieCast, i) => {
+								return (
+									<div className="cast-card" key={i}>
+										<img src={`https://image.tmdb.org/t/p/w185//${serieCast.profile_path}`} className="img-gradiant"></img>
+										<div className="actor-name">
+											<h3>{serieCast.name}</h3>
+											<p>{serieCast.character}</p>
+										</div>
+									</div>
+								)
+							})}
+						</Carousel>
 					</Col>
 				</Row>
 				<SerieComment serie={serie} />

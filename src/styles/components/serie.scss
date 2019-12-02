@@ -214,3 +214,63 @@
 .MuiChip-colorSecondary {
   background-color: #17a2b8;
 }
+
+.cast-card {
+  display: inline-block;
+  position: relative;
+  margin: 15px;
+  transition: transform .2s;
+  width: 150px;
+  height: 220px;
+
+  img {
+    display: block;
+    width: 150px;
+    height: 220px;
+    border-radius: 10px;
+  }
+
+  .actor-name {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    transition: opacity .3s;
+    bottom: 0;
+    color: white;
+    margin: 12px;
+    word-break: normal;
+
+    p {
+      max-width: 220px;
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 0%;
+    width: 100%;
+    border-radius: 10px;
+    bottom: 0;
+    transition: height 0.1s ease-out;
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:hover::before {
+    height: 100%;
+  }
+
+  &:hover .actor-name {
+    opacity: 1;
+  }
+}
