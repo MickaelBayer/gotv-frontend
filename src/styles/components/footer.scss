@@ -16,34 +16,34 @@
 //   border-left: 100% solid #9e9e9e;
 // }
 
-.foot-div- {
-  position: relative;
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 70px;
-  background-color: #B40C25;
-  z-index: 1;
-}
+// .foot-div- {
+//   position: relative;
+//   margin-top: auto;
+//   display: flex;
+//   justify-content: center;
+//   bottom: 0;
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+//   height: 70px;
+//   background-color: #B40C25;
+//   z-index: 1;
+// }
 
-.foot-div-:after {
-  position: absolute;
-  height: 100%;
-  content: '';
-  background: inherit;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform-origin: top left; // reference point
-  transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
-  // https://www.youtube.com/watch?v=6QGOhCZLdhs
-}
+// .foot-div-:after {
+//   position: absolute;
+//   height: 100%;
+//   content: '';
+//   background: inherit;
+//   z-index: -1;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   transform-origin: top left; // reference point
+//   transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
+//   // https://www.youtube.com/watch?v=6QGOhCZLdhs
+// }
 
 /*contact*/
 #triangle-footer-contact {
@@ -53,7 +53,36 @@
   border-left: 100% solid #FFFFFF;
 }
 
-.foot-div-contact {
+// .foot-div-contact {
+//   position: relative;
+//   margin-top: auto;
+//   display: flex;
+//   justify-content: center;
+//   z-index: 1;
+//   bottom: 0;
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+//   height: 70px;
+//   background-color: #B40C25;
+// }
+
+// .foot-div-contact:after {
+//   position: absolute;
+//   height: 100%;
+//   content: '';
+//   background: inherit;
+//   z-index: -1;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   transform-origin: top left; // reference point
+//   transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
+//   // https://www.youtube.com/watch?v=6QGOhCZLdhs
+// }
+
+.foot-div-, .foot-div-series, .foot-div-legal, .foot-div-contact, .foot-div-account, .foot-div-offers, .foot-div-pricing{
   position: relative;
   margin-top: auto;
   display: flex;
@@ -67,36 +96,7 @@
   background-color: #B40C25;
 }
 
-.foot-div-contact:after {
-  position: absolute;
-  height: 100%;
-  content: '';
-  background: inherit;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform-origin: top left; // reference point
-  transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
-  // https://www.youtube.com/watch?v=6QGOhCZLdhs
-}
-
-.foot-div-series {
-  position: relative;
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-  z-index: 1;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 70px;
-  background-color: #B40C25;
-}
-
-.foot-div-series:after {
+.foot-div-:after, .foot-div-series:after, .foot-div-account:after, .foot-div-legal:after, .foot-div-contact:after, .foot-div-signin:after, .foot-div-signup:after, .foot-div-offers:after, .foot-div-pricing:after, .foot-div-resetpwd:after{
   position: absolute;
   height: 100%;
   content: '';
@@ -118,7 +118,7 @@
   border-left: 100% solid #B40C25;
 }
 
-.foot-div-signin {
+.foot-div-signin, .foot-div-signup , .foot-div-resetpwd{
   position: relative;
   margin-top: auto;
   display: flex;
@@ -133,83 +133,83 @@
   color: #707070;
 }
 
-.foot-div-signin:after {
-  position: absolute;
-  height: 100%;
-  content: '';
-  background: inherit;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform-origin: top left; // reference point
-  transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
-  // https://www.youtube.com/watch?v=6QGOhCZLdhs
-}
+// .foot-div-signin:after {
+//   position: absolute;
+//   height: 100%;
+//   content: '';
+//   background: inherit;
+//   z-index: -1;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   transform-origin: top left; // reference point
+//   transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
+//   // https://www.youtube.com/watch?v=6QGOhCZLdhs
+// }
 
 .foot-div-signin> * {
   color: black;
 }
 
-.foot-div-signup {
-  position: relative;
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-  z-index: 1;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 70px;
-  background-color: #FFFFFF;
-  color: #707070;
-}
+// .foot-div-signup {
+//   position: relative;
+//   margin-top: auto;
+//   display: flex;
+//   justify-content: center;
+//   z-index: 1;
+//   bottom: 0;
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+//   height: 70px;
+//   background-color: #FFFFFF;
+//   color: #707070;
+// }
 
-.foot-div-signup:after {
-  position: absolute;
-  height: 100%;
-  content: '';
-  background: inherit;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform-origin: top left; // reference point
-  transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
-  // https://www.youtube.com/watch?v=6QGOhCZLdhs
-}
+// .foot-div-signup:after {
+//   position: absolute;
+//   height: 100%;
+//   content: '';
+//   background: inherit;
+//   z-index: -1;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   transform-origin: top left; // reference point
+//   transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
+//   // https://www.youtube.com/watch?v=6QGOhCZLdhs
+// }
 
-.foot-div-account {
-  position: relative;
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-  z-index: 1;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 70px;
-  background-color: #B40C25;
-}
+// .foot-div-account {
+//   position: relative;
+//   margin-top: auto;
+//   display: flex;
+//   justify-content: center;
+//   z-index: 1;
+//   bottom: 0;
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+//   height: 70px;
+//   background-color: #B40C25;
+// }
 
-.foot-div-account:after {
-  position: absolute;
-  height: 100%;
-  content: '';
-  background: inherit;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform-origin: top left; // reference point
-  transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
-  // https://www.youtube.com/watch?v=6QGOhCZLdhs
-}
+// .foot-div-account:after {
+//   position: absolute;
+//   height: 100%;
+//   content: '';
+//   background: inherit;
+//   z-index: -1;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   transform-origin: top left; // reference point
+//   transform: skewY(-2deg); // skewing downwards at the given angle counterclockwise.
+//   // https://www.youtube.com/watch?v=6QGOhCZLdhs
+// }
 
 
 .copyright {
@@ -219,20 +219,24 @@
   text-align: center;
   font-size: small;
 }
-.copyright-, .copyright-contact, .copyright-series, .copyright-account{
+.copyright-, .copyright-contact, .copyright-series, .copyright-account, .copyright-legal, .copyright-offers, .copyright-pricing{
   color: #FFFFFF;
 }
 
-.copyright-signin, .copyright-signup{
+.copyright-signin, .copyright-signup, .linkNav-foot-resetpwd{
   color: #707070;
 }
 
-.linkNav-foot- , .linkNav-foot-contact , .linkNav-foot-series, .linkNav-foot-account{
+.linkNav-foot- , .linkNav-foot-contact , .linkNav-foot-series, .linkNav-foot-account, .linkNav-foot-legal{
   color: #FFFFFF;
 }
 
-.linkNav-foot-signin, .linkNav-foot-signup{
+.linkNav-foot-signin, .linkNav-foot-signup, .linkNav-foot-resetpwd {
   color: #000000;
+}
+
+.linkNav-foot-signin:hover, .linkNav-foot-signup:hover, .linkNav-foot-resetpwd:hover {
+  color: #707070;
 }
 
 .remove-all-margin-padding {

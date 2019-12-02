@@ -5,7 +5,10 @@ import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router';
 
 const Footer: React.FunctionComponent = () => {
-  const location = useLocation().pathname.slice(1);
+  let location = useLocation().pathname.slice(1);
+  if (location.includes("serie") === true) {
+    location = "series"
+  }
   return (
     <div className="footer">
       <div className={'foot-div-' + location}>

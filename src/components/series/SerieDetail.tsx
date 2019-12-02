@@ -100,6 +100,7 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 					</Col>
 				</Row>
 				<SerieComment serie={serie} />
+				<br /><br />
 			</Container>
 		</React.Fragment>
 	);
