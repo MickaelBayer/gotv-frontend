@@ -52,8 +52,8 @@ const Home: React.FunctionComponent<Props> = (props) => {
     }, []);
 
     function compareAverage(a: Serie, b: Serie) {
-        if (a.see_average_mark > b.see_average_mark) return 1;
-        if (b.see_average_mark > a.see_average_mark) return -1;
+        if (a.see_average_mark < b.see_average_mark) return 1;
+        if (b.see_average_mark < a.see_average_mark) return -1;
         return 0;
     }
 
@@ -146,19 +146,23 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                 <img src={getBackdrop(1)} className="img-overlay-wrap" title={getName(1)} />
                                 <div className="average">
                                     {getAverage(1) > 0 ?
-                                        <Rating value={getAverage(1)} precision={0.5} readOnly /> :
+                                        <Rating value={getAverage(1)} precision={0.5} readOnly className="star-top10" /> :
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
-                                <p className="title_number_x"><span style={{ color: "grey" }}>2</span></p>
+                                {getAverage(1) > 0 ?
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(2)}`, state: { serie: getSerie(2) } }} className="special-a">
                                 <img src={getBackdrop(2)} className="img-overlay-wrap" title={getName(2)} />
                                 <div className="average">
                                     {getAverage(2) > 0 ?
-                                        <Rating value={getAverage(2)} precision={0.5} readOnly /> :
-                                        <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
+                                        <Rating value={getAverage(2)} precision={0.5} readOnly className="star-top10" /> :
+                                        <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }}/>}
                                 </div>
-                                <p className="title_number_x"><span style={{ color: "grey" }}>3</span></p>
+                                {getAverage(2) > 0 ?
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
                             </Link>
                         </Row>
                         <Row className="row_top10_2">
@@ -166,28 +170,34 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                 <img src={getBackdrop(3)} className="img-overlay-wrap" title={getName(3)} />
                                 <div className="average">
                                     {getAverage(3) > 0 ?
-                                        <Rating value={getAverage(3)} precision={0.5} readOnly /> :
+                                        <Rating value={getAverage(3)} precision={0.5} readOnly className="star-top10" /> :
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
-                                <p className="title_number_x"><span style={{ color: "grey" }}>4</span></p>
+                                {getAverage(3) > 0 ?
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(4)}`, state: { serie: getSerie(4) } }} className="special-a">
                                 <img src={getBackdrop(4)} className="img-overlay-wrap" title={getName(4)} />
                                 <div className="average">
                                     {getAverage(4) > 0 ?
-                                        <Rating value={getAverage(4)} precision={0.5} readOnly /> :
+                                        <Rating value={getAverage(4)} precision={0.5} readOnly className="star-top10" /> :
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
-                                <p className="title_number_x"><span style={{ color: "grey" }}>5</span></p>
+                                {getAverage(4) > 0 ?
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(5)}`, state: { serie: getSerie(5) } }} className="special-a">
                                 <img src={getBackdrop(5)} className="img-overlay-wrap" title={getName(5)} />
                                 <div className="average">
                                     {getAverage(5) > 0 ?
-                                        <Rating value={getAverage(5)} precision={0.5} readOnly /> :
+                                        <Rating value={getAverage(5)} precision={0.5} readOnly className="star-top10" /> :
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
-                                <p className="title_number_x"><span style={{ color: "grey" }}>6</span></p>
+                                {getAverage(5) > 0 ?
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
                             </Link>
                         </Row>
                         <Row className="row_top10_2">
@@ -195,37 +205,45 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                 <img src={getBackdrop(6)} className="img-overlay-wrap" title={getName(6)} />
                                 <div className="average">
                                     {getAverage(6) > 0 ?
-                                        <Rating value={getAverage(6)} precision={0.5} readOnly /> :
+                                        <Rating value={getAverage(6)} precision={0.5} readOnly className="star-top10" /> :
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
-                                <p className="title_number_x"><span style={{ color: "grey" }}>7</span></p>
+                                {getAverage(6) > 0 ?
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(7)}`, state: { serie: getSerie(7) } }} className="special-a">
                                 <img src={getBackdrop(7)} className="img-overlay-wrap" title={getName(7)} />
                                 <div className="average">
                                     {getAverage(7) > 0 ?
-                                        <Rating value={getAverage(7)} precision={0.5} readOnly /> :
+                                        <Rating value={getAverage(7)} precision={0.5} readOnly className="star-top10" /> :
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
-                                <p className="title_number_x"><span style={{ color: "grey" }}>8</span></p>
+                                {getAverage(7) > 0 ?
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(8)}`, state: { serie: getSerie(8) } }} className="special-a">
                                 <img src={getBackdrop(8)} className="img-overlay-wrap" title={getName(8)} />
                                 <div className="average">
                                     {getAverage(8) > 0 ?
-                                        <Rating value={getAverage(8)} precision={0.5} readOnly /> :
+                                        <Rating value={getAverage(8)} precision={0.5} readOnly className="star-top10" /> :
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
-                                <p className="title_number_x"><span style={{ color: "grey" }}>9</span></p>
+                                {getAverage(8) > 0 ?
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(9)}`, state: { serie: getSerie(9) } }} className="special-a">
                                 <img src={getBackdrop(9)} className="img-overlay-wrap" title={getName(9)} />
                                 <div className="average">
                                     {getAverage(9) > 0 ?
-                                        <Rating value={getAverage(9)} precision={0.5} readOnly /> :
+                                        <Rating value={getAverage(9)} precision={0.5} readOnly className="star-top10" /> :
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
-                                <p className="title_number_x"><span style={{ color: "grey" }}>10</span></p>
+                                {getAverage(9) > 0 ?
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
                             </Link>
                         </Row>
                         <Row className="row_top10_2">

@@ -29,8 +29,8 @@ const Slider: React.FunctionComponent<Props> = (props) => {
   }, []);
 
   function compareAverage(a: Serie, b: Serie) {
-    if (a.see_average_mark > b.see_average_mark) return 1;
-    if (b.see_average_mark > a.see_average_mark) return -1;
+    if (a.see_average_mark < b.see_average_mark) return 1;
+    if (b.see_average_mark < a.see_average_mark) return -1;
     return 0;
   }
 
