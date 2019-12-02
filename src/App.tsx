@@ -22,7 +22,7 @@ import { AppState } from './store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CommingSoon from './components/home/CommingSoon';
-import { ProtectedRouteProps } from './components/ProtectedRoute';
+import ProtectedRoute, { ProtectedRouteProps } from './components/ProtectedRoute';
 import Legal from './components/home/Legal';
 import Admin from './views/authenticated/Admin';
 
@@ -74,7 +74,7 @@ const App: React.FunctionComponent<Props> = props => {
           <Route path="/pricing" component={CommingSoon} />
           <Route path="/offers" component={CommingSoon} />
           <Route path="/legal" component={Legal} />
-          <Route path="/admin" component={Admin} />
+          <ProtectedRoute {...defaultProtectedRouteProps} path="/admin" expectedRole={1} component={Admin} />
           <Route path="/account" render={() => <Account user={props.user} />} />
           <Route component={PageNotFound} />
         </Switch>
