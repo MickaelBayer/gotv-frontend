@@ -4,7 +4,7 @@ import "../styles/components/slider.scss";
 import { Serie, ISerie } from '../models/serie.model';
 import { AppState } from "../store";
 import { SerieActionTypes } from "../store/modules/serie/serie.type";
-import { getAllSeries, getBestSeries} from "../store/modules/serie/serie.action";
+import { getAllSeries, getBestSeries } from "../store/modules/serie/serie.action";
 import { Dispatch, bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -29,18 +29,12 @@ const Slider: React.FunctionComponent<Props> = (props) => {
     props.getBestSeries();
   }, []);
 
-  function compareAverage(a: Serie, b: Serie) {
-    if (a.see_average_mark < b.see_average_mark) return 1;
-    if (b.see_average_mark < a.see_average_mark) return -1;
-    return 0;
-  }
-
   function generateSlider() {
     const items = [] as any;
     let i: number = 0;
     let my_series: ISerie[] = [];
     for (let e in props.series) {
-        my_series.push(props.series[e]);
+      my_series.push(props.series[e]);
     };
     my_series.forEach(element => {
       items.push(
