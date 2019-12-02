@@ -8,7 +8,7 @@ import Header from './components/Header';
 import Home from './components/home/Home';
 import PageNotFound from './components/PageNotFound';
 import SerieDetail from './components/series/SerieDetail';
-import SeriesPage from './components/series/SeriesPage';
+import SeriesPage from './views/SeriesPage';
 import Account from './views/authenticated/Account';
 import ForgetPassword from './views/authentication/ForgetPassword';
 import SignIn from './views/authentication/SignIn';
@@ -19,54 +19,69 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { getUserInfo } from './store/modules/user/user.action';
 import { connect } from 'react-redux';
 import { AppState } from './store';
-import { Container } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CommingSoon from "./components/home/CommingSoon";
-import Legal from "./components/home/Legal";
-import Admin from "./views/authenticated/Admin";
+import CommingSoon from './components/home/CommingSoon';
+import { ProtectedRouteProps } from './components/ProtectedRoute';
+import Legal from './components/home/Legal';
+import Admin from './views/authenticated/Admin';
 
 const mapStateToProps = (state: AppState) => ({
   user: state.user.user,
   isLoading: state.user.isLoading
-})
+});
 
 const mapDispatchToProps = (dispatch: Dispatch<UserActionTypes>) => ({
   getUserInfo: bindActionCreators(getUserInfo, dispatch)
-})
+});
 
-type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = ReturnType<typeof mapStateToProps> &
+  ReturnType<typeof mapDispatchToProps>;
 
-const App: React.FunctionComponent<Props> = (props) => {
+const App: React.FunctionComponent<Props> = props => {
   useEffect(() => {
     if (AuthenticationService.isAuth()) {
       props.getUserInfo();
     }
   }, []);
+
+  const defaultProtectedRouteProps: ProtectedRouteProps = {
+    isAuthenticated: AuthenticationService.isAuth(),
+    authenticationPath: '/signin',
+    restrictedPath: '',
+    isAllowed: true,
+    user: props.user
+  };
+
   return (
     <Router>
-        <Header />
-        <ToastContainer hideProgressBar draggable={false} />
-        {props.isLoading && AuthenticationService.isAuth() ? <Spinner animation="border" /> :
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/series' component={SeriesPage} />
-            <Route path="/serie/:see_id" render={() => <SerieDetail user={props.user} />} />
-            <Route path='/signin' component={SignIn} />
-            <Route path='/signup' component={SignUp} />
-            <Route path='/contact' component={Contact} />
-            <Route path='/resetpwd' component={ForgetPassword} />
-            <Route path='/pricing' component={CommingSoon} />
-            <Route path='/offers' component={CommingSoon} />
-            <Route path='/legal' component={Legal} />
-            <Route path='/admin' component={Admin} />
-            <Route path='/account' render={() => <Account user={props.user} />}  />
-            <Route component={PageNotFound} />
-          </Switch>
-        }
-        <Footer />
+      <Header />
+      <ToastContainer hideProgressBar draggable={false} />
+      {props.isLoading && AuthenticationService.isAuth() ? (
+        <Spinner animation="border" />
+      ) : (
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/series" component={SeriesPage} />
+          <Route
+            path="/serie/:see_id"
+            render={() => <SerieDetail user={props.user} />}
+          />
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/resetpwd" component={ForgetPassword} />
+          <Route path="/pricing" component={CommingSoon} />
+          <Route path="/offers" component={CommingSoon} />
+          <Route path="/legal" component={Legal} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/account" render={() => <Account user={props.user} />} />
+          <Route component={PageNotFound} />
+        </Switch>
+      )}
+      <Footer />
     </Router>
-  )
-}
+  );
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
