@@ -19,7 +19,7 @@ export default class ApiManagerService<T> {
    * http://localhost/users < le endpoint est "users"
    * @memberof ApiManagerService
    */
-  constructor(protected endpoint: string) {}
+  constructor(protected endpoint: string) { }
 
   public getAll(): Promise<T[]> {
     return axios.get<T[]>(`${this.BASE_URL}/${this.endpoint}`).then(data => {

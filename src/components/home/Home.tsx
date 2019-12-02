@@ -4,11 +4,11 @@ import "../../styles/components/home.scss";
 import winner from "../../assets/winner.png";
 import experts from "../../assets/experts.png";
 import { Container, Row, Col } from "react-bootstrap";
-import { Serie } from '../../models/serie.model';
+import { Serie, ISerie } from '../../models/serie.model';
 import { Dispatch, bindActionCreators } from "redux";
 import { SerieActionTypes } from "../../store/modules/serie/serie.type";
 import { AppState } from "../../store";
-import { getAllSeries } from "../../store/modules/serie/serie.action";
+import { getAllSeries, getBestSeries } from "../../store/modules/serie/serie.action";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import plus_de_series from '../../assets/plus_de_series.svg';
@@ -27,7 +27,6 @@ const useStyles = makeStyles({
         marginBottom: "5px"
     },
     colorSecondary: {
-        //   backgroundColor: "#B40C25",
         backgroundColor: "transparent",
     },
 });
@@ -38,7 +37,8 @@ const mapStateToProps = (state: AppState) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<SerieActionTypes>) => ({
-    getAllSeries: bindActionCreators(getAllSeries, dispatch)
+    getAllSeries: bindActionCreators(getAllSeries, dispatch),
+    getBestSeries: bindActionCreators(getBestSeries, dispatch)
 })
 
 type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -48,7 +48,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
     const classes = useStyles();
 
     useEffect(() => {
-        props.getAllSeries();
+        props.getBestSeries();
     }, []);
 
     function compareAverage(a: Serie, b: Serie) {
@@ -58,54 +58,73 @@ const Home: React.FunctionComponent<Props> = (props) => {
     }
 
     function getBackdrop(i: number): string {
-        props.series.sort(compareAverage);
+        let my_series: ISerie[] = [];
+        for (let e in props.series) {
+            my_series.push(props.series[e]);
+        };
         let postersUrl: string[] = [];
-        props.series.forEach(e => {
+        my_series.forEach(e => {
             postersUrl.push(e.see_backdrop_path);
         });
         return postersUrl[i];
     }
 
     function getPoster(i: number): string {
-        props.series.sort(compareAverage);
+        let my_series: ISerie[] = [];
+        for (let e in props.series) {
+            my_series.push(props.series[e]);
+        };
         let postersUrl: string[] = [];
-        props.series.forEach(e => {
+        my_series.forEach(e => {
             postersUrl.push(e.see_poster_path);
         });
+        postersUrl[i] = postersUrl[i].replace("w200", "w500");
         return postersUrl[i];
     }
 
     function getName(i: number): string {
-        props.series.sort(compareAverage);
+        let my_series: ISerie[] = [];
+        for (let e in props.series) {
+            my_series.push(props.series[e]);
+        };
         let names: string[] = [];
-        props.series.forEach(e => {
+        my_series.forEach(e => {
             names.push(e.see_name);
         });
         return names[i];
     }
 
     function getId(i: number): number {
-        props.series.sort(compareAverage);
+        let my_series: ISerie[] = [];
+        for (let e in props.series) {
+            my_series.push(props.series[e]);
+        };
         let ids: number[] = [];
-        props.series.forEach(e => {
+        my_series.forEach(e => {
             ids.push(e.see_id);
         });
         return ids[i];
     }
 
     function getSerie(i: number): Serie {
-        props.series.sort(compareAverage);
+        let my_series: ISerie[] = [];
+        for (let e in props.series) {
+            my_series.push(props.series[e]);
+        };
         let series: Serie[] = [];
-        props.series.forEach(e => {
+        my_series.forEach(e => {
             series.push(e);
         });
         return series[i];
     }
 
     function getAverage(i: number): number {
-        props.series.sort(compareAverage);
+        let my_series: ISerie[] = [];
+        for (let e in props.series) {
+            my_series.push(props.series[e]);
+        };
         let avg: number[] = [];
-        props.series.forEach(e => {
+        my_series.forEach(e => {
             avg.push(e.see_average_mark);
         });
         return avg[i];
@@ -126,7 +145,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
                         </Link>
                         <div>
                             {getAverage(0) > 0 ?
-                                <Rating value={getAverage(0)} precision={0.5} readOnly /> :
+                                <Rating value={getAverage(0)} precision={0.5} readOnly style={{ marginTop: '10px' }} /> :
                                 <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                         </div>
                         <Link to={{ pathname: `serie/${getId(0)}`, state: { serie: getSerie(0) } }}>
@@ -158,7 +177,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                 <div className="average">
                                     {getAverage(2) > 0 ?
                                         <Rating value={getAverage(2)} precision={0.5} readOnly className="star-top10" /> :
-                                        <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }}/>}
+                                        <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
                                 {getAverage(2) > 0 ?
                                     <div className="title_number_x_star"><span style={{ color: "grey" }}>3</span></div> :
