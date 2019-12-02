@@ -161,8 +161,8 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }}/>}
                                 </div>
                                 {getAverage(2) > 0 ?
-                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
-                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>3</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>3</span></div>}
                             </Link>
                         </Row>
                         <Row className="row_top10_2">
@@ -174,8 +174,8 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
                                 {getAverage(3) > 0 ?
-                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
-                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>4</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>4</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(4)}`, state: { serie: getSerie(4) } }} className="special-a">
                                 <img src={getBackdrop(4)} className="img-overlay-wrap" title={getName(4)} />
@@ -185,8 +185,8 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
                                 {getAverage(4) > 0 ?
-                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
-                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>5</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>5</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(5)}`, state: { serie: getSerie(5) } }} className="special-a">
                                 <img src={getBackdrop(5)} className="img-overlay-wrap" title={getName(5)} />
@@ -196,8 +196,8 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
                                 {getAverage(5) > 0 ?
-                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
-                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>6</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>6</span></div>}
                             </Link>
                         </Row>
                         <Row className="row_top10_2">
@@ -209,8 +209,8 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
                                 {getAverage(6) > 0 ?
-                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
-                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>7</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>7</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(7)}`, state: { serie: getSerie(7) } }} className="special-a">
                                 <img src={getBackdrop(7)} className="img-overlay-wrap" title={getName(7)} />
@@ -220,8 +220,8 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
                                 {getAverage(7) > 0 ?
-                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
-                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>8</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>8</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(8)}`, state: { serie: getSerie(8) } }} className="special-a">
                                 <img src={getBackdrop(8)} className="img-overlay-wrap" title={getName(8)} />
@@ -231,8 +231,8 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
                                 {getAverage(8) > 0 ?
-                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
-                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>9</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>9</span></div>}
                             </Link>
                             <Link to={{ pathname: `serie/${getId(9)}`, state: { serie: getSerie(9) } }} className="special-a">
                                 <img src={getBackdrop(9)} className="img-overlay-wrap" title={getName(9)} />
@@ -242,8 +242,8 @@ const Home: React.FunctionComponent<Props> = (props) => {
                                         <Chip label="Pas encore noté !" color="secondary" icon={<StarBorderIcon />} classes={{ root: classes.root, colorSecondary: classes.colorSecondary }} />}
                                 </div>
                                 {getAverage(9) > 0 ?
-                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>2</span></div> :
-                                    <div className="title_number_x"><span style={{ color: "grey" }}>2</span></div>}
+                                    <div className="title_number_x_star"><span style={{ color: "grey" }}>10</span></div> :
+                                    <div className="title_number_x"><span style={{ color: "grey" }}>10</span></div>}
                             </Link>
                         </Row>
                         <Row className="row_top10_2">
