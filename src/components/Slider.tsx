@@ -1,79 +1,76 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Carousel from 'react-bootstrap/Carousel';
 import "../styles/components/slider.scss";
-import { Serie } from '../models/serie';
+import { Serie } from '../models/serie.model';
+import { AppState } from "../store";
+import { SerieActionTypes } from "../store/modules/serie/serie.type";
+import { getAllSeries } from "../store/modules/serie/serie.action";
+import { Dispatch, bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-const serie1 = {
-  id: 1,
-  name: "BIP",
-  pitch: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada leo vitae accumsan ornare. Mauris vitae placerat leo. Mauris facilisis sodales tincidunt. Aenean dignissim ullamcorper ligula, in dignissim risus interdum in. Curabitur volutpat ante lacus, in congue augue cursus vel. Praesent consectetur non lacus at dictum. Fusce porttitor pharetra elementum.",
-  urlImgage: "https://image.tmdb.org/t/p/w780/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg"
-}
-const serie2 = {
-  id: 2,
-  name: "BOP",
-  pitch: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada leo vitae accumsan ornare. Mauris vitae placerat leo. Mauris facilisis sodales tincidunt. Aenean dignissim ullamcorper ligula, in dignissim risus interdum in. Curabitur volutpat ante lacus, in congue augue cursus vel. Praesent consectetur non lacus at dictum. Fusce porttitor pharetra elementum.",
-  urlImgage: "https://image.tmdb.org/t/p/original/f5F4cRhQdUbyVbB5lTNCwUzD6BP.jpg"
-}
-const serie3 = {
-  id: 3,
-  name: "BUP",
-  pitch: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada leo vitae accumsan ornare. Mauris vitae placerat leo. Mauris facilisis sodales tincidunt. Aenean dignissim ullamcorper ligula, in dignissim risus interdum in. Curabitur volutpat ante lacus, in congue augue cursus vel. Praesent consectetur non lacus at dictum. Fusce porttitor pharetra elementum.",
-  urlImgage: "https://image.tmdb.org/t/p/original/kKTPv9LKKs5L3oO1y5FNObxAPWI.jpg"
-}
-const serie4 = {
-  id: 4,
-  name: "BAP",
-  pitch: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada leo vitae accumsan ornare. Mauris vitae placerat leo. Mauris facilisis sodales tincidunt. Aenean dignissim ullamcorper ligula, in dignissim risus interdum in. Curabitur volutpat ante lacus, in congue augue cursus vel. Praesent consectetur non lacus at dictum. Fusce porttitor pharetra elementum.",
-  urlImgage: "https://image.tmdb.org/t/p/original/2XWhIg0aWX83ntm5Oq8w15vfB9c.jpg"
-}
+const mapStateToProps = (state: AppState) => ({
+  series: state.series.series,
+  isLoading: state.series.isLoading
+})
 
-export default class Slider extends React.Component<{}, { series: Serie[], arrowIcon: any }> {
+const mapDispatchToProps = (dispatch: Dispatch<SerieActionTypes>) => ({
+  getAllSeries: bindActionCreators(getAllSeries, dispatch)
+})
 
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      series: [] as any,
-      arrowIcon: <span aria-hidden="true" className="carousel-control-next-icon"></span>
-    };
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+
+const Slider: React.FunctionComponent<Props> = (props) => {
+
+  const arrowIcon = <span aria-hidden="true" className="carousel-control-next-icon"></span>;
+
+  useEffect(() => {
+    props.getAllSeries();
+  }, []);
+
+  function compareAverage(a: Serie, b: Serie) {
+    if (a.see_average_mark > b.see_average_mark) return 1;
+    if (b.see_average_mark > a.see_average_mark) return -1;
+    return 0;
   }
 
-  componentWillMount() {
-    // fetch les séries à mettre dans le caroussel.
-    // mise à jour des props.
-    const my_series = [serie1, serie2, serie3, serie4];
-    this.setState({ series: my_series });
-  }
-
-  generateSlider() {
+  function generateSlider() {
+    props.series.sort(compareAverage);
     const items = [] as any;
-    this.state.series.forEach(element => {
+    let i: number = 0;
+    props.series.forEach(element => {
       items.push(
-        <Carousel.Item>
-          <img
-            className="d-block w-100 img-carousel"
-            src={element.urlImgage}
-            alt={element.name}
-          />
+        <Carousel.Item key={i}>
+          <Link to={{ pathname: `serie/${element.see_id}`, state: { serie: element } }}>
+            <img
+              className="d-block w-100 img-carousel"
+              src={element.see_backdrop_path}
+              alt={element.see_name}
+              title={element.see_name}
+            />
+          </Link>
         </Carousel.Item>
       );
+      i++;
+      if (i > 9) {
+        return items;
+      }
     });
     return items;
   }
 
-
-  render() {
-    const { arrowIcon } = this.state;
-    return (
-      <div className="div-carousel">
-        <Carousel nextIcon={arrowIcon} indicators={false} >
-          {this.generateSlider()}
-        </Carousel>
-        <div className="site-title">
-          GoTV Series
-          <hr />
-        </div>
+  return (
+    <div className="div-carousel">
+      <Carousel nextIcon={arrowIcon} indicators={false} >
+        {generateSlider()}
+      </Carousel>
+      <div className="site-title">
+        GoTV Series
+        <hr />
       </div>
-    )
-  }
+    </div>
+  );
+
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Slider);

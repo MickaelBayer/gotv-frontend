@@ -5,6 +5,10 @@ export const GET_SERIE_REQUEST = "GET_SERIE_REQUEST";
 export const GET_SERIE_SUCCESS = "GET_SERIE_SUCCESS";
 export const GET_SERIE_FAILURE = "GET_SERIE_FAILURE";
 
+export const GET_SERIES_REQUEST = "GET_SERIES_REQUEST";
+export const GET_SERIES_SUCCESS = "GET_SERIES_SUCCESS";
+export const GET_SERIES_FAILURE = "GET_SERIES_FAILURE";
+
 export const POST_SERIEVOTE_REQUEST = "POST_SERIEVOTE_REQUEST";
 export const POST_SERIEVOTE_SUCCESS = "POST_SERIEVOTE_SUCCESS";
 export const POST_SERIEVOTE_FAILURE = "POST_SERIEVOTE_FAILURE";
@@ -23,6 +27,21 @@ interface GetSerieFailureAction {
   error: string;
 }
 
+interface GetSeriesSuccessAction {
+  type: typeof GET_SERIES_SUCCESS;
+  series: ISerie[];
+}
+
+interface GetSeriesRequestAction {
+  type: typeof GET_SERIES_REQUEST;
+}
+
+interface GetSeriesFailureAction {
+  type: typeof GET_SERIES_FAILURE;
+  error: string;
+}
+
+
 interface PostSerieVoteSuccessAction {
   type: typeof POST_SERIEVOTE_SUCCESS;
   vote: IVote;
@@ -37,4 +56,5 @@ interface PostSerieVoteFailureAction {
   error: string;
 }
 
-export type SerieActionTypes = GetSerieSuccessAction | GetSerieRequestAction | GetSerieFailureAction | PostSerieVoteSuccessAction | PostSerieVoteRequestAction | PostSerieVoteFailureAction;
+
+export type SerieActionTypes = GetSerieSuccessAction | GetSerieRequestAction | GetSerieFailureAction | PostSerieVoteSuccessAction | PostSerieVoteRequestAction | PostSerieVoteFailureAction | GetSeriesSuccessAction | GetSeriesRequestAction | GetSeriesFailureAction;
