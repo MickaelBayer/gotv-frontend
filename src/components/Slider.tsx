@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Carousel from 'react-bootstrap/Carousel';
 import "../styles/components/slider.scss";
-import { Serie } from '../models/serie.model';
+import { Serie, ISerie } from '../models/serie.model';
 import { AppState } from "../store";
 import { SerieActionTypes } from "../store/modules/serie/serie.type";
-import { getAllSeries } from "../store/modules/serie/serie.action";
+import { getAllSeries, getBestSeries} from "../store/modules/serie/serie.action";
 import { Dispatch, bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -15,7 +15,8 @@ const mapStateToProps = (state: AppState) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<SerieActionTypes>) => ({
-  getAllSeries: bindActionCreators(getAllSeries, dispatch)
+  getAllSeries: bindActionCreators(getAllSeries, dispatch),
+  getBestSeries: bindActionCreators(getBestSeries, dispatch)
 })
 
 type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -25,7 +26,7 @@ const Slider: React.FunctionComponent<Props> = (props) => {
   const arrowIcon = <span aria-hidden="true" className="carousel-control-next-icon"></span>;
 
   useEffect(() => {
-    props.getAllSeries();
+    props.getBestSeries();
   }, []);
 
   function compareAverage(a: Serie, b: Serie) {
@@ -35,10 +36,13 @@ const Slider: React.FunctionComponent<Props> = (props) => {
   }
 
   function generateSlider() {
-    props.series.sort(compareAverage);
     const items = [] as any;
     let i: number = 0;
-    props.series.forEach(element => {
+    let my_series: ISerie[] = [];
+    for (let e in props.series) {
+        my_series.push(props.series[e]);
+    };
+    my_series.forEach(element => {
       items.push(
         <Carousel.Item key={i}>
           <Link to={{ pathname: `serie/${element.see_id}`, state: { serie: element } }}>
