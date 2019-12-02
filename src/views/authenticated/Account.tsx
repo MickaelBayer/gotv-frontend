@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../styles/views/account.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import userAccount from '../../assets/user_account.png';
-import {IUser} from "../../models/user.model";
-import Moment from 'moment';
+import { IUser } from "../../models/user.model";
 import UserService from "../../services/api/entities/user.service";
-import {AuthenticationService} from "../../services/api/authentication.service";
+import { AuthenticationService } from "../../services/api/authentication.service";
+import { Role } from '../../models/role.model';
 
 type Props = { user: IUser };
 
@@ -18,7 +18,7 @@ interface RegisterState {
   usr_country: string;
   usr_postal_code: string;
   usr_address: string;
-  usr_role: number;
+  usr_role: Role;
 }
 
 export default class Account extends React.Component<Props, RegisterState> {
@@ -34,7 +34,7 @@ export default class Account extends React.Component<Props, RegisterState> {
       usr_country: this.props.user.usr_country,
       usr_postal_code: this.props.user.usr_postal_code,
       usr_address: this.props.user.usr_address,
-      usr_role: this.props.user.usr_role.id,
+      usr_role: this.props.user.usr_role,
     }
   }
 
@@ -50,7 +50,7 @@ export default class Account extends React.Component<Props, RegisterState> {
     new Promise(resolve => {
       setTimeout(() => {
         AuthenticationService.logout();
-        document.location.href="/"
+        document.location.href = "/"
       }, 1000);
     });
   }
@@ -72,14 +72,14 @@ export default class Account extends React.Component<Props, RegisterState> {
   render() {
     return (
       <div className="accountPage">
-        {this.state.usr_role == 1 && <div className="btnAdmin"><a href="/admin"> Espace Admin </a></div>}
+        {this.state.usr_role.roe_id == 1 && <div className="btnAdmin"><a href="/admin"> Espace Admin </a></div>}
         <div className="myAccount">
           <div className="titleMyAccount">Mon compte</div>
           <hr className="whiteLine" />
           <div className="contentMyAccount">
             <div className="accountImg">
               <div className="imageUserAccount">
-                <img src={userAccount} width="100%"/>
+                <img src={userAccount} width="100%" />
               </div>
             </div>
             <div className="formAccountInfo">
@@ -90,8 +90,8 @@ export default class Account extends React.Component<Props, RegisterState> {
                 </Form.Group>
                 <Form.Group controlId="lastname">
                   <Form.Label>Nom:</Form.Label>
-                  <Form.Control type="text" name="lastname" value={this.state.usr_lastname} onChange={this.handleChange("usr_lastname")}/>
-              </Form.Group>
+                  <Form.Control type="text" name="lastname" value={this.state.usr_lastname} onChange={this.handleChange("usr_lastname")} />
+                </Form.Group>
                 <Form.Group controlId="firstname">
                   <Form.Label>Prénom:</Form.Label>
                   <Form.Control type="text" name="firstname" value={this.state.usr_firstname} onChange={this.handleChange("usr_firstname")} />
@@ -112,7 +112,7 @@ export default class Account extends React.Component<Props, RegisterState> {
             <Form className="formContactInfo">
               <Form.Group controlId="mail">
                 <Form.Label>Email:</Form.Label>
-                <Form.Control type="text" name="mail" readOnly defaultValue={this.props.user.usr_email}/>
+                <Form.Control type="text" name="mail" readOnly defaultValue={this.props.user.usr_email} />
               </Form.Group>
               <Form.Group controlId="tel">
                 <Form.Label>N° téléphone:</Form.Label>
@@ -128,11 +128,11 @@ export default class Account extends React.Component<Props, RegisterState> {
               </Form.Group>
               <Form.Group controlId="city">
                 <Form.Label>Ville:</Form.Label>
-                <Form.Control type="text" name="city" value={this.state.usr_city} onChange={this.handleChange("usr_city")}/>
+                <Form.Control type="text" name="city" value={this.state.usr_city} onChange={this.handleChange("usr_city")} />
               </Form.Group>
               <Form.Group controlId="country">
                 <Form.Label>Pays:</Form.Label>
-                <Form.Control type="text" name="country" value={this.state.usr_country} onChange={this.handleChange("usr_country")}/>
+                <Form.Control type="text" name="country" value={this.state.usr_country} onChange={this.handleChange("usr_country")} />
               </Form.Group>
             </Form>
             <Button type="submit" className="btnUpdContactInfo float-right" onClick={this.updateUser}>
@@ -152,9 +152,9 @@ export default class Account extends React.Component<Props, RegisterState> {
             </div>
           </div>
           <Button
-              type="submit"
-              className="btnDiscoverSub float-right"
-              href="/offers"
+            type="submit"
+            className="btnDiscoverSub float-right"
+            href="/offers"
           >
             Découvrir les offres !
           </Button>

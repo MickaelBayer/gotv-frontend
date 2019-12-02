@@ -15,7 +15,7 @@ type Props = ProtectedRouteProps & { expectedRole: number }
 export const ProtectedRoute: React.FunctionComponent<Props> = (props) => {
   let redirectPath = '';
 
-  if (!props.isAuthenticated || props.expectedRole !== props.user.usr_role.id) {
+  if (!props.isAuthenticated || props.expectedRole !== props.user.usr_role.roe_id) {
     redirectPath = props.authenticationPath;
   }
   if (props.isAuthenticated && !props.isAllowed) {
