@@ -22,7 +22,7 @@ const Footer: React.FunctionComponent = () => {
               </NavLink>
             </Col>
             <Col>
-              <NavLink to="/" className={'linkNav-foot linkNav-foot-' + location}>
+              <NavLink to="/legal" className={'linkNav-foot linkNav-foot-' + location}>
                 Mentions légales
               </NavLink>
             </Col>

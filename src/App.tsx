@@ -23,6 +23,7 @@ import { Container } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CommingSoon from "./components/home/CommingSoon";
+import Legal from "./components/home/Legal";
 
 const mapStateToProps = (state: AppState) => ({
   user: state.user.user,
@@ -57,6 +58,7 @@ const App: React.FunctionComponent<Props> = (props) => {
             <Route path='/resetpwd' component={ForgetPassword} />
             <Route path='/pricing' component={CommingSoon} />
             <Route path='/offers' component={CommingSoon} />
+            <Route path='/legal' component={Legal} />
             <Route path='/account' render={() => <Account user={props.user} />}  />
             <Route component={PageNotFound} />
           </Switch>
