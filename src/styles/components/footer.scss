@@ -152,7 +152,7 @@
   color: black;
 }
 
-.foot-div-signup {
+.foot-div-signup, .foot-div-resetpwd {
   position: relative;
   margin-top: auto;
   display: flex;
@@ -182,7 +182,7 @@
   // https://www.youtube.com/watch?v=6QGOhCZLdhs
 }
 
-.foot-div-account {
+.foot-div-account, .foot-div-legal, .foot-div-pricing, .foot-div-offers, .foot-div-admin {
   position: relative;
   margin-top: auto;
   display: flex;
@@ -196,7 +196,7 @@
   background-color: #B40C25;
 }
 
-.foot-div-account:after {
+.foot-div-account:after, .foot-div-legal:after, .foot-div-pricing:after, .foot-div-offers:after, .foot-div-resetpwd:after, .foot-div-admin:after {
   position: absolute;
   height: 100%;
   content: '';
@@ -219,7 +219,7 @@
   text-align: center;
   font-size: small;
 }
-.copyright-, .copyright-contact, .copyright-series, .copyright-account{
+.copyright-, .copyright-contact, .copyright-series, .copyright-account, .copyright-legal, .copyright-pricing, .copyright-offers, .copyright-admin{
   color: #FFFFFF;
 }
 
@@ -227,11 +227,11 @@
   color: #707070;
 }
 
-.linkNav-foot- , .linkNav-foot-contact , .linkNav-foot-series, .linkNav-foot-account{
+.linkNav-foot- , .linkNav-foot-contact , .linkNav-foot-series, .linkNav-foot-account, .linkNav-foot-legal{
   color: #FFFFFF;
 }
 
-.linkNav-foot-signin, .linkNav-foot-signup{
+.linkNav-foot-signin, .linkNav-foot-signup, .linkNav-foot-resetpwd{
   color: #000000;
 }
 

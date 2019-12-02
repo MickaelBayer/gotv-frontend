@@ -1,0 +1,26 @@
+.adminPage{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10vh;
+  margin-top: 4vh;
+}
+
+.titleAdminPage{
+  font-size: 4vh;
+}
+
+.btnUpdDb{
+  background: grey;
+  width: 17vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 5vh;
+  border-radius: 4px;
+  margin-top: 4vh;
+}

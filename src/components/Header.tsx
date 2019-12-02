@@ -29,7 +29,6 @@ export default class Header extends React.Component<{}, { isSearch: boolean }> {
     AuthenticationService.logout();
     document.location.href="/"
   }
-
   render() {
     return (
       <Navbar bg="#B40C25" expand="lg" className="shadow">
@@ -37,7 +36,7 @@ export default class Header extends React.Component<{}, { isSearch: boolean }> {
           <img src={logo} alt="logo" width={55}/>
         </Navbar.Brand>
         <Navbar.Toggle className="toggle" aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" data-toggle="collapse">
           <Nav className="mr-auto">
             <NavLink to="/" exact className="linkNav" activeStyle={{ color: "#FEE066" }}>ACCUEIL</NavLink>
             <NavLink to="/series" className="linkNav" activeStyle={{ color: "#FEE066" }}>LES SÉRIES</NavLink>

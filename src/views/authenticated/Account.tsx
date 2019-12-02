@@ -18,6 +18,7 @@ interface RegisterState {
   usr_country: string;
   usr_postal_code: string;
   usr_address: string;
+  usr_role: number;
 }
 
 export default class Account extends React.Component<Props, RegisterState> {
@@ -33,7 +34,8 @@ export default class Account extends React.Component<Props, RegisterState> {
       usr_city: this.props.user.usr_city,
       usr_country: this.props.user.usr_country,
       usr_postal_code: this.props.user.usr_postal_code,
-      usr_address: this.props.user.usr_address
+      usr_address: this.props.user.usr_address,
+      usr_role: this.props.user.usr_role.roe_id
     }
   }
 
@@ -68,10 +70,14 @@ export default class Account extends React.Component<Props, RegisterState> {
     });
   }
 
+  goToAdmin(){
+    document.location.href="/"
+  }
+
   render() {
-    Moment.locale('en');
     return (
       <div className="accountPage">
+        {this.state.usr_role == 1 && <div className="btnAdmin"><a href="/admin"> Espace Admin </a></div>}
         <div className="myAccount">
           <div className="titleMyAccount">Mon compte</div>
           <hr className="whiteLine" />
@@ -100,7 +106,6 @@ export default class Account extends React.Component<Props, RegisterState> {
                 Mettre à jour
               </Button>
             </div>
-
           </div>
 
         </div>
