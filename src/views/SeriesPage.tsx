@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			display: 'flex',
+			marginBottom: "20px"
 		},
 		drawer: {
 			width: drawerWidth,

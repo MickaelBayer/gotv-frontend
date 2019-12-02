@@ -25,7 +25,6 @@ const SerieComment: React.FunctionComponent<Props> = (props) => {
   useEffect(() => {
     props.getAllVotesBySerie(props.serie.see_id);
   }, []);
-  console.log(props.votes)
   return (
     <React.Fragment>
       <h4 className="title title-small">{props.votes.length} Commentaires</h4>
@@ -69,7 +68,6 @@ const SerieComment: React.FunctionComponent<Props> = (props) => {
                   </div>
                 </div>
               }
-
             </React.Fragment>
           )
         })}

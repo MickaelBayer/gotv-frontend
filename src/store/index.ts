@@ -1,5 +1,6 @@
 import { vote } from './modules/vote/vote.reducer';
 import { series } from './modules/serie/series.reducer'
+import { serieCast } from './modules/serieCast/serieCast.reducer';
 import { serieVideo } from './modules/serieVideo/serieVideo.reducer';
 import { serie } from './modules/serie/serie.reducer';
 import { catSerie } from './modules/catSerie/catSerie.reducer';
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   auth,
   catSerie,
   serie,
+  serieCast,
   serieVideo,
   user,
   users,
