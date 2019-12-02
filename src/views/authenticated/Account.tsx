@@ -25,7 +25,6 @@ export default class Account extends React.Component<Props, RegisterState> {
 
   constructor(props: Readonly<Props>) {
     super(props);
-    // this.updateUser = this.updateUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       usr_firstname: this.props.user.usr_firstname,
@@ -35,7 +34,7 @@ export default class Account extends React.Component<Props, RegisterState> {
       usr_country: this.props.user.usr_country,
       usr_postal_code: this.props.user.usr_postal_code,
       usr_address: this.props.user.usr_address,
-      usr_role: this.props.user.usr_role.roe_id
+      usr_role: this.props.user.usr_role.id,
     }
   }
 
@@ -68,10 +67,6 @@ export default class Account extends React.Component<Props, RegisterState> {
       usr_postal_code: this.state.usr_postal_code,
       usr_address: this.state.usr_address
     });
-  }
-
-  goToAdmin(){
-    document.location.href="/"
   }
 
   render() {
