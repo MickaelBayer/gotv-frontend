@@ -82,7 +82,7 @@
 //   // https://www.youtube.com/watch?v=6QGOhCZLdhs
 // }
 
-.foot-div-, .foot-div-series, .foot-div-legal, .foot-div-contact, .foot-div-account, .foot-div-offers, .foot-div-pricing{
+.foot-div-, .foot-div-series, .foot-div-legal, .foot-div-contact, .foot-div-account, .foot-div-offers, .foot-div-pricing, .foot-div-admin{
   position: relative;
   margin-top: auto;
   display: flex;
@@ -96,7 +96,7 @@
   background-color: #B40C25;
 }
 
-.foot-div-:after, .foot-div-series:after, .foot-div-account:after, .foot-div-legal:after, .foot-div-contact:after, .foot-div-signin:after, .foot-div-signup:after, .foot-div-offers:after, .foot-div-pricing:after, .foot-div-resetpwd:after{
+.foot-div-:after, .foot-div-series:after, .foot-div-account:after, .foot-div-legal:after, .foot-div-contact:after, .foot-div-signin:after, .foot-div-signup:after, .foot-div-offers:after, .foot-div-pricing:after, .foot-div-resetpwd:after, .foot-div-admin:after{
   position: absolute;
   height: 100%;
   content: '';
@@ -219,7 +219,7 @@
   text-align: center;
   font-size: small;
 }
-.copyright-, .copyright-contact, .copyright-series, .copyright-account, .copyright-legal, .copyright-offers, .copyright-pricing{
+.copyright-, .copyright-contact, .copyright-series, .copyright-account, .copyright-legal, .copyright-offers, .copyright-pricing, .copyright-admin{
   color: #FFFFFF;
 }
 
