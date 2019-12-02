@@ -141,7 +141,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
                     <br />
                     <div className="winner">
                         <Link to={{ pathname: `serie/${getId(0)}`, state: { serie: getSerie(0) } }}>
-                            <img src={getPoster(0)} id="img_num_1" width="1000" className="responsive" title={getName(0)}></img>
+                            <img src={getPoster(0)} id="img_num_1" width="100" className="responsive" title={getName(0)}></img>
                         </Link>
                         <div>
                             {getAverage(0) > 0 ?
@@ -151,11 +151,33 @@ const Home: React.FunctionComponent<Props> = (props) => {
                         <Link to={{ pathname: `serie/${getId(0)}`, state: { serie: getSerie(0) } }}>
                             <p className="title_number_1"><span style={{ color: "yellow" }}>1.</span> {getName(0)}</p>
                         </Link>
+                        <div className="comment1">
+                            « Les acteurs sont juste incroyable ! »
+                            {/* <p className="citation1"><cite>Francis</cite></p> */}
+                        </div>
+                        <div className="comment2">
+                            « OMG ! »
+                            {/* <p className="citation1"><cite>Francis</cite></p> */}
+                        </div>
+                        <div className="comment3">
+                            « Un vrai chef d’oeuvre »
+                            {/* <p className="citation1"><cite>Francis</cite></p> */}
+                        </div>
+                        <div className="comment4">
+                            « Fantastique ! »
+                            {/* <p className="citation1"><cite>Francis</cite></p> */}
+                        </div>
+                        <div className="comment5">
+                            « Je suis devenu un grand fan… »
+                            {/* <p className="citation1"><cite>Francis</cite></p> */}
+                        </div>
+                        <div className="comment6">
+                            « La meilleure série <br />
+                                de tout les temps !!! »
+                            {/* <p className="citation1"><cite>Francis</cite></p> */}
+                        </div>
                     </div>
-                    <br />
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit sed ipsum non finibus. Nulla lacinia sapien mollis turpis condimentum volutpat. Morbi finibus lectus est, eu ultrices leo molestie et. Donec orci ante, ornare eu neque vel, volutpat ultricies risus. Ut eleifend sem in volutpat dapibus. Curabitur vel ultrices tellus, at tristique augue. Nunc ornare mi lorem, eget molestie tellus volutpat consectetur. Cras condimentum, ex finibus tincidunt suscipit, nisl justo dignissim nisl, sit amet condimentum diam elit sagittis sapien. Aenean pulvinar ante dui, sollicitudin sollicitudin ligula interdum a. Proin quis urna ac sem rhoncus rutrum. Sed aliquam ex dui, eget dignissim mi mattis quis. In tortor velit, finibus nec dictum in, sollicitudin sit amet metus. Morbi a tellus accumsan nisi pharetra pulvinar ac in lectus. Quisque enim lacus, iaculis sed venenatis ut, facilisis in arcu. Aliquam eleifend orci a tortor ultricies ullamcorper.
-                    </p>
+                    
                     <br />
                 </div>
                 <div className="top10_2">
