@@ -19,10 +19,10 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { getUserInfo } from './store/modules/user/user.action';
 import { connect } from 'react-redux';
 import { AppState } from './store';
-import { Container } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CommingSoon from "./components/home/CommingSoon";
+import { ProtectedRouteProps } from './components/ProtectedRoute';
 import Legal from "./components/home/Legal";
 
 const mapStateToProps = (state: AppState) => ({
@@ -42,6 +42,14 @@ const App: React.FunctionComponent<Props> = (props) => {
       props.getUserInfo();
     }
   }, []);
+
+  const defaultProtectedRouteProps: ProtectedRouteProps = {
+    isAuthenticated: AuthenticationService.isAuth(),
+    authenticationPath: '/signin',
+    restrictedPath: "",
+    isAllowed: true,
+    user: props.user
+  };
 
   return (
     <Router>
