@@ -12,23 +12,23 @@ const Footer: React.FunctionComponent = () => {
         <Container>
           <Row>
             <Col>
-              <NavLink to="/" className="linkNav-foot">
+              <NavLink to="/" className={'linkNav-foot linkNav-foot-' + location}>
                 Qui sommes nous ?
               </NavLink>
             </Col>
             <Col>
-              <NavLink to="/contact" className="linkNav-foot">
+              <NavLink to="/contact" className={'linkNav-foot linkNav-foot-' + location}>
                 Nous contacter
               </NavLink>
             </Col>
             <Col>
-              <NavLink to="/" className="linkNav-foot">
+              <NavLink to="/" className={'linkNav-foot linkNav-foot-' + location}>
                 Mentions légales
               </NavLink>
             </Col>
           </Row>
           <Row>
-            <Col>GoTV series © 2019 — Tous droits réservés ®</Col>
+            <Col className={'copyright copyright-' + location}>GoTV series © 2019 — Tous droits réservés ®</Col>
           </Row>
         </Container>
       </div>

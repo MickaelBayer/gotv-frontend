@@ -44,7 +44,7 @@ const SeriesPage: React.FunctionComponent<Props> = (props) => {
 	}, []);
 
 	return (
-		<div className="container d-block">
+		<div className="container d-block" style={{paddingBottom: "30px"}}>
 			{props.isLoading ? <Spinner animation="border" /> :
 				props.catSeries.filter(catserie => catserie.cae_series.length > 0).map((category, i) => {
 					return (

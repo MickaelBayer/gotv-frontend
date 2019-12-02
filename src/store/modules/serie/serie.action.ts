@@ -5,6 +5,9 @@ import {
   GET_SERIE_REQUEST,
   GET_SERIE_SUCCESS,
   GET_SERIE_FAILURE,
+  GET_SERIES_REQUEST,
+  GET_SERIES_SUCCESS,
+  GET_SERIES_FAILURE,
   POST_SERIEVOTE_REQUEST,
   POST_SERIEVOTE_SUCCESS,
   POST_SERIEVOTE_FAILURE
@@ -30,6 +33,26 @@ function getSerieSuccess(serie: ISerie): SerieActionTypes {
 function getSerieFailure(error: string): SerieActionTypes {
   return {
     type: GET_SERIE_FAILURE,
+    error: error,
+  }
+}
+
+function getSeriesResquest(): SerieActionTypes {
+  return {
+    type: GET_SERIES_REQUEST,
+  }
+}
+
+function getSeriesSuccess(series: ISerie[]): SerieActionTypes {
+  return {
+    type: GET_SERIES_SUCCESS,
+    series: series
+  }
+}
+
+function getSeriesFailure(error: string): SerieActionTypes {
+  return {
+    type: GET_SERIES_FAILURE,
     error: error,
   }
 }
@@ -81,5 +104,15 @@ export const postSerieVote = (data: {}) => {
       }
       dispatch(postSerieVoteFailure(error.response.data));
     });
+  }
+}
+
+export const getAllSeries = () => {
+  const serieService: SerieService = new SerieService();
+  return (dispatch: Dispatch<SerieActionTypes>) => {
+    dispatch(getSeriesResquest());
+    return serieService.getAll().then(res => {
+      dispatch(getSeriesSuccess(res));
+    }).catch((error) => dispatch(getSeriesFailure(error)));
   }
 }
