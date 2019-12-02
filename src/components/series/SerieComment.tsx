@@ -25,26 +25,52 @@ const SerieComment: React.FunctionComponent<Props> = (props) => {
   useEffect(() => {
     props.getAllVotesBySerie(props.serie.see_id);
   }, []);
-
+  console.log(props.votes)
   return (
     <React.Fragment>
       <h4 className="title title-small">{props.votes.length} Commentaires</h4>
       {props.isLoading ? <Spinner animation="border" /> :
-        props.votes.map((vote, i) => {
+        props.votes.sort((a, b) => {
+          if (a.voe_user.usr_role.roe_id > b.voe_user.usr_role.roe_id) {
+            return 1;
+          }
+          if (a.voe_user.usr_role.roe_id < b.voe_user.usr_role.roe_id) {
+            return -1;
+          }
+          return 0;
+        }).map((vote, i) => {
           return (
-            <div className="details-comment" key={i}>
-              <img className="details-comment-avatar" src={accountUser} />
-              <div className="details-comment-body">
-                <span className="details-comment-author">{vote.voe_user.usr_pseudo}</span>
-                <Rating value={vote.voe_mark} size="small" precision={0.5} readOnly className="details-comment-rating" />
-                <span className="details-comment-date">{vote.created_at}</span>
-                <div className="details-comment-text">
-                  <div>
-                    <p>{vote.voe_comment}</p>
+            <React.Fragment key={i}>
+              {vote.voe_user.usr_role.roe_id == 2 ?
+                <div className="details-comment-expert" >
+                  <img className="details-comment-avatar-expert" src={accountUser} />
+                  <div className="details-comment-body">
+                    <span className="details-comment-author-expert">{vote.voe_user.usr_pseudo}</span>
+                    <Rating value={vote.voe_mark} size="small" precision={0.5} readOnly className="details-comment-rating" />
+                    <span className="details-comment-date-expert">{vote.created_at}</span>
+                    <div className="details-comment-text-expert">
+                      <div>
+                        <p>{vote.voe_comment}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div> :
+                <div className="details-comment" key={i}>
+                  <img className="details-comment-avatar" src={accountUser} />
+                  <div className="details-comment-body">
+                    <span className="details-comment-author">{vote.voe_user.usr_pseudo}</span>
+                    <Rating value={vote.voe_mark} size="small" precision={0.5} readOnly className="details-comment-rating" />
+                    <span className="details-comment-date">{vote.created_at}</span>
+                    <div className="details-comment-text">
+                      <div>
+                        <p>{vote.voe_comment}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              }
+
+            </React.Fragment>
           )
         })}
     </React.Fragment>
