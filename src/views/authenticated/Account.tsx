@@ -34,7 +34,7 @@ export default class Account extends React.Component<Props, RegisterState> {
       usr_country: this.props.user.usr_country,
       usr_postal_code: this.props.user.usr_postal_code,
       usr_address: this.props.user.usr_address,
-      usr_role: this.props.user.usr_role.id,
+      usr_role: this.props.user.usr_role.roe_id
     }
   }
 
