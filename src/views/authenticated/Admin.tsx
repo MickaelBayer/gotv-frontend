@@ -1,9 +1,25 @@
 import React from 'react';
 import '../../styles/views/admin.scss';
 import { Spinner } from 'react-bootstrap';
-import {AuthenticationService} from "../../services/api/authentication.service";
+import { AuthenticationService } from "../../services/api/authentication.service";
+import { bindActionCreators, Dispatch } from 'redux';
+import { AppState } from '../../store';
+import { UserActionTypes } from '../../store/modules/user/user.type';
+import { getAllUsers } from '../../store/modules/user/user.action';
+import { connect } from 'react-redux';
 
-export default class Admin extends React.Component<{}, { isLoading: boolean }> {
+const mapStateToProps = (state: AppState) => ({
+  users: state.users.users,
+  usersIsLoading: state.users.isLoading
+})
+
+const mapDispatchToProps = (dispatch: Dispatch<UserActionTypes>) => ({
+  getAllUsers: bindActionCreators(getAllUsers, dispatch),
+})
+
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+
+class Admin extends React.Component<Props, { isLoading: boolean }> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -16,10 +32,14 @@ export default class Admin extends React.Component<{}, { isLoading: boolean }> {
     this.setState({ isLoading: true });
     await new Promise(resolve => {
       setTimeout(() => {
-        this.setState({isLoading: false})
+        this.setState({ isLoading: false })
         alert('Base de données mise à jour !');
       }, 3000);
     });
+  }
+
+  componentDidMount() {
+    this.props.getAllUsers();
   }
 
   render() {
@@ -30,10 +50,12 @@ export default class Admin extends React.Component<{}, { isLoading: boolean }> {
           {this.state.isLoading ? (
             <Spinner animation="border" />
           ) : (
-            <div>Mettre à jour la liste des séries </div>
-          )}
+              <div>Mettre à jour la liste des séries </div>
+            )}
         </div>
       </div>
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);
