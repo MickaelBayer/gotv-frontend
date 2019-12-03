@@ -11,6 +11,7 @@ import { getAllVotesBySerie } from "../../store/modules/vote/vote.action";
 
 const mapStateToProps = (state: AppState) => ({
   votes: state.vote.votes,
+  showModalVote: state.other.showModal,
   isLoading: state.vote.isLoading
 })
 
@@ -21,10 +22,10 @@ const mapDispatchToProps = (dispatch: Dispatch<VoteActionTypes>) => ({
 type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps> & { serie: ISerie };
 
 const SerieComment: React.FunctionComponent<Props> = (props) => {
-
   useEffect(() => {
     props.getAllVotesBySerie(props.serie.see_id);
   }, []);
+
   return (
     <React.Fragment>
       <h4 className="title title-small">{props.votes.length} Commentaires</h4>

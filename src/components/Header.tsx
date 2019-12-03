@@ -12,15 +12,15 @@ import UserZoneAuth from './home/UserZoneAuth';
 import { AppState } from '../store';
 import { Dispatch, bindActionCreators } from 'redux';
 import { OtherActionTypes } from '../store/modules/other/other.type';
-import { setShow } from '../store/modules/other/other.action';
+import { setShowSearch } from '../store/modules/other/other.action';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state: AppState) => ({
-  searchShow: state.other.show
+  searchShow: state.other.showSearch
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<OtherActionTypes>) => ({
-  setSearchShow: bindActionCreators(setShow, dispatch)
+  setSearchShow: bindActionCreators(setShowSearch, dispatch)
 });
 
 type Props = ReturnType<typeof mapStateToProps> &
