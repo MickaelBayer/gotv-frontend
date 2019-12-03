@@ -159,31 +159,25 @@ const Home: React.FunctionComponent<Props> = (props) => {
                         </Link>
                         <div className="comment1">
                             « Les acteurs sont juste incroyables ! »
-                            {/* <p className="citation1"><cite>Francis</cite></p> */}
                         </div>
                         <div className="comment2">
                             « OMG ! »
-                            {/* <p className="citation1"><cite>Francis</cite></p> */}
                         </div>
                         <div className="comment3">
                             « Un vrai chef d’oeuvre »
-                            {/* <p className="citation1"><cite>Francis</cite></p> */}
                         </div>
                         <div className="comment4">
                             « Fantastique ! »
-                            {/* <p className="citation1"><cite>Francis</cite></p> */}
                         </div>
                         <div className="comment5">
                             « Je suis devenu un grand fan… »
-                            {/* <p className="citation1"><cite>Francis</cite></p> */}
                         </div>
                         <div className="comment6">
                             « La meilleure série <br />
-                                de tout les temps !!! »
-                            {/* <p className="citation1"><cite>Francis</cite></p> */}
+                            de tout les temps !!! »
                         </div>
                     </div>
-                    
+
                     <br />
                 </div>
                 <div className="top10_2">
