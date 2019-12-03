@@ -21,8 +21,14 @@
   align-items: center;
   color: white;
   height: 5vh;
+  text-align: center;
   border-radius: 4px;
   margin-top: 4vh;
+}
+
+.btnUpdDb:hover{
+  cursor: pointer;
+  font-weight: bold;
 }
 
 #usersTable{
@@ -35,5 +41,6 @@
 
 #deleteUserBin:hover{
   cursor: pointer;
+  font-size: 2.2vh;
 }
 
