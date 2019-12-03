@@ -5,25 +5,20 @@ import FormControl from 'react-bootstrap/FormControl';
 import { AppState } from '../../store';
 import { bindActionCreators, Dispatch } from 'redux';
 import { SerieActionTypes } from '../../store/modules/serie/serie.type';
-import {
-  getAllSeries,
-  getBestSeries,
-  getSearchSeries
-} from '../../store/modules/serie/serie.action';
-import { ISerie } from '../../models/serie.model';
+import { getSearchSeries } from '../../store/modules/serie/serie.action';
 import { connect } from 'react-redux';
-import { setShow } from '../../store/modules/other/other.action';
+import { setShowSearch } from '../../store/modules/other/other.action';
 import { Link } from "react-router-dom";
 
 const mapStateToProps = (state: AppState) => ({
   series: state.searchSeries.searchSeries,
   isLoading: state.searchSeries.isLoading,
-  searchShow: state.other.show
+  searchShow: state.other.showSearch
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<SerieActionTypes>) => ({
   getSearchSeries: bindActionCreators(getSearchSeries, dispatch),
-  setSearchShow: bindActionCreators(setShow, dispatch)
+  setSearchShow: bindActionCreators(setShowSearch, dispatch)
 });
 
 type Props = ReturnType<typeof mapStateToProps> &
