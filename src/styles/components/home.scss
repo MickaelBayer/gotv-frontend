@@ -300,6 +300,11 @@ a:hover{
   top: 5px;
 }
 
+.winner {
+  text-align: center;
+  max-height: 450px;
+}
+
 @media only screen and (min-width: 900px) {
   .comment1{
     text-align: left;
@@ -395,9 +400,31 @@ a:hover{
     color: #FFFFFF;
     opacity: 1;
   }
+}
 
-  .winner {
-    text-align: center;
-    max-height: 450px;
+@media only screen and (max-width: 900px) {
+  .comment1{
+    display: none;
+  }
+
+  .comment2{
+    display: none;
+  }
+
+  .comment3{
+    display: none;
+  }
+
+  .comment4{
+    display: none;
+  }
+
+  .comment5{
+    display: none;
+  }
+
+  .comment6{
+    display: none;
   }
 }
+
