@@ -12,10 +12,11 @@ import {
 } from '../../store/modules/serie/serie.action';
 import { ISerie } from '../../models/serie.model';
 import { connect } from 'react-redux';
+import {Link} from "react-router-dom";
 
 const mapStateToProps = (state: AppState) => ({
-  series: state.series.series,
-  isLoading: state.series.isLoading
+  series: state.searchSeries.searchSeries,
+  isLoading: state.searchSeries.isLoading
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<SerieActionTypes>) => ({
@@ -26,19 +27,17 @@ type Props = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps>;
 
 const SearchPage: React.FunctionComponent<Props> = props => {
-  function reloadPage() {
-    window.location.reload();
-  }
-  const [searchText, setValue] = useState({bob: ""});
+  const [searchText, setValue] = useState({ searchText: '' });
   const handleChangeSearchText = () => (event: ChangeEvent<any>) => {
     event.preventDefault();
-    setValue({ bob: event.target.value.toString() });
+    setValue({ searchText: event.target.value.toString() });
+    props.getSearchSeries(searchText.searchText);
   };
 
   return (
     <div className="searchPage">
       <div className="closeBtn">
-        <div className="croix" onClick={reloadPage}>
+        <div className="croix">
           X
         </div>
       </div>
@@ -46,10 +45,19 @@ const SearchPage: React.FunctionComponent<Props> = props => {
         <FormControl
           className="personalizeInput"
           placeholder="Rechercher"
-          value={searchText}
-          onChange={handleChangeSearchText}
+          value={searchText.searchText}
+          onChange={handleChangeSearchText()}
         />
       </InputGroup>
+      <div className="searchZone">
+        { props.isLoading
+          ? ""
+          : props.series.map((serie, i) => {
+              return <div key={i} className="linkSearchSerie">
+                <Link to={{ pathname: `serie/${serie.see_id}`, state: { serie: serie } }}>{serie.see_name}</Link>
+              </div>;
+            })}
+      </div>
     </div>
   );
 };

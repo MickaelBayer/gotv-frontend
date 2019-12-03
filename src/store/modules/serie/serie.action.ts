@@ -1,20 +1,22 @@
-import { toast } from 'react-toastify';
-import { ISerie } from '../../../models/serie.model';
+import {toast} from 'react-toastify';
+import {ISerie} from '../../../models/serie.model';
 import {
-  SerieActionTypes,
+  GET_SERIE_FAILURE,
   GET_SERIE_REQUEST,
   GET_SERIE_SUCCESS,
-  GET_SERIE_FAILURE,
+  GET_SERIES_FAILURE,
   GET_SERIES_REQUEST,
   GET_SERIES_SUCCESS,
-  GET_SERIES_FAILURE,
+  POST_SERIEVOTE_FAILURE,
   POST_SERIEVOTE_REQUEST,
-  POST_SERIEVOTE_SUCCESS,
-  POST_SERIEVOTE_FAILURE
+  POST_SERIEVOTE_SUCCESS, SEARCH_SERIE_FAILURE,
+  SEARCH_SERIE_REQUEST,
+  SEARCH_SERIE_SUCCESS,
+  SerieActionTypes
 } from './serie.type';
-import { Dispatch } from 'redux';
+import {Dispatch} from 'redux';
 import SerieService from '../../../services/api/entities/serie.service';
-import { IVote } from '../../../models/vote.model';
+import {IVote} from '../../../models/vote.model';
 import VoteService from '../../../services/api/entities/vote.service';
 
 function getSerieResquest(): SerieActionTypes {
@@ -77,6 +79,27 @@ function postSerieVoteFailure(error: string): SerieActionTypes {
   }
 }
 
+
+function searchSeriesRequest(): SerieActionTypes {
+  return {
+    type: SEARCH_SERIE_REQUEST
+  }
+}
+
+function searchSeriesSuccess(series: ISerie[]): SerieActionTypes {
+  return {
+    type: SEARCH_SERIE_SUCCESS,
+    series: series
+  }
+}
+
+function searchSeriesFailure(error: string): SerieActionTypes {
+  return {
+    type: SEARCH_SERIE_FAILURE,
+    error: error
+  }
+}
+
 export const getSerie = (id: number) => {
   const serieService: SerieService = new SerieService();
   return (dispatch: Dispatch<SerieActionTypes>) => {
@@ -130,9 +153,9 @@ export const getBestSeries = () => {
 export const getSearchSeries = (name: string) => {
   const serieService: SerieService = new SerieService();
   return (dispatch: Dispatch<SerieActionTypes>) => {
-    dispatch(getSeriesResquest());
+    dispatch(searchSeriesRequest());
     return serieService.getSearchSeries(name).then(res => {
-      dispatch(getSeriesSuccess(res));
-    }).catch((error) => dispatch(getSeriesFailure(error)));
+      dispatch(searchSeriesSuccess(res));
+    }).catch((error) => dispatch(searchSeriesSuccess([])));
   }
 }

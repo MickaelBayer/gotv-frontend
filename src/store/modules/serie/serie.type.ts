@@ -13,6 +13,11 @@ export const POST_SERIEVOTE_REQUEST = "POST_SERIEVOTE_REQUEST";
 export const POST_SERIEVOTE_SUCCESS = "POST_SERIEVOTE_SUCCESS";
 export const POST_SERIEVOTE_FAILURE = "POST_SERIEVOTE_FAILURE";
 
+
+export const SEARCH_SERIE_FAILURE = "SEARCH_SERIE_FAILURE";
+export const SEARCH_SERIE_SUCCESS = "SEARCH_SERIE_SUCCESS";
+export const SEARCH_SERIE_REQUEST = "SEARCH_SERIE_REQUEST";
+
 interface GetSerieSuccessAction {
   type: typeof GET_SERIE_SUCCESS;
   serie: ISerie;
@@ -56,5 +61,16 @@ interface PostSerieVoteFailureAction {
   error: string;
 }
 
+interface SearchSerieFailureAction {
+  type: typeof SEARCH_SERIE_FAILURE;
+  error: string;
+}
+interface SearchSerieSuccessAction {
+  type: typeof SEARCH_SERIE_SUCCESS;
+  series: ISerie[];
+}
+interface SearchSerieRequestAction {
+  type: typeof SEARCH_SERIE_REQUEST;
+}
 
-export type SerieActionTypes = GetSerieSuccessAction | GetSerieRequestAction | GetSerieFailureAction | PostSerieVoteSuccessAction | PostSerieVoteRequestAction | PostSerieVoteFailureAction | GetSeriesSuccessAction | GetSeriesRequestAction | GetSeriesFailureAction;
+export type SerieActionTypes = SearchSerieFailureAction | SearchSerieSuccessAction | SearchSerieRequestAction | GetSerieSuccessAction | GetSerieRequestAction | GetSerieFailureAction | PostSerieVoteSuccessAction | PostSerieVoteRequestAction | PostSerieVoteFailureAction | GetSeriesSuccessAction | GetSeriesRequestAction | GetSeriesFailureAction;

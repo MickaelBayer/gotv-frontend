@@ -1,5 +1,5 @@
 import { vote } from './modules/vote/vote.reducer';
-import { series } from './modules/serie/series.reducer'
+import { searchSeries, series } from './modules/serie/series.reducer'
 import { serieCast } from './modules/serieCast/serieCast.reducer';
 import { serieVideo } from './modules/serieVideo/serieVideo.reducer';
 import { serie } from './modules/serie/serie.reducer';
@@ -18,7 +18,8 @@ const rootReducer = combineReducers({
   user,
   users,
   vote,
-  series
+  series,
+  searchSeries
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
