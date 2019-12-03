@@ -5,7 +5,6 @@ const initialOtherState = {
 }
 
 export const other = (state = initialOtherState, action: OtherActionTypes) => {
-  console.log(action);
   switch (action.type) {
     case SET_SEARCH_SUCCESS:
 
