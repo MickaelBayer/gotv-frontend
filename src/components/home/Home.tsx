@@ -63,6 +63,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
             my_series.push(props.series[e]);
         };
         let postersUrl: string[] = [];
+        my_series.sort(compareAverage);
         my_series.forEach(e => {
             postersUrl.push(e.see_backdrop_path);
         });
@@ -75,6 +76,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
             my_series.push(props.series[e]);
         };
         let postersUrl: string[] = [];
+        my_series.sort(compareAverage);
         my_series.forEach(e => {
             postersUrl.push(e.see_poster_path);
         });
@@ -88,6 +90,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
             my_series.push(props.series[e]);
         };
         let names: string[] = [];
+        my_series.sort(compareAverage);
         my_series.forEach(e => {
             names.push(e.see_name);
         });
@@ -100,6 +103,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
             my_series.push(props.series[e]);
         };
         let ids: number[] = [];
+        my_series.sort(compareAverage);
         my_series.forEach(e => {
             ids.push(e.see_id);
         });
@@ -112,6 +116,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
             my_series.push(props.series[e]);
         };
         let series: Serie[] = [];
+        my_series.sort(compareAverage);
         my_series.forEach(e => {
             series.push(e);
         });
@@ -124,6 +129,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
             my_series.push(props.series[e]);
         };
         let avg: number[] = [];
+        my_series.sort(compareAverage);
         my_series.forEach(e => {
             avg.push(e.see_average_mark);
         });
@@ -152,7 +158,7 @@ const Home: React.FunctionComponent<Props> = (props) => {
                             <p className="title_number_1"><span style={{ color: "yellow" }}>1.</span> {getName(0)}</p>
                         </Link>
                         <div className="comment1">
-                            « Les acteurs sont juste incroyable ! »
+                            « Les acteurs sont juste incroyables ! »
                             {/* <p className="citation1"><cite>Francis</cite></p> */}
                         </div>
                         <div className="comment2">

@@ -25,6 +25,12 @@ const Slider: React.FunctionComponent<Props> = (props) => {
 
   const arrowIcon = <span aria-hidden="true" className="carousel-control-next-icon"></span>;
 
+  function compareAverage(a: Serie, b: Serie) {
+    if (a.see_average_mark < b.see_average_mark) return 1;
+    if (b.see_average_mark < a.see_average_mark) return -1;
+    return 0;
+  }
+
   useEffect(() => {
     props.getBestSeries();
   }, []);
@@ -36,6 +42,7 @@ const Slider: React.FunctionComponent<Props> = (props) => {
     for (let e in props.series) {
       my_series.push(props.series[e]);
     };
+    my_series.sort(compareAverage);
     my_series.forEach(element => {
       items.push(
         <Carousel.Item key={i}>
