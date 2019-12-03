@@ -37,7 +37,10 @@ const useStyles = makeStyles((theme: Theme) =>
 			position: "inherit"
 		},
 		menuButton: {
-			marginRight: theme.spacing(2),
+			position: "absolute",
+			zIndex: 1,
+			margin: theme.spacing(2),
+			color: "white",
 			display: "block"
 		},
 		hide: {
@@ -52,6 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			marginLeft: -drawerWidth,
 		},
 		contentShift: {
+			position: "relative",
 			transition: theme.transitions.create('margin', {
 				easing: theme.transitions.easing.easeOut,
 				duration: theme.transitions.duration.enteringScreen,
