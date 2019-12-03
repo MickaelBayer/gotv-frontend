@@ -85,8 +85,7 @@ const SerieDetail: React.FunctionComponent<Props> = (props) => {
 		props.getSerieVideos(serie.see_tmdb_id);
 		props.getSerieCasts(serie.see_tmdb_id);
 	}, []);
-	console.log(props.serieCasts)
-	console.log(serie.see_tmdb_id)
+
 	return (
 		<React.Fragment>
 			<header className="overview-header" style={{ backgroundImage: `url(${props.serie.see_backdrop_path})` }}>

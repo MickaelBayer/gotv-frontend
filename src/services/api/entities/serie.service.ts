@@ -12,4 +12,10 @@ export default class SerieService extends ApiManagerService<Serie> {
       return data.data;
     });
   }
+
+  getSearchSeries(name: string): Promise<ISerie[]> {
+    return axios.get<ISerie[]>(`${this.BASE_URL}/${this.endpoint}/search`, {params :{name: name}}).then(data => {
+      return data.data;
+    });
+  }
 }

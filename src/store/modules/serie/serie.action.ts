@@ -126,3 +126,13 @@ export const getBestSeries = () => {
     }).catch((error) => dispatch(getSeriesFailure(error)));
   }
 }
+
+export const getSearchSeries = (name: string) => {
+  const serieService: SerieService = new SerieService();
+  return (dispatch: Dispatch<SerieActionTypes>) => {
+    dispatch(getSeriesResquest());
+    return serieService.getSearchSeries(name).then(res => {
+      dispatch(getSeriesSuccess(res));
+    }).catch((error) => dispatch(getSeriesFailure(error)));
+  }
+}
