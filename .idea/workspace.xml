@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b78cc6d7-e498-48af-a65a-9f36c46d8c2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/modules/other/other.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/other/other.reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/modules/serieVideo/serieVideo.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/serieVideo/serieVideo.action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/authenticated/Admin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authenticated/Admin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/components/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,10 +140,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1575323737274" />
-    <state x="480" y="252" width="683" height="476" key="find.popup" timestamp="1575377016394">
+    <state x="480" y="252" width="683" height="476" key="find.popup" timestamp="1575378160004">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="480" y="252" width="683" height="476" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1575377016394" />
+    <state x="480" y="252" width="683" height="476" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1575378160004" />
     <state x="2080" y="193" width="639" height="476" key="find.popup/1440.-109.1920.1080/0.0.1440.900@1440.-109.1920.1080" timestamp="1575210389735" />
   </component>
   <component name="masterDetails">
