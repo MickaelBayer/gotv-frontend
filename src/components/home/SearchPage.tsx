@@ -12,15 +12,18 @@ import {
 } from '../../store/modules/serie/serie.action';
 import { ISerie } from '../../models/serie.model';
 import { connect } from 'react-redux';
-import {Link} from "react-router-dom";
+import { setShow } from '../../store/modules/other/other.action';
+import { Link } from "react-router-dom";
 
 const mapStateToProps = (state: AppState) => ({
   series: state.searchSeries.searchSeries,
-  isLoading: state.searchSeries.isLoading
+  isLoading: state.searchSeries.isLoading,
+  searchShow: state.other.show
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<SerieActionTypes>) => ({
-  getSearchSeries: bindActionCreators(getSearchSeries, dispatch)
+  getSearchSeries: bindActionCreators(getSearchSeries, dispatch),
+  setSearchShow: bindActionCreators(setShow, dispatch)
 });
 
 type Props = ReturnType<typeof mapStateToProps> &
@@ -28,6 +31,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 
 const SearchPage: React.FunctionComponent<Props> = props => {
   const [searchText, setValue] = useState({ searchText: '' });
+
   const handleChangeSearchText = () => (event: ChangeEvent<any>) => {
     event.preventDefault();
     setValue({ searchText: event.target.value.toString() });
@@ -35,30 +39,32 @@ const SearchPage: React.FunctionComponent<Props> = props => {
   };
 
   return (
-    <div className="searchPage">
-      <div className="closeBtn">
-        <div className="croix">
-          X
+    <React.Fragment>
+      {props.searchShow ? <div className="searchPage">
+        <div className="closeBtn" onClick={() => props.setSearchShow(false)}>
+          <div className="croix">
+            X
         </div>
-      </div>
-      <InputGroup className="searchInput">
-        <FormControl
-          className="personalizeInput"
-          placeholder="Rechercher"
-          value={searchText.searchText}
-          onChange={handleChangeSearchText()}
-        />
-      </InputGroup>
-      <div className="searchZone">
-        { props.isLoading
-          ? ""
-          : props.series.map((serie, i) => {
-              return <div key={i} className="linkSearchSerie">
-                <Link to={{ pathname: `serie/${serie.see_id}`, state: { serie: serie } }}>{serie.see_name}</Link>
+        </div>
+        <InputGroup className="searchInput">
+          <FormControl
+            className="personalizeInput"
+            placeholder="Rechercher"
+            value={searchText.searchText}
+            onChange={handleChangeSearchText()}
+          />
+        </InputGroup>
+        <div className="searchZone">
+          {props.isLoading
+            ? ""
+            : props.series.map((serie, i) => {
+              return <div key={i} className="linkSearchSerie" onClick={() => props.setSearchShow(false)}>
+                <Link to={{ pathname: `/serie/${serie.see_id}`, state: { serie: serie } }}>{serie.see_name}</Link>
               </div>;
             })}
-      </div>
-    </div>
+        </div>
+      </div> : <></>}
+    </React.Fragment>
   );
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
