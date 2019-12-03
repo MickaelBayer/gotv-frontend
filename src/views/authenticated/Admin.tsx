@@ -1,13 +1,13 @@
 import React from 'react';
 import '../../styles/views/admin.scss';
-import {Spinner, Table} from 'react-bootstrap';
+import { Spinner, Table } from 'react-bootstrap';
 import { AuthenticationService } from '../../services/api/authentication.service';
 import { bindActionCreators, Dispatch } from 'redux';
 import { AppState } from '../../store';
 import { UserActionTypes } from '../../store/modules/user/user.type';
 import { getAllUsers } from '../../store/modules/user/user.action';
 import { connect } from 'react-redux';
-import UserService from "../../services/api/entities/user.service";
+import UserService from '../../services/api/entities/user.service';
 
 const mapStateToProps = (state: AppState) => ({
   users: state.users.users,
@@ -45,27 +45,37 @@ class Admin extends React.Component<Props, { isLoading: boolean }> {
     this.props.getAllUsers();
   }
 
-
-    async deleteUser(id: number) {
-        const userService: UserService = new UserService();
-        const result = userService.delete(id);
-        new Promise(resolve => {
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
-        });
-    }
+  async deleteUser(id: number) {
+    const userService: UserService = new UserService();
+    const result = userService.delete(id);
+    new Promise(resolve => {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    });
+  }
 
   renderTableData() {
     return this.props.users.map((user, index) => {
-      const {usr_id, usr_pseudo, usr_lastname, usr_firstname, usr_email} = user;
+      const {
+        usr_id,
+        usr_pseudo,
+        usr_lastname,
+        usr_firstname,
+        usr_email,
+        usr_active
+      } = user;
+      console.log(usr_active);
       return (
         <tr key={usr_pseudo}>
           <td>{usr_pseudo}</td>
           <td>{usr_lastname}</td>
           <td>{usr_firstname}</td>
           <td>{usr_email}</td>
-          <td id="deleteUserBin" onClick={() => this.deleteUser(usr_id)}> 🗑</td>
+          <td id="deleteUserBin" onClick={() => this.deleteUser(usr_id)}>
+            {' '}
+            🗑
+          </td>
         </tr>
       );
     });
@@ -84,15 +94,15 @@ class Admin extends React.Component<Props, { isLoading: boolean }> {
         </div>
         <div className="usersTable">
           <Table id="usersTable">
-              <thead>
+            <thead>
               <tr>
-                  <th>Pseudo</th>
-                  <th>Nom</th>
-                  <th>Prénom</th>
-                  <th>Email</th>
-                  <th>Suppression</th>
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Suppression</th>
               </tr>
-              </thead>
+            </thead>
             <tbody>{this.renderTableData()}</tbody>
           </Table>
         </div>
