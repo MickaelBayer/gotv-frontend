@@ -24,7 +24,7 @@ type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchT
 const SerieComment: React.FunctionComponent<Props> = (props) => {
   useEffect(() => {
     props.getAllVotesBySerie(props.serie.see_id);
-  }, []);
+  }, [props.showModalVote]);
 
   return (
     <React.Fragment>
