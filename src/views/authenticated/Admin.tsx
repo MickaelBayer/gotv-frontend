@@ -65,7 +65,6 @@ class Admin extends React.Component<Props, { isLoading: boolean }> {
         usr_email,
         usr_active
       } = user;
-      console.log(usr_active);
       return (
         <tr key={usr_pseudo}>
           <td>{usr_pseudo}</td>

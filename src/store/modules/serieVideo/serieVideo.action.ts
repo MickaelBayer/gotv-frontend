@@ -28,7 +28,6 @@ export const getSerieVideos = (id: number) => {
   return (dispatch: Dispatch<SerieVideoActionTypes>) => {
     dispatch(getSerieVideosResquest());
     return serieVideoService.getVideos(id).then(res => {
-      console.log(res);
       dispatch(getSerieVideosSuccess(res));
     }).catch((error) => dispatch(getSerieVideosFailure(error.response.data)));
   }
